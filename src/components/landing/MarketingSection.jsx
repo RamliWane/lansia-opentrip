@@ -25,7 +25,7 @@ export default function MarketingSection() {
               />
               <div className="absolute inset-0 bg-black/40" />
               <div className="relative z-10 flex items-center justify-center gap-3 px-6">
-                <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0">
                   <ArrowDownToLine size={18} className="text-gray-900" />
                 </div>
                 <span className="text-white font-bold text-xl tracking-wide">
@@ -47,7 +47,7 @@ export default function MarketingSection() {
 
             <div className="space-y-5 mb-10">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 round flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 round flex items-center justify-center shrink-0">
                   <ShieldCheck size={27} className="text-black" />
                 </div>
                 <div>
@@ -61,7 +61,7 @@ export default function MarketingSection() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0">
                   <BadgePercent size={27} className="text-black" />
                 </div>
                 <div>
@@ -75,7 +75,7 @@ export default function MarketingSection() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0">
                   <Headset size={27} className="text-black" />
                 </div>
                 <div>

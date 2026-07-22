@@ -68,7 +68,7 @@ export default function ReviewSection() {
 
               <div className="flex items-center justify-between pt-5 border-t border-gray-100">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center font-semibold text-sm flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center font-semibold text-sm shrink-0">
                     {r.initial}
                   </div>
                   <div>

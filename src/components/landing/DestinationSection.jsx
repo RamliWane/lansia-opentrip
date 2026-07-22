@@ -56,7 +56,7 @@ export default function DestinationSection() {
           <a
             key={i}
             href="#"
-            className="group snap-start flex-shrink-0 w-[300px] sm:w-[340px] bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-gray-200 transition-all duration-300"
+            className="group snap-start shrink-0 w-[300px] sm:w-[340px] bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-gray-200 transition-all duration-300"
           >
             <div className="relative h-44 overflow-hidden">
               <img
@@ -99,7 +99,7 @@ export default function DestinationSection() {
           </a>
         ))}
 
-        <div className="flex-shrink-0 w-1" />
+        <div className="shrink-0 w-1" />
       </div>
 
       <div className="flex sm:hidden items-center justify-center gap-2 mt-6">

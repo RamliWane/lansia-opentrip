@@ -28,7 +28,7 @@ export default function HeroSection() {
 
             <div className="flex flex-wrap items-center gap-4 mb-10">
               <div className="flex items-center gap-3 bg-white/10 px-4 w-auto py-1 rounded-2xl border cursor-pointer border-[#df7224]/20 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center shrink-0">
                   <MapPin size={18} className="text-[#df7224]" />
                 </div>
                 <div>
@@ -42,7 +42,7 @@ export default function HeroSection() {
               </div>
 
               <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-1 cursor-pointer rounded-2xl border border-white/20 hover:bg-white/15 transition-colors">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
                   <Calendar size={18} className="text-[#df7224]" />
                 </div>
                 <div>

@@ -11,7 +11,7 @@ export default function LoginPage() {
             <div className="flex flex-col flex-1 min-h-0 lg:min-h-0 lg:flex-none w-full max-w-6xl lg:grid lg:grid-cols-2 lg:rounded-2xl overflow-hidden lg:shadow-2xl">
 
                 <div
-                    className="order-1 lg:order-1 flex-shrink-0 relative flex flex-col justify-between p-6 lg:p-10 h-56 lg:min-h-[650px] lg:h-auto bg-cover bg-center"
+                    className="order-1 lg:order-1 shrink-0 relative flex flex-col justify-between p-6 lg:p-10 h-56 lg:min-h-[650px] lg:h-auto bg-cover bg-center"
                     style={{
                         backgroundImage: "url('/register-page-image.jpeg')",
                     }}
