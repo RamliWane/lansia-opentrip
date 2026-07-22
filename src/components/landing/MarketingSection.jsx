@@ -38,7 +38,7 @@ export default function MarketingSection() {
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-snug mb-6 max-w-md">
               Kenapa Harus Pilih{" "}
-              <span className="text-[#df7224]">OpenTrip Ini?</span>?
+              <span className="text-[#df7224]">OpenTrip Ini</span>?
             </h2>
             <p className="text-gray-500 mb-8 max-w-md leading-relaxed">
               Kami bantu setiap perjalanan mu jadi lebih mudah, aman, dan
@@ -55,7 +55,7 @@ export default function MarketingSection() {
                     Banyak Pilihan Destinasi
                   </p>
                   <p className="text-[17px] text-gray-500">
-                    Mau liburan ke Bandung, Lembang, Yogyakarta, Semarang, Surabaya, Gunung ataupun Laut semuanya ada di Explorer.ID
+                    Mau liburan ke Bandung, Lembang, Yogyakarta, Semarang, Surabaya, Gunung ataupun Laut semuanya ada di sini
                   </p>
                 </div>
               </div>

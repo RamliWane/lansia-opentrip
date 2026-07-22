@@ -11,7 +11,16 @@ export default function HeroSection() {
     >
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
 
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+      <div className="flex item-center justify-center">
+        <div>
+           <button className="inline-flex items-center gap-2 cursor-pointer bg-white text-[#df7224] px-7 py-3.5 rounded-full font-semibold hover:bg-[white]/80 hover:gap-3">
+              Get Started
+              <ArrowRight size={18} />
+            </button>
+        </div>
+      </div>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
@@ -55,11 +64,6 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
-
-            <button className="inline-flex items-center gap-2 cursor-pointer bg-[#df7224] text-white px-7 py-3.5 rounded-full font-semibold hover:bg-[#c3611c] hover:gap-3 transition-all shadow-lg shadow-[#df7224]/30">
-              Get Started
-              <ArrowRight size={18} />
-            </button>
           </div>
 
           <div className="relative hidden lg:block">
