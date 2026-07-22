@@ -17,7 +17,7 @@ export default function DestinationSection() {
   };
 
   return (
-    <section id="destinasi" className="relative bg-white py-20">
+    <section id="destinasi" className="relative bg-white py-10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-10">
           <div>

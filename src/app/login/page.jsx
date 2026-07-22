@@ -45,7 +45,7 @@ export default function LoginPage() {
                         Kembali ke Website
                     </a>
 
-                    <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
+                    <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 pt-15 sm:pt-0 mb-2">
                         Selamat Datang Kembali!
                     </h1>
                     <p className="text-gray-500 text-sm mb-8">

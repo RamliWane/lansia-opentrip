@@ -46,7 +46,7 @@ const steps = [
 
 export default function TutorialSection() {
   return (
-    <section id="tutorial" className="relative bg-white py-20">
+    <section id="tutorial" className="relative bg-white py-10 sm:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-[0.85fr_1.15fr] md:gap-10 lg:gap-16">
           <div className="lg:sticky lg:top-24 lg:self-start">
