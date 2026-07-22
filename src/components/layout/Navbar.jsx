@@ -43,13 +43,12 @@ export default function Navbar() {
             </a>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="flex items-center space-x-8">
             {links.map((link) => (
               <a
-              
                 key={link.name}
                 href={link.href}
-                className={`font-medium transition-colors text-sm ${
+                className={`font-medium hidden md:flex transition-colors text-sm ${
                   isScrolled
                     ? "text-white hover:text-[#df7224]"
                     : "text-black hover:text-[#df7224]"
@@ -59,6 +58,13 @@ export default function Navbar() {
               </a>
             ))}
             <div className="flex items-center gap-2">
+               <a
+                href="/register"
+                className="bg-[#df7224] hidden md:flex hover:shadow-xl text-white px-5 py-2 rounded-[5px] text-sm font-poppins hover:bg-[#df7224]/80 transition-colors shadow-sm"
+              >
+                Register
+              </a>
+
               <a
                 href="/login"
                 className={`px-5 py-2 hover:shadow-xl rounded-[5px] text-sm font-poppins transition-colors shadow-sm ${
@@ -69,12 +75,6 @@ export default function Navbar() {
               >
                 Login
               </a>
-              <a
-                href="/register"
-                className="bg-[#df7224] hover:shadow-xl text-white px-5 py-2 rounded-[5px] text-sm font-poppins hover:bg-[#df7224]/80 transition-colors shadow-sm"
-              >
-                Register
-              </a>
             </div>
           </div>
 
@@ -82,7 +82,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2 transition-colors ${
-                isScrolled ? "text-gray-700" : "text-white"
+                isScrolled ? "text-white" : "text-black"
               }`}
               aria-label="Toggle menu"
             >
