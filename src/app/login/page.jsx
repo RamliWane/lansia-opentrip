@@ -7,7 +7,7 @@ export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
 
     return (
-        <div className="h-screen overflow-hidden lg:h-auto lg:min-h-screen bg-white flex flex-col lg:flex lg:items-center lg:justify-center lg:p-4">
+        <div className="fixed inset-0 overflow-hidden lg:static lg:h-auto lg:min-h-screen bg-white flex flex-col lg:flex lg:items-center lg:justify-center lg:p-4">
             <div className="flex flex-col flex-1 min-h-0 lg:min-h-0 lg:flex-none w-full max-w-6xl lg:grid lg:grid-cols-2 lg:rounded-2xl overflow-hidden lg:shadow-2xl">
 
                 <div
