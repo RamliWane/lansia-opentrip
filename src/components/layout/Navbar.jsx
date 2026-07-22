@@ -16,10 +16,11 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { name: "Beranda", href: "#beranda" },
-    { name: "Destinasi", href: "#destinasi" },
-    { name: "Paket Trip", href: "#paket" },
-    { name: "Tentang Kami", href: "#tentang" },
+    { name: "Beranda", href: "/" },
+    { name: "Destinasi Trip", href: "/destinasi" },
+    { name: "Private Trip", href: "/private" },
+    { name: "Tentang Kami", href: "/about" },
+    { name: "Hubungi Kami", href: "/contact" },
   ];
 
   return (
