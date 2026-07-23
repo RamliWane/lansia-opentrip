@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useCheckout } from "../../../application/hooks/useCheckout";
+import { useCheckout } from "../../lib/hooks/useCheckout";
 import BookingCard from "./BookingCard";
 import CustomerForm from "./CustomerForm";
 import ParticipantCard from "./ParticipantCard";
 import MeetingPointSelector from "./MeetingPointSelector";
 import VoucherCard from "./VoucherCard";
 import BookingSummary from "./BookingSummary";
-import { CustomerInfo } from "../../../domain/entities/Order";
+import { CustomerInfo } from "../../lib/Order";
 
 
 

@@ -2,12 +2,12 @@
 
 import { Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCheckout } from "../../application/hooks/useCheckout";
-import { destinationsData } from "../../infrastructure/data/destinationsData";
-import StepProgress from "../../presentation/components/checkout/StepProgress";
-import DetailsStep from "../../presentation/components/checkout/DetailsStep";
-import PaymentStep from "../../presentation/components/checkout/PaymentStep";
-import ConfirmationStep from "../../presentation/components/checkout/ConfirmationStep";
+import { useCheckout } from "../../lib/hooks/useCheckout";
+import { destinationsData } from "../../lib/destinationsData";
+import StepProgress from "../../components/checkout/StepProgress";
+import DetailsStep from "../../components/checkout/DetailsStep";
+import PaymentStep from "../../components/checkout/PaymentStep";
+import ConfirmationStep from "../../components/checkout/ConfirmationStep";
 import Footer from "../../components/layout/Footer";
 
 function CheckoutContent() {

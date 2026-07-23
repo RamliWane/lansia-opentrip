@@ -7,7 +7,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SearchBar from "@/components/destinasi/SearchBar";
 import FilterPanel from "@/components/destinasi/FilterPanel";
-import { destinationsData } from "@/infrastructure/data/destinationsData";
+import { destinationsData } from "@/lib/destinationsData";
 
 function formatRupiah(value) {
   return "Rp " + Math.floor(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");

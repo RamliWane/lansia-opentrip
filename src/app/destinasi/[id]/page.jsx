@@ -3,9 +3,9 @@
 import { use, useState, useEffect, useCallback } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { destinationsData } from "@/infrastructure/data/destinationsData";
+import { destinationsData } from "@/lib/destinationsData";
 import Navbar from "@/components/layout/Navbar";
-import { DestinationDomain } from "@/domain/entities/Destination";
+import { DestinationDomain } from "@/lib/Destination";
 
 const A = "#df7224";
 

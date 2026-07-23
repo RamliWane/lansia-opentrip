@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { Destination } from "../../domain/entities/Destination";
+import { Destination } from "../Destination";
 import {
   CustomerInfo,
   Participant,
@@ -10,7 +10,7 @@ import {
   MEETING_POINTS,
   AVAILABLE_VOUCHERS,
   Voucher,
-} from "../../domain/entities/Order";
+} from "../Order";
 
 const initialCustomer = {
   fullName: "",
