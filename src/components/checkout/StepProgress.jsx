@@ -20,7 +20,7 @@ export default function StepProgress({ currentStep }) {
       <div className="flex items-center justify-between relative">
         {/* Background track */}
         <div
-          className="absolute top-5 h-0.5 bg-gray-200 dark:bg-zinc-700 z-0"
+          className="absolute top-5 h-0.5 bg-gray-200 z-0"
           style={{ left: "28px", right: "28px" }}
         />
         {/* Active track */}
@@ -45,7 +45,7 @@ export default function StepProgress({ currentStep }) {
             : {};
 
           const circleClass = `w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300${
-            isInactive ? " bg-white dark:bg-zinc-900 border-gray-200 dark:border-zinc-700 text-gray-400" : ""
+            isInactive ? " bg-white border-gray-200 text-gray-400" : ""
           }`;
 
           const labelStyle = isDone || isActive ? { color: ACCENT } : { color: "#9ca3af" };

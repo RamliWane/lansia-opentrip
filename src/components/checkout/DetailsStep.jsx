@@ -69,19 +69,19 @@ export default function DetailsStep({ checkout, onNext }) {
             setTravelDate={setTravelDate}
           />
         ) : (
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-dashed border-gray-200 dark:border-zinc-700 p-10 flex flex-col items-center gap-4 text-center">
-            <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ backgroundColor: "#df722415", color: "#df7224" }}>
+          <div className="bg-white rounded-2xl border border-dashed border-[#df7224] p-10 flex flex-col items-center gap-4 text-center">
+            <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-orange-50 text-[#df7224]">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
             </div>
             <div>
-              <h3 className="text-sm font-bold text-gray-800 dark:text-gray-200 mb-1">Belum ada destinasi dipilih</h3>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">Pilih destinasi wisata untuk memulai pemesanan</p>
+              <h3 className="text-sm font-bold text-gray-800 mb-1">Belum ada destinasi dipilih</h3>
+              <p className="text-xs text-gray-500 mb-4">Pilih destinasi wisata untuk memulai pemesanan</p>
               <button
                 onClick={() => router.push("/")}
-                className="px-5 py-2.5 rounded-xl text-white text-sm font-bold transition-all" style={{ backgroundColor: "#df7224" }}
+                className="px-5 py-2.5 rounded-xl text-white text-sm font-semibold bg-[#df7224] hover:bg-[#c3611c] transition-colors"
               >
                 Pilih Destinasi
               </button>
@@ -98,10 +98,10 @@ export default function DetailsStep({ checkout, onNext }) {
         />
 
         {/* Participants */}
-        <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-gray-100 dark:border-zinc-800 shadow-sm p-5">
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-sm font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2">
-              <span className="w-6 h-6 rounded-lg flex items-center justify-center" style={{ backgroundColor: "#df722415" }}>
+            <h3 className="text-sm font-bold text-gray-800 flex items-center gap-2">
+              <span className="w-6 h-6 rounded-lg flex items-center justify-center bg-orange-50">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#df7224" strokeWidth="2.5">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
@@ -111,7 +111,7 @@ export default function DetailsStep({ checkout, onNext }) {
               </span>
               Data Peserta
               {participants.length > 0 && (
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold border" style={{ backgroundColor: "#df722415", color: "#df7224", borderColor: "#df722830" }}>
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold border bg-orange-50 text-[#df7224] border-orange-100">
                   {participants.length}
                 </span>
               )}
@@ -120,8 +120,7 @@ export default function DetailsStep({ checkout, onNext }) {
             <button
               type="button"
               onClick={addParticipant}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-white text-xs font-bold active:scale-95 transition-all"
-              style={{ backgroundColor: "#df7224" }}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-white text-xs font-semibold bg-[#df7224] hover:bg-[#c3611c] active:scale-95 transition-all"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <line x1="12" y1="5" x2="12" y2="19" />
@@ -133,8 +132,8 @@ export default function DetailsStep({ checkout, onNext }) {
           </div>
 
           {participants.length === 0 ? (
-            <div className="py-8 flex flex-col items-center gap-2.5 text-center rounded-xl border border-dashed border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800/50">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: "#df722415", color: "#df7224" }}>
+            <div className="py-8 flex flex-col items-center gap-2.5 text-center rounded-xl border border-dashed border-gray-200 bg-gray-50">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-orange-50 text-[#df7224]">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
@@ -142,9 +141,9 @@ export default function DetailsStep({ checkout, onNext }) {
                   <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                 </svg>
               </div>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-gray-500">
                 Belum ada peserta.{" "}
-                <button onClick={addParticipant} className="font-bold underline" style={{ color: "#df7224" }}>
+                <button onClick={addParticipant} className="font-bold underline text-[#df7224]">
                   Tambah sekarang
                 </button>
               </p>

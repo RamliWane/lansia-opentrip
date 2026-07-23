@@ -15,10 +15,10 @@ export default function BookingSummary({
   const canContinue = isValid && !isLoading && agreeToTerms;
 
   return (
-    <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-gray-100 dark:border-zinc-800 shadow-sm overflow-hidden sticky top-24">
+    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden sticky top-24">
       {/* Header */}
-      <div className="px-5 py-4 border-b border-gray-100 dark:border-zinc-800">
-        <h3 className="text-sm font-extrabold text-gray-900 dark:text-white">Ringkasan Pesanan</h3>
+      <div className="px-5 py-4 border-b border-gray-100">
+        <h3 className="text-sm font-bold text-gray-900">Ringkasan Pesanan</h3>
       </div>
 
       {/* Destination preview */}
@@ -32,17 +32,17 @@ export default function BookingSummary({
                 className="w-14 h-14 rounded-xl object-cover shrink-0"
               />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-bold text-gray-900 dark:text-white line-clamp-2 leading-snug">
+                <p className="text-sm font-bold text-gray-900 line-clamp-2 leading-snug">
                   {destination.title}
                 </p>
-                <p className="text-[11px] mt-0.5 flex items-center gap-1" style={{ color: "#df7224" }}>
+                <p className="text-[11px] mt-0.5 flex items-center gap-1 text-[#df7224]">
                   <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                     <circle cx="12" cy="10" r="3" />
                   </svg>
                   {destination.location}
                 </p>
-                <p className="text-[11px] text-amber-500 font-semibold mt-0.5">
+                <p className="text-[11px] font-semibold mt-0.5 text-[#df7224]">
                   ★ {destination.rating} ({destination.reviewCount.toLocaleString("id-ID")} ulasan)
                 </p>
               </div>
@@ -51,7 +51,7 @@ export default function BookingSummary({
             {/* Quick info pills */}
             <div className="flex flex-wrap gap-1.5 mt-3">
               {travelDate && (
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-gray-100 dark:bg-zinc-800 text-[10px] font-semibold text-gray-600 dark:text-gray-400">
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-gray-100 text-[10px] font-semibold text-gray-600">
                   <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <rect x="3" y="4" width="18" height="18" rx="2" />
                     <line x1="16" y1="2" x2="16" y2="6" />
@@ -61,7 +61,7 @@ export default function BookingSummary({
                   {new Date(travelDate).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" })}
                 </span>
               )}
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-gray-100 dark:bg-zinc-800 text-[10px] font-semibold text-gray-600 dark:text-gray-400">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-gray-100 text-[10px] font-semibold text-gray-600">
                 <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
@@ -69,7 +69,7 @@ export default function BookingSummary({
                 {pax} peserta
               </span>
               {meetingPoint && (
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-gray-100 dark:bg-zinc-800 text-[10px] font-semibold text-gray-600 dark:text-gray-400">
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-gray-100 text-[10px] font-semibold text-gray-600">
                   <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                     <circle cx="12" cy="10" r="3" />
@@ -80,12 +80,12 @@ export default function BookingSummary({
             </div>
           </>
         ) : (
-          <div className="h-14 rounded-xl bg-gray-100 dark:bg-zinc-800 animate-pulse" />
+          <div className="h-14 rounded-xl bg-gray-100 animate-pulse" />
         )}
       </div>
 
       {/* Divider */}
-      <div className="border-t border-dashed border-gray-100 dark:border-zinc-800 mx-5" />
+      <div className="border-t border-dashed border-gray-100 mx-5" />
 
       {/* Price breakdown */}
       <div className="px-5 py-4">
@@ -103,16 +103,14 @@ export default function BookingSummary({
 
       {/* CTA — only on active steps */}
       {step !== "confirmation" && (
-        <div className="px-5 pb-5 space-y-3 border-t border-gray-100 dark:border-zinc-800 pt-4">
+        <div className="px-5 pb-5 space-y-3 border-t border-gray-100 pt-4">
           {/* T&C */}
           <label className="flex items-start gap-2.5 cursor-pointer">
             <div
               onClick={() => onAgreeChange(!agreeToTerms)}
-              className="w-4 h-4 mt-0.5 rounded border-2 flex items-center justify-center shrink-0 transition-all"
-              style={agreeToTerms
-                ? { backgroundColor: "#df7224", borderColor: "#df7224" }
-                : { borderColor: "#d1d5db" }
-              }
+              className={`w-4 h-4 mt-0.5 rounded border-2 flex items-center justify-center shrink-0 transition-all ${
+                agreeToTerms ? "bg-[#df7224] border-[#df7224]" : "border-gray-300"
+              }`}
             >
               {agreeToTerms && (
                 <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
@@ -120,11 +118,11 @@ export default function BookingSummary({
                 </svg>
               )}
             </div>
-            <span className="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">
+            <span className="text-[11px] text-gray-500 leading-relaxed">
               Saya menyetujui{" "}
-              <a href="#" className="underline font-semibold" style={{ color: "#df7224" }}>Syarat & Ketentuan</a>
+              <a href="#" className="underline font-semibold text-[#df7224]">Syarat & Ketentuan</a>
               {" "}dan{" "}
-              <a href="#" className="underline font-semibold" style={{ color: "#df7224" }}>Kebijakan Privasi</a>
+              <a href="#" className="underline font-semibold text-[#df7224]">Kebijakan Privasi</a>
             </span>
           </label>
 
@@ -133,20 +131,15 @@ export default function BookingSummary({
             type="button"
             onClick={onContinue}
             disabled={!canContinue}
-            className="w-full py-3 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 transition-all duration-200 active:scale-95"
-            style={canContinue
-              ? { backgroundColor: "#df7224", color: "#fff" }
-              : { backgroundColor: "#f3f4f6", color: "#9ca3af", cursor: "not-allowed" }
-            }
-            onMouseEnter={e => canContinue && (e.currentTarget.style.backgroundColor = "#c8631e")}
-            onMouseLeave={e => canContinue && (e.currentTarget.style.backgroundColor = "#df7224")}
+            className={`w-full py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 active:scale-95 ${
+              canContinue
+                ? "bg-[#df7224] text-white hover:bg-[#c3611c]"
+                : "bg-gray-100 text-gray-400 cursor-not-allowed"
+            }`}
           >
             {isLoading ? (
               <>
-                <div
-                  className="w-4 h-4 rounded-full border-2 border-white/30 animate-spin"
-                  style={{ borderTopColor: "#fff" }}
-                />
+                <div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
                 Memproses...
               </>
             ) : (
