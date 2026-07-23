@@ -93,7 +93,7 @@ export default function TutorialSection() {
                 const Icon = step.icon;
                 return (
                   <div key={step.number} className="relative flex gap-6">
-                    <div className="relative z-10 w-12 h-12 rounded-full bg-white border-2 border-gray-900 flex items-center justify-center shrink-0">
+                    <div className="relative z-10 w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center shrink-0">
                       <Icon size={18} className="text-gray-900" />
                     </div>
 

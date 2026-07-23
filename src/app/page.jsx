@@ -6,6 +6,7 @@ import DestinationSection from "@/components/landing/DestinationSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import Footer from "@/components/layout/Footer";
 import Subs from "@/components/landing/Subs";
+import FaqSection from "@/components/landing/FAQSection";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <DestinationSection />
         <TutorialSection />
         <TestimonialsSection />
+        <FaqSection />
       </main>
       <Subs />
       <Footer />

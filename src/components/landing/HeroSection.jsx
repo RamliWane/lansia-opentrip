@@ -1,6 +1,19 @@
-import { MapPin, Calendar, ArrowRight, Compass, Search, SlidersHorizontal } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import {
+  MapPin,
+  Calendar,
+  Search,
+  SlidersHorizontal,
+  X,
+  CircleQuestionMark,
+} from "lucide-react";
+
 
 export default function HeroSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section
       id="beranda"
@@ -10,11 +23,14 @@ export default function HeroSection() {
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
         <div className="flex items-center justify-center px-4">
-          <button className="flex w-full max-w-2xl items-center gap-3 rounded-2xl bg-white shadow-md hover:shadow-lg px-5 py-4 transition-shadow cursor-pointer">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#df7224]/10 shrink-0">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="flex w-full max-w-2xl items-center gap-3 rounded-2xl bg-white shadow-md hover:shadow-lg px-5 py-4 transition-shadow cursor-pointer"
+          >
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 border border-[#df7224] shrink-0">
               <Search size={18} className="text-[#df7224]" />
             </div>
 
@@ -25,12 +41,12 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <div className="w-px h-8 bg-gray-200 shrink-0" />
+            <div className="w-px h-8 bg-gray-300 shrink-0" />
 
-            <SlidersHorizontal size={18} className="text-gray-400 shrink-0" />
+            <SlidersHorizontal size={18} className="text-[#df7224] shrink-0" />
           </button>
         </div>
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 pt-10 items-center">
           <div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Discover The <br />
@@ -117,6 +133,49 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center p-4 pt-20 sm:pt-4">
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setIsModalOpen(false)}
+          />
+
+          <div className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center">
+                  <CircleQuestionMark size={18} className="text-[#df7224]" />
+                </div>
+                <h3 className="font-bold text-gray-900 text-lg">
+                  Yuk Tanya Tanya!
+                </h3>
+              </div>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200 transition-colors"
+                aria-label="Tutup"
+              >
+                <X size={16} />
+              </button>
+            </div>
+
+            <div className="p-6">
+              <div className="flex items-center gap-3 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 mb-6 focus-within:border-[#df7224] transition-colors">
+                <Search size={18} className="text-gray-400 shrink-0" />
+                <input
+                  type="text"
+                  autoFocus
+                  placeholder="Ketik pertanyaan kamu..."
+                  className="flex-1 bg-transparent text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none"
+                />
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

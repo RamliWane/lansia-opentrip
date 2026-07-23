@@ -1,3 +1,5 @@
+import { BadgePercent, Headset, ShieldCheck } from "lucide-react";
+
 export const reviews = [
   {
     name: "Ardian Saputra",
@@ -186,4 +188,61 @@ export const destinations = [
     image:
       "https://images.unsplash.com/photo-1591674585153-ca78d0339b09?w=500&h=600&fit=crop",
   }
+];
+
+export const features = [
+  {
+    icon: ShieldCheck,
+    title: "Banyak Pilihan Destinasi",
+    desc: "Mau liburan ke Bandung, Lembang, Yogyakarta, Semarang, Surabaya, Gunung ataupun Laut semuanya ada di sini",
+    detail:
+      "Kami punya lebih dari 100 destinasi yang tersebar di seluruh Indonesia, mulai dari wisata alam, budaya, sampai kuliner. Setiap trip udah dikurasi langsung sama tim lokal biar kamu dapet pengalaman paling otentik, bukan cuma sekadar foto-foto di tempat rame.",
+  },
+  {
+    icon: BadgePercent,
+    title: "Transaksi Mudah & Transparan",
+    desc: "Keamanan dan privasi transaksi online Anda menjadi prioritas kami.",
+    detail:
+      "Semua pembayaran diproses lewat payment gateway resmi dan terenkripsi, gak ada biaya tersembunyi yang muncul belakangan. Kamu juga bisa cicil buat trip tertentu, dan dapet invoice jelas buat setiap transaksi yang dilakukan.",
+  },
+  {
+    icon: Headset,
+    title: "Layanan 24/7",
+    desc: "Tim support kami siap membantu ada kapanpun dan dimana pun",
+    detail:
+      "Ada kendala pas lagi trip di tengah malam sekalipun? Tim CS kami standby lewat WhatsApp, email, atau live chat. Rata-rata respon di bawah 5 menit, jadi kamu gak perlu khawatir kalau ada hal mendadak di perjalanan.",
+  },
+];
+
+export const faqs = [
+  {
+    question: "Bagaimana cara booking trip di OpenTrip?",
+    answer:
+      "Pilih destinasi yang kamu mau, klik tombol Booking, isi data diri dan tanggal keberangkatan, lalu lakukan pembayaran. E-voucher akan dikirim otomatis ke email kamu.",
+  },
+  {
+    question: "Apa saja metode pembayaran yang tersedia?",
+    answer:
+      "Kami menerima transfer bank, e-wallet (GoPay, OVO, Dana), dan kartu kredit/debit. Semua transaksi diproses lewat payment gateway yang aman.",
+  },
+  {
+    question: "Bagaimana cara menghubungi customer service?",
+    answer:
+      "Kamu bisa hubungi tim kami lewat WhatsApp, email, atau live chat di website. Tim support kami siap membantu 24/7.",
+  },
+  {
+    question: "Apakah bisa reschedule tanggal keberangkatan?",
+    answer:
+      "Bisa, selama pengajuan dilakukan minimal 3 hari sebelum tanggal keberangkatan dan sesuai dengan ketersediaan slot pada tanggal baru.",
+  },
+  {
+    question: "Apa saja yang termasuk dalam paket trip?",
+    answer:
+      "Umumnya termasuk transportasi, akomodasi, tiket masuk destinasi, dan guide. Detail lengkap fasilitas bisa dicek di halaman masing-masing paket.",
+  },
+  {
+    question: "Bagaimana jika saya ingin membatalkan trip?",
+    answer:
+      "Pembatalan bisa dilakukan sesuai kebijakan refund yang berlaku, tergantung seberapa dekat waktu pembatalan dengan tanggal keberangkatan.",
+  },
 ];
