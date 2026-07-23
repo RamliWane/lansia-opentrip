@@ -52,7 +52,7 @@ export default function DestisasiPage() {
 
         {/* ── Page Header ─────────────────────────────── */}
         {/* Latar penuh-lebar, konten dibatasi container yang sama dengan section bawah */}
-        <div className="bg-white border-b border-gray-100">
+        <div className="">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8">
             <p className="text-[#df7224] font-semibold text-sm tracking-wide mb-2">
               JELAJAHI INDONESIA
@@ -71,7 +71,7 @@ export default function DestisasiPage() {
         {/* ── Filter Sidebar + Grid ────────────────────── */}
         {/* Container identik dengan header di atas */}
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col lg:flex-row gap-8 items-start">
+          <div className="flex flex-col lg:flex-row gap-8 items-stretch">
 
             {/* Sidebar */}
             <div className="w-full lg:w-64 lg:shrink-0 lg:sticky lg:top-20">
