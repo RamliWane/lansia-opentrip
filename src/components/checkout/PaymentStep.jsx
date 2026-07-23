@@ -1,6 +1,6 @@
 "use client";
 
-import { MEETING_POINTS } from "../../../domain/entities/Order";
+import { MEETING_POINTS } from "../../lib/Order";
 import PaymentSelector from "./PaymentSelector";
 import BookingSummary from "./BookingSummary";
 

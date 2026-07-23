@@ -1,6 +1,6 @@
 "use client";
 
-import { MEETING_POINTS, OrderDomain } from "../../../domain/entities/Order";
+import { MEETING_POINTS, OrderDomain } from "../../lib/Order";
 import BookingSummary from "./BookingSummary";
 
 

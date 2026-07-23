@@ -1,6 +1,6 @@
 "use client";
 
-import { OrderDomain } from "../../../domain/entities/Order";
+import { OrderDomain } from "../../lib/Order";
 
 
 

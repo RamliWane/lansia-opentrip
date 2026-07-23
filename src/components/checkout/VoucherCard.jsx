@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AVAILABLE_VOUCHERS, OrderDomain } from "../../../domain/entities/Order";
+import { AVAILABLE_VOUCHERS, OrderDomain } from "../../lib/Order";
 
 
 
