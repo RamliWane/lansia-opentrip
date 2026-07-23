@@ -47,7 +47,7 @@ export default function DestinationSection() {
         {destinationsData.slice(0, 8).map((dest) => (
           <Link
             key={dest.id}
-            href={`/destination/${dest.id}`}
+            href={`/destinasi/${dest.id}`}
             className="group snap-start shrink-0 w-[280px] sm:w-[320px] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-gray-200 transition-all duration-300"
           >
             <div className="relative h-44 overflow-hidden">

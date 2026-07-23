@@ -138,7 +138,7 @@ export default function DestisasiPage() {
                   {filtered.map((dest) => (
                     <Link
                       key={dest.id}
-                      href={`/destination/${dest.id}`}
+                      href={`/destinasi/${dest.id}`}
                       className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-gray-200 transition-all duration-300"
                     >
                       <div className="relative h-44 overflow-hidden">
