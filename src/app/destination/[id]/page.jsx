@@ -3,8 +3,9 @@
 import { use, useState } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { destinationsData } from "../../infrastructure/data/destinationsData";
-import { DestinationDomain } from "../../domain/entities/Destination";
+import { destinationsData } from "@/infrastructure/data/destinationsData";
+import Navbar from "@/components/layout/Navbar";
+import { DestinationDomain } from "@/domain/entities/Destination";
 
 const A = "#df7224";
 
@@ -46,23 +47,24 @@ export default function DestinationDetailPage({ params }) {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-950 font-sans text-gray-900 dark:text-gray-100 selection:bg-amber-500/30">
-      {/* Navbar/Header (Transparent & Sticky) */}
-      <header className="fixed top-0 w-full z-50 transition-all duration-300 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl border-b border-gray-200/50 dark:border-zinc-800/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-gray-800 dark:text-white hover:text-amber-500 transition-colors">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-            <span className="font-bold">Kembali</span>
-          </Link>
-          <div className="font-bold text-lg hidden sm:block">
-            Detail <span style={{ color: A }}>Destinasi</span>
-          </div>
-        </div>
-      </header>
+      {/* Navbar Landing Page */}
+      <Navbar />
+
+      {/* Tombol Kembali */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-6">
+        <Link
+          href="/destinasi"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-[#df7224] transition-colors"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Kembali ke Destinasi
+        </Link>
+      </div>
 
       {/* Hero Section - Image Album */}
-      <div className="pt-20 pb-4 px-4 sm:px-8 max-w-7xl mx-auto">
+      <div className="pt-4 pb-4 px-4 sm:px-8 max-w-7xl mx-auto">
         <div className="mb-4 sm:mb-6 mt-4">
           <div className="flex items-center gap-2 sm:gap-3 mb-2 flex-wrap">
             <span className="px-2.5 py-1 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold text-white bg-amber-500">
