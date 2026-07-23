@@ -3,8 +3,8 @@
 import { use, useState } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { destinationsData } from "@/infrastructure/data/destinationsData";
-import { DestinationDomain } from "@/domain/entities/Destination";
+import { destinationsData } from "../../infrastructure/data/destinationsData";
+import { DestinationDomain } from "../../domain/entities/Destination";
 
 const A = "#df7224";
 
