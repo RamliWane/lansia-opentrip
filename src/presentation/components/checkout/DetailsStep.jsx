@@ -2,22 +2,19 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useCheckout } from "@/application/hooks/useCheckout";
+import { useCheckout } from "../../../application/hooks/useCheckout";
 import BookingCard from "./BookingCard";
 import CustomerForm from "./CustomerForm";
 import ParticipantCard from "./ParticipantCard";
 import MeetingPointSelector from "./MeetingPointSelector";
 import VoucherCard from "./VoucherCard";
 import BookingSummary from "./BookingSummary";
-import { CustomerInfo } from "@/domain/entities/Order";
+import { CustomerInfo } from "../../../domain/entities/Order";
 
-interface Props {
-  checkout: ReturnType<typeof useCheckout>;
-  onNext: () => void;
-}
 
-function validateCustomer(customer: CustomerInfo) {
-  const errors: Record<string, string> = {};
+
+function validateCustomer(customer) {
+  const errors, string> = {};
   if (!customer.fullName.trim() || customer.fullName.trim().length < 3)
     errors.fullName = "Nama minimal 3 karakter";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email))
@@ -29,7 +26,7 @@ function validateCustomer(customer: CustomerInfo) {
 
 const MIN_DATE = new Date().toISOString().split("T")[0];
 
-export default function DetailsStep({ checkout, onNext }: Props) {
+export default function DetailsStep({ checkout, onNext }) {
   const router = useRouter();
   const [touched, setTouched] = useState(false);
 

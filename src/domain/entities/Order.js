@@ -1,45 +1,12 @@
-export interface OrderItem {
-  destinationId: number;
-  destinationTitle: string;
-  destinationImage: string;
-  destinationLocation: string;
-  pricePerPax: number;
-  pax: number;
-  travelDate: string;
-}
+export 
 
-export interface CustomerInfo {
-  fullName: string;
-  email: string;
-  phone: string;
-  specialRequest?: string;
-}
+export 
 
-export interface Participant {
-  id: string;
-  fullName: string;
-  birthDate: string;
-  gender: "male" | "female" | "";
-  phone: string;
-  email: string;
-  relationship: string;
-}
+export 
 
-export interface MeetingPoint {
-  id: string;
-  label: string;
-  description: string;
-  additionalCost: number;
-}
+export 
 
-export interface Voucher {
-  code: string;
-  label: string;
-  discount: number; // absolute IDR value
-  minOrder: number;
-  type: "percentage" | "fixed";
-  percentageValue?: number;
-}
+export 
 
 export type PaymentMethodType =
   | "bca_va"
@@ -54,40 +21,29 @@ export type PaymentMethodType =
   | "credit_card"
   | "qris";
 
-export interface Order {
-  orderId: string;
-  item: OrderItem;
-  customer: CustomerInfo;
-  participants: Participant[];
-  meetingPointId: string;
-  voucherCode: string;
-  paymentMethod: PaymentMethodType | null;
-  totalAmount: number;
-  status: "pending" | "paid" | "failed" | "cancelled";
-  createdAt: string;
-}
+export 
 
 export const OrderDomain = {
-  generateOrderId(): string {
+  generateOrderId() {
     const timestamp = Date.now().toString(36).toUpperCase();
     const random = Math.random().toString(36).substring(2, 6).toUpperCase();
     return `TRV-${timestamp}-${random}`;
   },
 
-  generateParticipantId(): string {
+  generateParticipantId() {
     return `pax-${Date.now()}-${Math.random().toString(36).substring(2, 5)}`;
   },
 
-  calculateTotal(item: OrderItem): number {
+  calculateTotal(item) {
     return item.pricePerPax * item.pax;
   },
 
-  formatPrice(amount: number): string {
+  formatPrice(amount) {
     return "Rp " + Math.floor(amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   },
 };
 
-export const MEETING_POINTS: MeetingPoint[] = [
+export const MEETING_POINTS= [
   {
     id: "hotel_pickup",
     label: "Hotel Pickup",
@@ -114,7 +70,7 @@ export const MEETING_POINTS: MeetingPoint[] = [
   },
 ];
 
-export const AVAILABLE_VOUCHERS: Voucher[] = [
+export const AVAILABLE_VOUCHERS= [
   {
     code: "NEWTRIP10",
     label: "Diskon 10% untuk Pelanggan Baru",

@@ -1,14 +1,10 @@
 "use client";
 
-import { PaymentMethodType } from "@/domain/entities/Order";
+import { PaymentMethodType } from "../../../domain/entities/Order";
 
-interface PaymentOption {
-  id: PaymentMethodType;
-  label: string;
-  tag?: string;
-}
 
-const PAYMENT_GROUPS: { group: string; methods: PaymentOption[] }[] = [
+
+const PAYMENT_GROUPS: { group; methods: PaymentOption[] }[] = [
   {
     group: "Virtual Account",
     methods: [
@@ -41,12 +37,9 @@ const PAYMENT_GROUPS: { group: string; methods: PaymentOption[] }[] = [
   },
 ];
 
-interface Props {
-  selected: PaymentMethodType | null;
-  onChange: (method: PaymentMethodType) => void;
-}
 
-export default function PaymentSelector({ selected, onChange }: Props) {
+
+export default function PaymentSelector({ selected, onChange }) {
   return (
     <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-gray-100 dark:border-zinc-800 shadow-sm p-5">
       <h3 className="text-sm font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2 mb-5">

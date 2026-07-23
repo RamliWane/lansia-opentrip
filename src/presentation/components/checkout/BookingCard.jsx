@@ -1,19 +1,13 @@
 "use client";
 
-import { Destination } from "@/domain/entities/Destination";
-import { OrderDomain } from "@/domain/entities/Order";
+import { Destination } from "../../../domain/entities/Destination";
+import { OrderDomain } from "../../../domain/entities/Order";
 
-interface Props {
-  destination: Destination;
-  travelDate: string;
-  pax: number;
-  setPax: (pax: number) => void;
-  setTravelDate: (date: string) => void;
-}
+
 
 const MIN_DATE = new Date().toISOString().split("T")[0];
 
-export default function BookingCard({ destination, travelDate, pax, setPax, setTravelDate }: Props) {
+export default function BookingCard({ destination, travelDate, pax, setPax, setTravelDate }) {
   return (
     <div className="bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-zinc-800">
       {/* Destination Image */}
@@ -99,8 +93,8 @@ export default function BookingCard({ destination, travelDate, pax, setPax, setT
                 onClick={() => setPax(Math.max(1, pax - 1))}
                 className="w-9 h-9 rounded-xl bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-gray-300 font-bold transition-colors flex items-center justify-center shrink-0 text-lg"
                 style={{ ['--hover-color' as string]: '#df7224' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#df7224'; (e.currentTarget as HTMLElement).style.backgroundColor = '#df722415'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = ''; (e.currentTarget as HTMLElement).style.backgroundColor = ''; }}
+                onMouseEnter={e => { (e.currentTarget ).style.color = '#df7224'; (e.currentTarget ).style.backgroundColor = '#df722415'; }}
+                onMouseLeave={e => { (e.currentTarget ).style.color = ''; (e.currentTarget ).style.backgroundColor = ''; }}
               >
                 −
               </button>
@@ -111,8 +105,8 @@ export default function BookingCard({ destination, travelDate, pax, setPax, setT
                 type="button"
                 onClick={() => setPax(Math.min(20, pax + 1))}
                 className="w-9 h-9 rounded-xl bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-gray-300 font-bold transition-colors flex items-center justify-center shrink-0 text-lg"
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#df7224'; (e.currentTarget as HTMLElement).style.backgroundColor = '#df722415'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = ''; (e.currentTarget as HTMLElement).style.backgroundColor = ''; }}
+                onMouseEnter={e => { (e.currentTarget ).style.color = '#df7224'; (e.currentTarget ).style.backgroundColor = '#df722415'; }}
+                onMouseLeave={e => { (e.currentTarget ).style.color = ''; (e.currentTarget ).style.backgroundColor = ''; }}
               >
                 +
               </button>

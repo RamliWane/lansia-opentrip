@@ -1,22 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { AVAILABLE_VOUCHERS, Voucher, OrderDomain } from "@/domain/entities/Order";
+import { AVAILABLE_VOUCHERS, Voucher, OrderDomain } from "../../../domain/entities/Order";
 
-interface Props {
-  voucherCode: string;
-  appliedVoucher: Voucher | null;
-  voucherError: string;
-  onCodeChange: (code: string) => void;
-  onApply: () => void;
-  onRemove: () => void;
-  subtotal: number;
-}
 
-export default function VoucherCard({ voucherCode, appliedVoucher, voucherError, onCodeChange, onApply, onRemove, subtotal }: Props) {
+
+export default function VoucherCard({ voucherCode, appliedVoucher, voucherError, onCodeChange, onApply, onRemove, subtotal }) {
   const [showList, setShowList] = useState(false);
 
-  const handleQuickApply = (code: string) => {
+  const handleQuickApply = (code) => {
     onCodeChange(code);
     setShowList(false);
     setTimeout(() => onApply(), 50);
@@ -85,8 +77,8 @@ export default function VoucherCard({ voucherCode, appliedVoucher, voucherError,
               disabled={!voucherCode.trim()}
               className="px-4 py-2.5 rounded-xl text-white text-sm font-bold transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               style={{ backgroundColor: "#df7224" }}
-              onMouseEnter={e => !(e.currentTarget as HTMLButtonElement).disabled && ((e.currentTarget as HTMLElement).style.backgroundColor = "#c8631e")}
-              onMouseLeave={e => ((e.currentTarget as HTMLElement).style.backgroundColor = "#df7224")}
+              onMouseEnter={e => !(e.currentTarget ).disabled && ((e.currentTarget ).style.backgroundColor = "#c8631e")}
+              onMouseLeave={e => ((e.currentTarget ).style.backgroundColor = "#df7224")}
             >
               Pakai
             </button>

@@ -1,14 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Participant } from "@/domain/entities/Order";
+import { Participant } from "../../../domain/entities/Order";
 
-interface Props {
-  participant: Participant;
-  index: number;
-  onUpdate: (id: string, field: keyof Participant, value: string) => void;
-  onRemove: (id: string) => void;
-}
+
 
 const GENDER_OPTIONS = [
   { value: "male", label: "Laki-laki" },
@@ -20,11 +15,11 @@ const RELATIONSHIP_OPTIONS = [
   "Saudara", "Teman", "Kolega", "Lainnya",
 ];
 
-function isComplete(p: Participant) {
+function isComplete(p) {
   return !!(p.fullName.trim() && p.birthDate && p.gender && p.phone.trim());
 }
 
-export default function ParticipantCard({ participant, index, onUpdate, onRemove }: Props) {
+export default function ParticipantCard({ participant, index, onUpdate, onRemove }) {
   const [isExpanded, setIsExpanded] = useState(true);
   const complete = isComplete(participant);
 

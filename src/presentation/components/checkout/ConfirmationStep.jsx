@@ -1,22 +1,19 @@
 "use client";
 
-import { useCheckout } from "@/application/hooks/useCheckout";
-import { MEETING_POINTS, OrderDomain } from "@/domain/entities/Order";
+import { useCheckout } from "../../../application/hooks/useCheckout";
+import { MEETING_POINTS, OrderDomain } from "../../../domain/entities/Order";
 import BookingSummary from "./BookingSummary";
 
-interface Props {
-  checkout: ReturnType<typeof useCheckout>;
-  onReset: () => void;
-}
 
-function formatDate(dateStr: string) {
+
+function formatDate(dateStr) {
   if (!dateStr) return "—";
   return new Date(dateStr).toLocaleDateString("id-ID", {
     weekday: "long", day: "numeric", month: "long", year: "numeric",
   });
 }
 
-export default function ConfirmationStep({ checkout, onReset }: Props) {
+export default function ConfirmationStep({ checkout, onReset }) {
   const {
     destination, pax, travelDate, customer, orderId, meetingPointId,
     ticketSubtotal, meetingPointFee, serviceFee, discount, total,
@@ -130,8 +127,8 @@ export default function ConfirmationStep({ checkout, onReset }: Props) {
             onClick={onReset}
             className="flex-1 py-3 rounded-xl text-white font-extrabold text-sm active:scale-95 transition-all"
             style={{ backgroundColor: "#df7224" }}
-            onMouseEnter={e => (e.currentTarget as HTMLElement).style.backgroundColor = "#c8631e"}
-            onMouseLeave={e => (e.currentTarget as HTMLElement).style.backgroundColor = "#df7224"}
+            onMouseEnter={e => (e.currentTarget ).style.backgroundColor = "#c8631e"}
+            onMouseLeave={e => (e.currentTarget ).style.backgroundColor = "#df7224"}
           >
             Pesan Destinasi Lain
           </button>

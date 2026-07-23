@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { Destination } from "@/domain/entities/Destination";
+import { Destination } from "../../domain/entities/Destination";
 import {
   CustomerInfo,
   Participant,
@@ -10,30 +10,13 @@ import {
   MEETING_POINTS,
   AVAILABLE_VOUCHERS,
   Voucher,
-} from "@/domain/entities/Order";
+} from "../../domain/entities/Order";
 
 export type CheckoutStep = "details" | "payment" | "confirmation";
 
-export interface CheckoutState {
-  step: CheckoutStep;
-  destination: Destination | null;
-  pax: number;
-  travelDate: string;
-  customer: CustomerInfo;
-  participants: Participant[];
-  meetingPointId: string;
-  voucherCode: string;
-  appliedVoucher: Voucher | null;
-  voucherError: string;
-  paymentMethod: PaymentMethodType | null;
-  orderId: string;
-  totalAmount: number;
-  isLoading: boolean;
-  error: string | null;
-  agreeToTerms: boolean;
-}
+export 
 
-const initialCustomer: CustomerInfo = {
+const initialCustomer= {
   fullName: "",
   email: "",
   phone: "",
@@ -42,7 +25,7 @@ const initialCustomer: CustomerInfo = {
 
 const SERVICE_FEE = 15000;
 
-export function useCheckout(initialDestination?: Destination | null) {
+export function useCheckout(initialDestination?) {
   const [state, setState] = useState<CheckoutState>({
     step: "details",
     destination: initialDestination ?? null,
@@ -63,19 +46,19 @@ export function useCheckout(initialDestination?: Destination | null) {
   });
 
   // ─── Destination & Basic ────────────────────────────────
-  const setDestination = useCallback((dest: Destination | null) => {
+  const setDestination = useCallback((dest) => {
     setState((prev) => ({ ...prev, destination: dest }));
   }, []);
 
-  const setPax = useCallback((pax: number) => {
+  const setPax = useCallback((pax) => {
     setState((prev) => ({ ...prev, pax }));
   }, []);
 
-  const setTravelDate = useCallback((date: string) => {
+  const setTravelDate = useCallback((date) => {
     setState((prev) => ({ ...prev, travelDate: date }));
   }, []);
 
-  const setCustomer = useCallback((field: keyof CustomerInfo, value: string) => {
+  const setCustomer = useCallback((field: keyof CustomerInfo, value) => {
     setState((prev) => ({
       ...prev,
       customer: { ...prev.customer, [field]: value },
@@ -96,7 +79,7 @@ export function useCheckout(initialDestination?: Destination | null) {
 
   // ─── Participants ────────────────────────────────────────
   const addParticipant = useCallback(() => {
-    const newP: Participant = {
+    const newP= {
       id: OrderDomain.generateParticipantId(),
       fullName: "",
       birthDate: "",
@@ -112,7 +95,7 @@ export function useCheckout(initialDestination?: Destination | null) {
   }, []);
 
   const updateParticipant = useCallback(
-    (id: string, field: keyof Participant, value: string) => {
+    (id, field: keyof Participant, value) => {
       setState((prev) => ({
         ...prev,
         participants: prev.participants.map((p) =>
@@ -123,7 +106,7 @@ export function useCheckout(initialDestination?: Destination | null) {
     []
   );
 
-  const removeParticipant = useCallback((id: string) => {
+  const removeParticipant = useCallback((id) => {
     setState((prev) => ({
       ...prev,
       participants: prev.participants.filter((p) => p.id !== id),
@@ -131,12 +114,12 @@ export function useCheckout(initialDestination?: Destination | null) {
   }, []);
 
   // ─── Meeting Point ───────────────────────────────────────
-  const setMeetingPointId = useCallback((id: string) => {
+  const setMeetingPointId = useCallback((id) => {
     setState((prev) => ({ ...prev, meetingPointId: id }));
   }, []);
 
   // ─── Voucher ─────────────────────────────────────────────
-  const setVoucherCode = useCallback((code: string) => {
+  const setVoucherCode = useCallback((code) => {
     setState((prev) => ({ ...prev, voucherCode: code, voucherError: "" }));
   }, []);
 
@@ -164,25 +147,25 @@ export function useCheckout(initialDestination?: Destination | null) {
   }, []);
 
   // ─── Payment Method ──────────────────────────────────────
-  const setPaymentMethod = useCallback((method: PaymentMethodType) => {
+  const setPaymentMethod = useCallback((method) => {
     setState((prev) => ({ ...prev, paymentMethod: method }));
   }, []);
 
-  const setAgreeToTerms = useCallback((value: boolean) => {
+  const setAgreeToTerms = useCallback((value) => {
     setState((prev) => ({ ...prev, agreeToTerms: value }));
   }, []);
 
   // ─── Price Calculations ──────────────────────────────────
-  const getTicketSubtotal = useCallback((s: CheckoutState): number => {
+  const getTicketSubtotal = useCallback((s) => {
     return (s.destination?.priceMin ?? 0) * s.pax;
   }, []);
 
-  const getMeetingPointFee = useCallback((s: CheckoutState): number => {
+  const getMeetingPointFee = useCallback((s) => {
     const mp = MEETING_POINTS.find((m) => m.id === s.meetingPointId);
     return mp?.additionalCost ?? 0;
   }, []);
 
-  const getDiscount = useCallback((s: CheckoutState): number => {
+  const getDiscount = useCallback((s) => {
     if (!s.appliedVoucher) return 0;
     const subtotal = getTicketSubtotal(s);
     if (s.appliedVoucher.type === "percentage") {
@@ -191,7 +174,7 @@ export function useCheckout(initialDestination?: Destination | null) {
     return s.appliedVoucher.discount;
   }, [getTicketSubtotal]);
 
-  const getTotal = useCallback((s: CheckoutState): number => {
+  const getTotal = useCallback((s) => {
     const sub = getTicketSubtotal(s);
     const mpFee = getMeetingPointFee(s);
     const disc = getDiscount(s);
@@ -314,7 +297,7 @@ export function useCheckout(initialDestination?: Destination | null) {
 
   return {
     ...state,
-    serviceFee: SERVICE_FEE,
+    serviceFee,
     ticketSubtotal,
     meetingPointFee,
     discount,

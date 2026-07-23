@@ -31,8 +31,8 @@ export default function Footer() {
               key={label}
               href="#"
               className="transition-colors"
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = A}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = ""}
+              onMouseEnter={e => (e.currentTarget ).style.color = A}
+              onMouseLeave={e => (e.currentTarget ).style.color = ""}
             >
               {label}
             </a>

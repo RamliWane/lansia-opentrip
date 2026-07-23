@@ -1,22 +1,20 @@
 "use client";
 
-import { CheckoutStep } from "@/application/hooks/useCheckout";
+import { CheckoutStep } from "../../../application/hooks/useCheckout";
 
 const ACCENT = "#df7224";
 
-const STEPS: { id: CheckoutStep; label: string; sublabel: string }[] = [
+const STEPS: { id; label; sublabel }[] = [
   { id: "details", label: "Detail Perjalanan", sublabel: "Info & peserta" },
   { id: "payment", label: "Pembayaran", sublabel: "Pilih metode" },
   { id: "confirmation", label: "Konfirmasi", sublabel: "Selesai" },
 ];
 
-const STEP_ORDER: CheckoutStep[] = ["details", "payment", "confirmation"];
+const STEP_ORDER= ["details", "payment", "confirmation"];
 
-interface Props {
-  currentStep: CheckoutStep;
-}
 
-export default function StepProgress({ currentStep }: Props) {
+
+export default function StepProgress({ currentStep }) {
   const currentIdx = STEP_ORDER.indexOf(currentStep);
 
   return (
@@ -33,7 +31,7 @@ export default function StepProgress({ currentStep }: Props) {
           style={{
             left: "28px",
             right: `calc(${100 - (currentIdx / (STEPS.length - 1)) * 100}% + 28px)`,
-            backgroundColor: ACCENT,
+            backgroundColor,
           }}
         />
 
@@ -43,9 +41,9 @@ export default function StepProgress({ currentStep }: Props) {
           const isInactive = !isDone && !isActive;
 
           const circleStyle = isDone
-            ? { backgroundColor: ACCENT, borderColor: ACCENT, color: "#fff" }
+            ? { backgroundColor, borderColor, color: "#fff" }
             : isActive
-            ? { backgroundColor: "transparent", borderColor: ACCENT, color: ACCENT }
+            ? { backgroundColor: "transparent", borderColor, color: ACCENT }
             : {};
 
           const circleClass = `w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300${

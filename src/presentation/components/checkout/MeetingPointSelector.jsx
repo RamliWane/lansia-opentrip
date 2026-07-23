@@ -1,13 +1,10 @@
 "use client";
 
-import { MEETING_POINTS, OrderDomain } from "@/domain/entities/Order";
+import { MEETING_POINTS, OrderDomain } from "../../../domain/entities/Order";
 
-interface Props {
-  selectedId: string;
-  onChange: (id: string) => void;
-}
 
-export default function MeetingPointSelector({ selectedId, onChange }: Props) {
+
+export default function MeetingPointSelector({ selectedId, onChange }) {
   return (
     <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-gray-100 dark:border-zinc-800 shadow-sm p-5">
       <h3 className="text-sm font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2 mb-4">

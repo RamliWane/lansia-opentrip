@@ -2,13 +2,13 @@
 
 import { Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCheckout } from "@/application/hooks/useCheckout";
-import { destinationsData } from "@/infrastructure/data/destinationsData";
-import StepProgress from "@/presentation/components/checkout/StepProgress";
-import DetailsStep from "@/presentation/components/checkout/DetailsStep";
-import PaymentStep from "@/presentation/components/checkout/PaymentStep";
-import ConfirmationStep from "@/presentation/components/checkout/ConfirmationStep";
-import Footer from "@/presentation/components/layout/Footer";
+import { useCheckout } from "../../application/hooks/useCheckout";
+import { destinationsData } from "../../infrastructure/data/destinationsData";
+import StepProgress from "../../presentation/components/checkout/StepProgress";
+import DetailsStep from "../../presentation/components/checkout/DetailsStep";
+import PaymentStep from "../../presentation/components/checkout/PaymentStep";
+import ConfirmationStep from "../../presentation/components/checkout/ConfirmationStep";
+import Footer from "../../components/layout/Footer";
 
 function CheckoutContent() {
   const router = useRouter();
@@ -49,8 +49,8 @@ function CheckoutContent() {
               onClick={() => router.push("/")}
               className="flex items-center justify-center w-8 h-8 rounded-xl transition-colors"
               style={{ backgroundColor: "#df722415", color: "#df7224" }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.backgroundColor = "#df722825"}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.backgroundColor = "#df722415"}
+              onMouseEnter={e => (e.currentTarget ).style.backgroundColor = "#df722825"}
+              onMouseLeave={e => (e.currentTarget ).style.backgroundColor = "#df722415"}
               title="Kembali"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

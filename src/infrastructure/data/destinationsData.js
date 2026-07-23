@@ -1,6 +1,6 @@
-import { Destination } from "@/domain/entities/Destination";
+import { Destination } from "../../domain/entities/Destination";
 
-export const destinationsData: Destination[] = [
+export const destinationsData= [
   {
     id: 1,
     image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80",
@@ -17,7 +17,7 @@ export const destinationsData: Destination[] = [
     priceMax: 750000,
     category: "Pantai",
     description: "Pantai Kuta adalah salah satu tempat wisata paling terkenal di Bali. Terkenal dengan garis pantai berpasir putih yang panjang, ombak yang cocok untuk berselancar pemula, dan pemandangan matahari terbenam (sunset) yang sangat memukau.",
-    highlights: ["Sunset Terindah", "Aktivitas Surfing", "Dekat Pusat Belanja", "Kuliner Pantai"],
+    highlights: ["Sunset Terindah", "Aktivit", "Dekat Pusat Belanja", "Kuliner Pantai"],
     itinerary: [
       { day: 1, title: 'Kedatangan & Eksplorasi Awal', description: 'Tiba di lokasi, check-in, dan eksplorasi seputar area penginapan.' },
       { day: 2, title: 'Tour Utama', description: 'Menikmati destinasi utama dari pagi hingga sore.' },
@@ -296,7 +296,7 @@ export const destinationsData: Destination[] = [
     priceMax: 1800000,
     category: "Pulau",
     description: "Gili Trawangan adalah pulau terbesar di antara tiga pulau kecil (gili) di barat laut Lombok. Pulau bebas polusi ini melarang kendaraan bermotor, menyuguhkan pantai berpasir putih, konser musik malam yang seru, dan penangkaran penyu bawah air.",
-    highlights: ["Bebas Polusi Kendaraan", "Bersepeda Keliling Pulau", "Snorkeling Bersama Penyu", "Sunset Swing Romantis"],
+    highlights: ["Beb Kendaraan", "Bersepeda Keliling Pulau", "Snorkeling Bersama Penyu", "Sunset Swing Romantis"],
     itinerary: [
       { day: 1, title: 'Kedatangan & Eksplorasi Awal', description: 'Tiba di lokasi, check-in, dan eksplorasi seputar area penginapan.' },
       { day: 2, title: 'Tour Utama', description: 'Menikmati destinasi utama dari pagi hingga sore.' },

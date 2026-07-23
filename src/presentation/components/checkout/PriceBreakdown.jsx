@@ -1,19 +1,10 @@
 "use client";
 
-import { Voucher, OrderDomain } from "@/domain/entities/Order";
+import { Voucher, OrderDomain } from "../../../domain/entities/Order";
 
-interface Props {
-  pricePerPax: number;
-  pax: number;
-  ticketSubtotal: number;
-  meetingPointFee: number;
-  serviceFee: number;
-  discount: number;
-  total: number;
-  appliedVoucher: Voucher | null;
-}
 
-export default function PriceBreakdown({ pricePerPax, pax, ticketSubtotal, meetingPointFee, serviceFee, discount, total, appliedVoucher }: Props) {
+
+export default function PriceBreakdown({ pricePerPax, pax, ticketSubtotal, meetingPointFee, serviceFee, discount, total, appliedVoucher }) {
   return (
     <div className="space-y-2.5">
       {/* Ticket */}
