@@ -8,22 +8,22 @@ import { DestinationDomain } from "@/domain/entities/Destination";
 
 const A = "#df7224";
 
-function formatNumber(value: number) {
+function formatNumber(value) {
   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-function formatRupiah(value: number) {
+function formatRupiah(value) {
   return "Rp " + Math.floor(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-export default function DestinationDetailPage({ params }: { params: Promise<{ id: string }> }) {
+export default function DestinationDetailPage({ params }) {
   const resolvedParams = use(params);
   const id = Number(resolvedParams.id);
   const dest = destinationsData.find((d) => d.id === id);
 
-  const [ratingFilter, setRatingFilter] = useState<number | null>(null);
+  const [ratingFilter, setRatingFilter] = useState(null);
   const [showAllReviews, setShowAllReviews] = useState(false);
-  const [activeTab, setActiveTab] = useState<"tentang" | "itinerary" | "meeting" | "ulasan">("tentang");
+  const [activeTab, setActiveTab] = useState("tentang");
 
   if (!dest) {
     notFound();
@@ -42,7 +42,7 @@ export default function DestinationDetailPage({ params }: { params: Promise<{ id
     { id: "itinerary", label: "Itinerary" },
     { id: "meeting", label: "Titik Kumpul" },
     { id: "ulasan", label: "Ulasan" }
-  ] as const;
+  ];
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-950 font-sans text-gray-900 dark:text-gray-100 selection:bg-amber-500/30">
@@ -112,7 +112,7 @@ export default function DestinationDetailPage({ params }: { params: Promise<{ id
         <div className="lg:col-span-2 flex flex-col">
           
           {/* Tabs Navigation */}
-          <div className="flex overflow-x-auto hide-scrollbar border-b border-gray-200 dark:border-zinc-800 mb-8 sticky top-[72px] bg-slate-50 dark:bg-zinc-950 z-40 pt-4">
+          <div className="flex overflow-x-auto border-b border-gray-200 dark:border-zinc-800 mb-8 sticky top-[72px] bg-slate-50 dark:bg-zinc-950 z-40 pt-4">
             {tabs.map(tab => (
               <button
                 key={tab.id}
@@ -127,7 +127,7 @@ export default function DestinationDetailPage({ params }: { params: Promise<{ id
           <div className="min-h-[400px]">
             {/* About Section */}
             {activeTab === "tentang" && (
-              <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div>
                 <section className="mb-10">
                   <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 flex items-center gap-2">
                     <span className="w-1.5 h-6 sm:w-2 sm:h-8 rounded-full" style={{ backgroundColor: A }}></span>
@@ -156,7 +156,7 @@ export default function DestinationDetailPage({ params }: { params: Promise<{ id
 
             {/* Itinerary Section */}
             {activeTab === "itinerary" && (
-              <section className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <section>
                 <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-2">
                   <span className="w-1.5 h-6 sm:w-2 sm:h-8 rounded-full" style={{ backgroundColor: A }}></span>
                   Rencana Perjalanan
@@ -183,7 +183,7 @@ export default function DestinationDetailPage({ params }: { params: Promise<{ id
 
             {/* Meeting Points Section */}
             {activeTab === "meeting" && (
-              <section className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <section>
                 <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-2">
                   <span className="w-1.5 h-6 sm:w-2 sm:h-8 rounded-full" style={{ backgroundColor: A }}></span>
                   Titik Kumpul
@@ -212,14 +212,14 @@ export default function DestinationDetailPage({ params }: { params: Promise<{ id
 
             {/* Reviews Section */}
             {activeTab === "ulasan" && (
-              <section className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <section>
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-3 sm:gap-4">
                   <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2">
                     <span className="w-1.5 h-6 sm:w-2 sm:h-8 rounded-full" style={{ backgroundColor: A }}></span>
                     Ulasan Pengunjung
                   </h2>
                   
-                  <div className="flex items-center gap-2 text-sm font-semibold overflow-x-auto pb-2 sm:pb-0 hide-scrollbar">
+                  <div className="flex items-center gap-2 text-sm font-semibold overflow-x-auto pb-2 sm:pb-0">
                     <button 
                       onClick={() => setRatingFilter(null)}
                       className={`px-3 py-1.5 rounded-full border transition-colors whitespace-nowrap ${ratingFilter === null ? 'bg-amber-500 text-white border-amber-500' : 'bg-white dark:bg-zinc-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-zinc-700 hover:border-amber-500'}`}
@@ -257,11 +257,11 @@ export default function DestinationDetailPage({ params }: { params: Promise<{ id
                           <span className="font-bold text-xs sm:text-sm">{review.rating.toFixed(1)}</span>
                         </div>
                       </div>
-                      <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm italic mb-3">"{review.comment}"</p>
+                      <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm italic mb-3">&quot;{review.comment}&quot;</p>
                       
                       {/* Review Photos */}
                       {review.images && review.images.length > 0 && (
-                        <div className="flex gap-2 overflow-x-auto hide-scrollbar pb-2">
+                        <div className="flex gap-2 overflow-x-auto pb-2">
                           {review.images.map((img, imgIdx) => (
                             <img key={imgIdx} src={img} alt={`Foto ulasan dari ${review.author}`} className="h-16 sm:h-20 w-16 sm:w-20 object-cover rounded-xl border border-gray-200 dark:border-zinc-700" />
                           ))}

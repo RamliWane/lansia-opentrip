@@ -1,6 +1,4 @@
-import { Destination } from "@/domain/entities/Destination";
-
-export const destinationsData: Destination[] = [
+export const destinationsData = [
   {
     id: 1,
     image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80",
@@ -28,7 +26,7 @@ export const destinationsData: Destination[] = [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -59,7 +57,7 @@ export const destinationsData: Destination[] = [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -90,7 +88,7 @@ export const destinationsData: Destination[] = [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -121,7 +119,7 @@ export const destinationsData: Destination[] = [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -152,7 +150,7 @@ export const destinationsData: Destination[] = [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -183,7 +181,7 @@ export const destinationsData: Destination[] = [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -214,7 +212,7 @@ export const destinationsData: Destination[] = [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -245,7 +243,7 @@ export const destinationsData: Destination[] = [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -276,7 +274,7 @@ export const destinationsData: Destination[] = [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -307,7 +305,7 @@ export const destinationsData: Destination[] = [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
