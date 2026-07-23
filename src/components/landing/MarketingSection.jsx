@@ -1,6 +1,20 @@
-import { ArrowDownToLine, ShieldCheck, BadgePercent, Headset } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import {
+  ArrowDownToLine,
+  ChevronDown,
+} from "lucide-react";
+import { features } from "@/lib/data";
+
 
 export default function MarketingSection() {
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const toggle = (i) => {
+    setOpenIndex(openIndex === i ? -1 : i);
+  };
+
   return (
     <section className="relative bg-white py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,48 +29,65 @@ export default function MarketingSection() {
               terjangkau dari pemesanan sampai mu sampai di destinasi.
             </p>
 
-            <div className="space-y-5 mb-10">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 round flex items-center justify-center shrink-0">
-                  <ShieldCheck size={27} className="text-black" />
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900 text-[20px]">
-                    Banyak Pilihan Destinasi
-                  </p>
-                  <p className="text-[17px] text-gray-500">
-                    Mau liburan ke Bandung, Lembang, Yogyakarta, Semarang, Surabaya, Gunung ataupun Laut semuanya ada di sini
-                  </p>
-                </div>
-              </div>
+            <div className="space-y-3 mb-10">
+              {features.map((feature, i) => {
+                const Icon = feature.icon;
+                const isOpen = openIndex === i;
+                return (
+                  <div
+                    key={i}
+                    className={`rounded-2xl border transition-colors duration-300 ${
+                      isOpen
+                        ? "border-[#df7224]/30 bg-white"
+                        : "border-gray-100 hover:border-gray-200"
+                    }`}
+                  >
+                    <button
+                      onClick={() => toggle(i)}
+                      className="w-full flex items-start gap-4 p-4 text-left"
+                    >
+                      <div
+                        className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+                          isOpen ? "bg-[#df7224]" : "bg-gray-100"
+                        }`}
+                      >
+                        <Icon
+                          size={20}
+                          className={isOpen ? "text-white" : "text-gray-700"}
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-gray-900 text-[18px]">
+                          {feature.title}
+                        </p>
+                        <p className="text-sm text-gray-500 mt-0.5">
+                          {feature.desc}
+                        </p>
+                      </div>
+                      <ChevronDown
+                        size={18}
+                        className={`text-gray-400 shrink-0 mt-1 transition-transform duration-300 ${
+                          isOpen ? "rotate-180 text-[#df7224]" : ""
+                        }`}
+                      />
+                    </button>
 
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0">
-                  <BadgePercent size={27} className="text-black" />
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900 text-[20px]">
-                    Transaksi Mudah & Transparan
-                  </p>
-                  <p className="text-sm text-gray-500 text-[17px]">
-                    Keamanan dan privasi transaksi online Anda menjadi prioritas kami.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0">
-                  <Headset size={27} className="text-black" />
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900 text-[20px]">
-                    Layanan 24/7
-                  </p>
-                  <p className="text-sm text-gray-500 text-[17px]">
-                    Tim support kami siap membantu ada kapanpun dan dimana pun
-                  </p>
-                </div>
-              </div>
+                    <div
+                      className={`grid transition-all duration-300 ease-in-out ${
+                        isOpen
+                          ? "grid-rows-[1fr] opacity-100"
+                          : "grid-rows-[0fr] opacity-0"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="text-sm text-gray-600 leading-relaxed px-4 pb-4 pl-[3.75rem]">
+                          {feature.detail}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
