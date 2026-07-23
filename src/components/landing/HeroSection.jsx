@@ -1,4 +1,4 @@
-import { MapPin, Calendar, ArrowRight, Compass } from "lucide-react";
+import { MapPin, Calendar, ArrowRight, Compass, Search, SlidersHorizontal } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -10,17 +10,26 @@ export default function HeroSection() {
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
-
-
+      
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
-      <div className="flex item-center justify-center">
-        <div>
-           <button className="inline-flex items-center gap-2 cursor-pointer bg-white text-[#df7224] px-7 py-3.5 rounded-full font-semibold hover:bg-[white]/80 hover:gap-3">
-              Get Started
-              <ArrowRight size={18} />
-            </button>
+        <div className="flex items-center justify-center px-4">
+          <button className="flex w-full max-w-2xl items-center gap-3 rounded-2xl bg-white shadow-md hover:shadow-lg px-5 py-4 transition-shadow cursor-pointer">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#df7224]/10 shrink-0">
+              <Search size={18} className="text-[#df7224]" />
+            </div>
+
+            <div className="flex-1 text-left">
+              <p className="font-semibold text-gray-900 text-sm">Yuk Tanya Tanya!</p>
+              <p className="text-xs text-gray-400 mt-0.5">
+                Temukan Jawaban mu di sini
+              </p>
+            </div>
+
+            <div className="w-px h-8 bg-gray-200 shrink-0" />
+
+            <SlidersHorizontal size={18} className="text-gray-400 shrink-0" />
+          </button>
         </div>
-      </div>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">

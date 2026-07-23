@@ -5,36 +5,6 @@ export default function MarketingSection() {
     <section className="relative bg-white py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
-          <div className="order-2 lg:order-1">
-            <div className="rounded-3xl overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&h=500&fit=crop"
-                alt="Family on beach"
-                className="w-full h-[420px] object-cover"
-              />
-            </div>
-
-            <a
-              href="#book"
-              className="relative mt-6 flex items-center justify-center gap-3 rounded-2xl overflow-hidden h-20 group"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=200&fit=crop"
-                alt="Book a trip"
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/40" />
-              <div className="relative z-10 flex items-center justify-center gap-3 px-6">
-                <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0">
-                  <ArrowDownToLine size={18} className="text-gray-900" />
-                </div>
-                <span className="text-white font-bold text-xl tracking-wide">
-                  Book A Trip Now
-                </span>
-              </div>
-            </a>
-          </div>
-
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-snug mb-6 max-w-md">
               Kenapa Harus Pilih{" "}
@@ -89,6 +59,37 @@ export default function MarketingSection() {
               </div>
             </div>
           </div>
+
+          <div className="hidden md:block">
+            <div className="rounded-3xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&h=500&fit=crop"
+                alt="Family on beach"
+                className="w-full h-[420px] object-cover"
+              />
+            </div>
+
+            <a
+              href="#book"
+              className="relative mt-6 flex items-center justify-center gap-3 rounded-2xl overflow-hidden h-20 group"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=200&fit=crop"
+                alt="Book a trip"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-black/40" />
+              <div className="relative z-10 flex items-center justify-center gap-3 px-6">
+                <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0">
+                  <ArrowDownToLine size={18} className="text-gray-900" />
+                </div>
+                <span className="text-white font-bold text-xl tracking-wide">
+                  Book A Trip Now
+                </span>
+              </div>
+            </a>
+          </div>
+
         </div>
       </div>
     </section>

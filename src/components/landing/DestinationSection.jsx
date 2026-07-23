@@ -19,44 +19,35 @@ export default function DestinationSection() {
   return (
     <section id="destinasi" className="relative bg-white py-10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between mb-10">
+        <div className="flex items-end justify-between mb-6 md:mb-10">
           <div>
             <p className="text-[#df7224] font-semibold text-sm tracking-wide mb-3">
               DESTINASI PILIHAN
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-snug">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
               Destinasi Paling <span className="text-[#df7224]">Diminati</span>
             </h2>
           </div>
 
-          <div className="hidden sm:flex items-center gap-2">
-            <button
-              onClick={() => scroll("left")}
-              className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:border-gray-900 hover:text-gray-900 transition-colors"
-              aria-label="Scroll ke kiri"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              onClick={() => scroll("right")}
-              className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:border-gray-900 hover:text-gray-900 transition-colors"
-              aria-label="Scroll ke kanan"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
+          <a
+            href="#"
+            className="hidden md:flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-[#df7224] transition-colors shrink-0"
+          >
+            Lihat semua
+            <ArrowRight size={16} className="rotate-[-45deg]" />
+          </a>
         </div>
       </div>
 
       <div
         ref={scrollRef}
-        className="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory px-4 sm:px-6 lg:px-[calc((100vw-72rem)/2+1.5rem)] pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        className="flex md:grid md:grid-cols-4 md:grid-rows-2 md:max-w-6xl md:mx-auto gap-5 overflow-x-auto md:overflow-visible scroll-smooth snap-x snap-mandatory px-4 sm:px-6 md:px-6 lg:px-8 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       >
-        {destinations.map((dest, i) => (
+        {destinations.slice(0, 8).map((dest, i) => (
           <a
             key={i}
             href="#"
-            className="group snap-start shrink-0 w-[300px] sm:w-[340px] bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-gray-200 transition-all duration-300"
+            className="group snap-start shrink-0 w-[280px] sm:w-[320px] md:w-auto bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-gray-200 transition-all duration-300"
           >
             <div className="relative h-44 overflow-hidden">
               <img
@@ -99,10 +90,10 @@ export default function DestinationSection() {
           </a>
         ))}
 
-        <div className="shrink-0 w-1" />
+        <div className="shrink-0 w-1 md:hidden" />
       </div>
 
-      <div className="flex sm:hidden items-center justify-center gap-2 mt-6">
+      <div className="flex md:hidden items-center justify-center gap-2 mt-6">
         <button
           onClick={() => scroll("left")}
           className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600"

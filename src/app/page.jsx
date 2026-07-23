@@ -5,6 +5,7 @@ import TutorialSection from "@/components/landing/TutorialSection";
 import DestinationSection from "@/components/landing/DestinationSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import Footer from "@/components/layout/Footer";
+import Subs from "@/components/landing/Subs";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <TutorialSection />
         <TestimonialsSection />
       </main>
+      <Subs />
       <Footer />
     </>
   );

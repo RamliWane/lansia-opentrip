@@ -120,7 +120,7 @@ export const reviews = [
     initial: "S",
   }
 ];
-    
+
 export const destinations = [
   {
     name: "Kawah Putih",
@@ -160,7 +160,7 @@ export const destinations = [
     rating: 4.9,
     price: "1.750.000",
     image:
-      "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=500&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1550033588-6f3e54613d6e?w=500&h=600&fit=crop",
   },
   {
     name: "Ubud",
@@ -170,4 +170,20 @@ export const destinations = [
     image:
       "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=500&h=600&fit=crop",
   },
+  {
+    name: "Nusa Penida",
+    location: "Klungkung, Bali",
+    rating: 4.9,
+    price: "850.000",
+    image:
+      "https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?w=500&h=600&fit=crop",
+  },
+  {
+    name: "Candi Borobudur",
+    location: "Magelang, Jawa Tengah",
+    rating: 4.8,
+    price: "450.000",
+    image:
+      "https://images.unsplash.com/photo-1591674585153-ca78d0339b09?w=500&h=600&fit=crop",
+  }
 ];
