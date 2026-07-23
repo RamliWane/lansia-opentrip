@@ -1,6 +1,4 @@
-import { Destination } from "../../domain/entities/Destination";
-
-export const destinationsData= [
+export const destinationsData = [
   {
     id: 1,
     image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80",
@@ -17,7 +15,7 @@ export const destinationsData= [
     priceMax: 750000,
     category: "Pantai",
     description: "Pantai Kuta adalah salah satu tempat wisata paling terkenal di Bali. Terkenal dengan garis pantai berpasir putih yang panjang, ombak yang cocok untuk berselancar pemula, dan pemandangan matahari terbenam (sunset) yang sangat memukau.",
-    highlights: ["Sunset Terindah", "Aktivit", "Dekat Pusat Belanja", "Kuliner Pantai"],
+    highlights: ["Sunset Terindah", "Aktivitas Surfing", "Dekat Pusat Belanja", "Kuliner Pantai"],
     itinerary: [
       { day: 1, title: 'Kedatangan & Eksplorasi Awal', description: 'Tiba di lokasi, check-in, dan eksplorasi seputar area penginapan.' },
       { day: 2, title: 'Tour Utama', description: 'Menikmati destinasi utama dari pagi hingga sore.' },
@@ -28,7 +26,7 @@ export const destinationsData= [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -59,7 +57,7 @@ export const destinationsData= [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -90,7 +88,7 @@ export const destinationsData= [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -121,7 +119,7 @@ export const destinationsData= [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -152,7 +150,7 @@ export const destinationsData= [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -183,7 +181,7 @@ export const destinationsData= [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -214,7 +212,7 @@ export const destinationsData= [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -245,7 +243,7 @@ export const destinationsData= [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -276,7 +274,7 @@ export const destinationsData= [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
@@ -296,7 +294,7 @@ export const destinationsData= [
     priceMax: 1800000,
     category: "Pulau",
     description: "Gili Trawangan adalah pulau terbesar di antara tiga pulau kecil (gili) di barat laut Lombok. Pulau bebas polusi ini melarang kendaraan bermotor, menyuguhkan pantai berpasir putih, konser musik malam yang seru, dan penangkaran penyu bawah air.",
-    highlights: ["Beb Kendaraan", "Bersepeda Keliling Pulau", "Snorkeling Bersama Penyu", "Sunset Swing Romantis"],
+    highlights: ["Bebas Polusi Kendaraan", "Bersepeda Keliling Pulau", "Snorkeling Bersama Penyu", "Sunset Swing Romantis"],
     itinerary: [
       { day: 1, title: 'Kedatangan & Eksplorasi Awal', description: 'Tiba di lokasi, check-in, dan eksplorasi seputar area penginapan.' },
       { day: 2, title: 'Tour Utama', description: 'Menikmati destinasi utama dari pagi hingga sore.' },
@@ -307,7 +305,7 @@ export const destinationsData= [
       { time: '09:00', location: 'Lobi Hotel', description: 'Bagi yang sudah di lokasi, bisa langsung bertemu di lobi.' }
     ],
     reviewsList: [
-      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45'] },
+      { author: 'Budi Santoso', rating: 5, date: '12 Mei 2026', comment: 'Pengalaman yang luar biasa, sangat direkomendasikan!', images: ['https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=200&q=80'] },
       { author: 'Siti Aminah', rating: 4, date: '03 Juni 2026', comment: 'Pemandangannya indah, tapi perjalanan cukup melelahkan.' }
     ],
   },
