@@ -9,7 +9,6 @@ const MIN_DATE = new Date().toISOString().split("T")[0];
 export default function BookingCard({ destination, travelDate, pax, setPax, setTravelDate }) {
   return (
     <div className="bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-zinc-800">
-      {/* Destination Image */}
       <div className="relative h-48 sm:h-56 overflow-hidden">
         <img
           src={destination.image}
