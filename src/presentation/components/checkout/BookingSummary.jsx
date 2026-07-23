@@ -1,7 +1,6 @@
 "use client";
 
-import { Destination } from "../../../domain/entities/Destination";
-import { Voucher, MEETING_POINTS, OrderDomain } from "../../../domain/entities/Order";
+import { MEETING_POINTS, OrderDomain } from "../../../domain/entities/Order";
 import PriceBreakdown from "./PriceBreakdown";
 
 
@@ -139,8 +138,8 @@ export default function BookingSummary({
               ? { backgroundColor: "#df7224", color: "#fff" }
               : { backgroundColor: "#f3f4f6", color: "#9ca3af", cursor: "not-allowed" }
             }
-            onMouseEnter={e => canContinue && ((e.currentTarget ).style.backgroundColor = "#c8631e")}
-            onMouseLeave={e => canContinue && ((e.currentTarget ).style.backgroundColor = "#df7224")}
+            onMouseEnter={e => canContinue && (e.currentTarget.style.backgroundColor = "#c8631e")}
+            onMouseLeave={e => canContinue && (e.currentTarget.style.backgroundColor = "#df7224")}
           >
             {isLoading ? (
               <>

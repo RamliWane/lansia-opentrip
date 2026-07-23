@@ -1,10 +1,6 @@
 "use client";
 
-import { PaymentMethodType } from "../../../domain/entities/Order";
-
-
-
-const PAYMENT_GROUPS: { group; methods: PaymentOption[] }[] = [
+const PAYMENT_GROUPS = [
   {
     group: "Virtual Account",
     methods: [

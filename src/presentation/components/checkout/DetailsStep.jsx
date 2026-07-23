@@ -14,7 +14,7 @@ import { CustomerInfo } from "../../../domain/entities/Order";
 
 
 function validateCustomer(customer) {
-  const errors, string> = {};
+  const errors = {};
   if (!customer.fullName.trim() || customer.fullName.trim().length < 3)
     errors.fullName = "Nama minimal 3 karakter";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email))

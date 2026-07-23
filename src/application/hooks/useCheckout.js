@@ -12,11 +12,7 @@ import {
   Voucher,
 } from "../../domain/entities/Order";
 
-export type CheckoutStep = "details" | "payment" | "confirmation";
-
-export 
-
-const initialCustomer= {
+const initialCustomer = {
   fullName: "",
   email: "",
   phone: "",
@@ -25,8 +21,8 @@ const initialCustomer= {
 
 const SERVICE_FEE = 15000;
 
-export function useCheckout(initialDestination?) {
-  const [state, setState] = useState<CheckoutState>({
+export function useCheckout(initialDestination) {
+  const [state, setState] = useState({
     step: "details",
     destination: initialDestination ?? null,
     pax: 1,
@@ -58,7 +54,7 @@ export function useCheckout(initialDestination?) {
     setState((prev) => ({ ...prev, travelDate: date }));
   }, []);
 
-  const setCustomer = useCallback((field: keyof CustomerInfo, value) => {
+  const setCustomer = useCallback((field, value) => {
     setState((prev) => ({
       ...prev,
       customer: { ...prev.customer, [field]: value },
@@ -79,7 +75,7 @@ export function useCheckout(initialDestination?) {
 
   // ─── Participants ────────────────────────────────────────
   const addParticipant = useCallback(() => {
-    const newP= {
+    const newP = {
       id: OrderDomain.generateParticipantId(),
       fullName: "",
       birthDate: "",
@@ -95,7 +91,7 @@ export function useCheckout(initialDestination?) {
   }, []);
 
   const updateParticipant = useCallback(
-    (id, field: keyof Participant, value) => {
+    (id, field, value) => {
       setState((prev) => ({
         ...prev,
         participants: prev.participants.map((p) =>
@@ -222,8 +218,8 @@ export function useCheckout(initialDestination?) {
 
           const data = await response.json();
 
-          if (typeof window !== "undefined" && (window as any).snap) {
-            (window as any).snap.pay(data.token, {
+          if (typeof window !== "undefined" && window.snap) {
+            window.snap.pay(data.token, {
               onSuccess: () => {
                 setState((p) => ({ ...p, step: "confirmation", isLoading: false }));
               },
@@ -297,7 +293,7 @@ export function useCheckout(initialDestination?) {
 
   return {
     ...state,
-    serviceFee,
+    serviceFee: SERVICE_FEE,
     ticketSubtotal,
     meetingPointFee,
     discount,

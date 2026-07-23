@@ -1,6 +1,5 @@
 "use client";
 
-import { useCheckout } from "../../../application/hooks/useCheckout";
 import { MEETING_POINTS } from "../../../domain/entities/Order";
 import PaymentSelector from "./PaymentSelector";
 import BookingSummary from "./BookingSummary";
@@ -130,8 +129,8 @@ export default function PaymentStep({ checkout, onPay, onBack }) {
             onClick={onBack}
             disabled={isLoading}
             className="mt-4 flex items-center gap-1 text-xs font-semibold text-gray-400 transition-colors"
-            onMouseEnter={e => (e.currentTarget ).style.color = "#df7224"}
-            onMouseLeave={e => (e.currentTarget ).style.color = ""}
+            onMouseEnter={e => e.currentTarget.style.color = "#df7224"}
+            onMouseLeave={e => e.currentTarget.style.color = ""}
           >
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <polyline points="15 18 9 12 15 6" />

@@ -1,16 +1,14 @@
 "use client";
 
-import { CheckoutStep } from "../../../application/hooks/useCheckout";
-
 const ACCENT = "#df7224";
 
-const STEPS: { id; label; sublabel }[] = [
+const STEPS = [
   { id: "details", label: "Detail Perjalanan", sublabel: "Info & peserta" },
   { id: "payment", label: "Pembayaran", sublabel: "Pilih metode" },
   { id: "confirmation", label: "Konfirmasi", sublabel: "Selesai" },
 ];
 
-const STEP_ORDER= ["details", "payment", "confirmation"];
+const STEP_ORDER = ["details", "payment", "confirmation"];
 
 
 
@@ -31,7 +29,7 @@ export default function StepProgress({ currentStep }) {
           style={{
             left: "28px",
             right: `calc(${100 - (currentIdx / (STEPS.length - 1)) * 100}% + 28px)`,
-            backgroundColor,
+            backgroundColor: ACCENT,
           }}
         />
 
@@ -41,9 +39,9 @@ export default function StepProgress({ currentStep }) {
           const isInactive = !isDone && !isActive;
 
           const circleStyle = isDone
-            ? { backgroundColor, borderColor, color: "#fff" }
+            ? { backgroundColor: ACCENT, borderColor: ACCENT, color: "#fff" }
             : isActive
-            ? { backgroundColor: "transparent", borderColor, color: ACCENT }
+            ? { backgroundColor: "transparent", borderColor: ACCENT, color: ACCENT }
             : {};
 
           const circleClass = `w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300${

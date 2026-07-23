@@ -49,8 +49,8 @@ function CheckoutContent() {
               onClick={() => router.push("/")}
               className="flex items-center justify-center w-8 h-8 rounded-xl transition-colors"
               style={{ backgroundColor: "#df722415", color: "#df7224" }}
-              onMouseEnter={e => (e.currentTarget ).style.backgroundColor = "#df722825"}
-              onMouseLeave={e => (e.currentTarget ).style.backgroundColor = "#df722415"}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = "#df722825"}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = "#df722415"}
               title="Kembali"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

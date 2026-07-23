@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AVAILABLE_VOUCHERS, Voucher, OrderDomain } from "../../../domain/entities/Order";
+import { AVAILABLE_VOUCHERS, OrderDomain } from "../../../domain/entities/Order";
 
 
 
@@ -77,8 +77,8 @@ export default function VoucherCard({ voucherCode, appliedVoucher, voucherError,
               disabled={!voucherCode.trim()}
               className="px-4 py-2.5 rounded-xl text-white text-sm font-bold transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               style={{ backgroundColor: "#df7224" }}
-              onMouseEnter={e => !(e.currentTarget ).disabled && ((e.currentTarget ).style.backgroundColor = "#c8631e")}
-              onMouseLeave={e => ((e.currentTarget ).style.backgroundColor = "#df7224")}
+              onMouseEnter={e => !e.currentTarget.disabled && (e.currentTarget.style.backgroundColor = "#c8631e")}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = "#df7224"}
             >
               Pakai
             </button>

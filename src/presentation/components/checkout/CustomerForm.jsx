@@ -1,7 +1,5 @@
 "use client";
 
-import { CustomerInfo } from "../../../domain/entities/Order";
-
 
 
 export default function CustomerForm({ customer, setCustomer, onAutofill, errors }) {
@@ -24,8 +22,8 @@ export default function CustomerForm({ customer, setCustomer, onAutofill, errors
           onClick={onAutofill}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold transition-colors"
           style={{ backgroundColor: "#df722410", borderColor: "#df722430", color: "#df7224" }}
-          onMouseEnter={e => (e.currentTarget ).style.backgroundColor = "#df722420"}
-          onMouseLeave={e => (e.currentTarget ).style.backgroundColor = "#df722410"}
+          onMouseEnter={e => e.currentTarget.style.backgroundColor = "#df722420"}
+          onMouseLeave={e => e.currentTarget.style.backgroundColor = "#df722410"}
         >
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />

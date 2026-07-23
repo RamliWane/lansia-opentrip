@@ -1,6 +1,5 @@
 "use client";
 
-import { useCheckout } from "../../../application/hooks/useCheckout";
 import { MEETING_POINTS, OrderDomain } from "../../../domain/entities/Order";
 import BookingSummary from "./BookingSummary";
 
@@ -127,8 +126,8 @@ export default function ConfirmationStep({ checkout, onReset }) {
             onClick={onReset}
             className="flex-1 py-3 rounded-xl text-white font-extrabold text-sm active:scale-95 transition-all"
             style={{ backgroundColor: "#df7224" }}
-            onMouseEnter={e => (e.currentTarget ).style.backgroundColor = "#c8631e"}
-            onMouseLeave={e => (e.currentTarget ).style.backgroundColor = "#df7224"}
+            onMouseEnter={e => e.currentTarget.style.backgroundColor = "#c8631e"}
+            onMouseLeave={e => e.currentTarget.style.backgroundColor = "#df7224"}
           >
             Pesan Destinasi Lain
           </button>

@@ -2,9 +2,7 @@
 
 const A = "#df7224";
 
-type Step = "details" | "payment" | "confirmation";
-
-const STEPS: { id; label; icon: React.ReactNode }[] = [
+const STEPS = [
   {
     id: "details",
     label: "Detail Perjalanan",
@@ -38,7 +36,7 @@ const STEPS: { id; label; icon: React.ReactNode }[] = [
   },
 ];
 
-const STEP_ORDER= ["details", "payment", "confirmation"];
+const STEP_ORDER = ["details", "payment", "confirmation"];
 
 
 
@@ -54,7 +52,7 @@ export default function CheckoutStepper({ currentStep }) {
         <div
           className="absolute left-0 top-5 h-0.5 mx-10 sm:mx-16 -z-0 transition-all duration-500"
           style={{
-            backgroundColor,
+            backgroundColor: A,
             right: `${100 - (currentIdx / (STEPS.length - 1)) * 100}%`,
           }}
         />
@@ -68,9 +66,9 @@ export default function CheckoutStepper({ currentStep }) {
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300"
                 style={isDone
-                  ? { backgroundColor, borderColor, color: "#fff" }
+                  ? { backgroundColor: A, borderColor: A, color: "#fff" }
                   : isActive
-                  ? { backgroundColor: "transparent", borderColor, color: A }
+                  ? { backgroundColor: "transparent", borderColor: A, color: A }
                   : { backgroundColor: "white", borderColor: "#e5e7eb", color: "#9ca3af" }
                 }
               >

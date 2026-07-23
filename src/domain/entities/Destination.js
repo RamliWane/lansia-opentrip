@@ -1,5 +1,3 @@
-export 
-
 /**
  * Domain services/logic for Destination.
  * Standard pure object-oriented/functional business logic.

@@ -1,6 +1,5 @@
 "use client";
 
-import { Destination } from "../../../domain/entities/Destination";
 import { OrderDomain } from "../../../domain/entities/Order";
 
 
@@ -92,9 +91,8 @@ export default function BookingCard({ destination, travelDate, pax, setPax, setT
                 type="button"
                 onClick={() => setPax(Math.max(1, pax - 1))}
                 className="w-9 h-9 rounded-xl bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-gray-300 font-bold transition-colors flex items-center justify-center shrink-0 text-lg"
-                style={{ ['--hover-color' as string]: '#df7224' }}
-                onMouseEnter={e => { (e.currentTarget ).style.color = '#df7224'; (e.currentTarget ).style.backgroundColor = '#df722415'; }}
-                onMouseLeave={e => { (e.currentTarget ).style.color = ''; (e.currentTarget ).style.backgroundColor = ''; }}
+                onMouseEnter={e => { e.currentTarget.style.color = '#df7224'; e.currentTarget.style.backgroundColor = '#df722415'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = ''; e.currentTarget.style.backgroundColor = ''; }}
               >
                 −
               </button>
@@ -105,8 +103,8 @@ export default function BookingCard({ destination, travelDate, pax, setPax, setT
                 type="button"
                 onClick={() => setPax(Math.min(20, pax + 1))}
                 className="w-9 h-9 rounded-xl bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-gray-300 font-bold transition-colors flex items-center justify-center shrink-0 text-lg"
-                onMouseEnter={e => { (e.currentTarget ).style.color = '#df7224'; (e.currentTarget ).style.backgroundColor = '#df722415'; }}
-                onMouseLeave={e => { (e.currentTarget ).style.color = ''; (e.currentTarget ).style.backgroundColor = ''; }}
+                onMouseEnter={e => { e.currentTarget.style.color = '#df7224'; e.currentTarget.style.backgroundColor = '#df722415'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = ''; e.currentTarget.style.backgroundColor = ''; }}
               >
                 +
               </button>

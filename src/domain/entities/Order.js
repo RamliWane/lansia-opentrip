@@ -1,28 +1,3 @@
-export 
-
-export 
-
-export 
-
-export 
-
-export 
-
-export type PaymentMethodType =
-  | "bca_va"
-  | "mandiri_bill"
-  | "bni_va"
-  | "bri_va"
-  | "permata_va"
-  | "gopay"
-  | "ovo"
-  | "dana"
-  | "shopeepay"
-  | "credit_card"
-  | "qris";
-
-export 
-
 export const OrderDomain = {
   generateOrderId() {
     const timestamp = Date.now().toString(36).toUpperCase();
@@ -43,7 +18,7 @@ export const OrderDomain = {
   },
 };
 
-export const MEETING_POINTS= [
+export const MEETING_POINTS = [
   {
     id: "hotel_pickup",
     label: "Hotel Pickup",
@@ -70,7 +45,7 @@ export const MEETING_POINTS= [
   },
 ];
 
-export const AVAILABLE_VOUCHERS= [
+export const AVAILABLE_VOUCHERS = [
   {
     code: "NEWTRIP10",
     label: "Diskon 10% untuk Pelanggan Baru",
