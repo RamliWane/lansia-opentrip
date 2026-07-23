@@ -48,29 +48,29 @@ export default function DestisasiPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-slate-50">
+      <main className="min-h-screen bg-[#f8f8f6]">
 
         {/* ── Page Header ─────────────────────────────── */}
-        <section className="bg-white border-b border-gray-100 py-10 px-4">
-          <div className="max-w-6xl mx-auto">
+        {/* Latar penuh-lebar, konten dibatasi container yang sama dengan section bawah */}
+        <div className="bg-white border-b border-gray-100">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8">
             <p className="text-[#df7224] font-semibold text-sm tracking-wide mb-2">
               JELAJAHI INDONESIA
             </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
               Semua <span className="text-[#df7224]">Destinasi</span>
             </h1>
-
-            {/* SearchBar component */}
             <SearchBar
               searchQuery={search}
               onSearchChange={setSearch}
               onClear={() => setSearch("")}
             />
           </div>
-        </section>
+        </div>
 
         {/* ── Filter Sidebar + Grid ────────────────────── */}
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Container identik dengan header di atas */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col lg:flex-row gap-8 items-start">
 
             {/* Sidebar */}
@@ -139,13 +139,13 @@ export default function DestisasiPage() {
                     <Link
                       key={dest.id}
                       href={`/destinasi/${dest.id}`}
-                      className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-gray-200 transition-all duration-300"
+                      className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg hover:border-gray-200 transition-all duration-200"
                     >
                       <div className="relative h-44 overflow-hidden">
                         <img
                           src={dest.image}
                           alt={dest.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-cover"
                         />
                         <div className="absolute top-3 left-3 flex items-center gap-1 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-full">
                           <Star size={12} className="text-[#df7224] fill-[#df7224]" />
@@ -188,7 +188,7 @@ export default function DestisasiPage() {
             </div>
 
           </div>
-        </section>
+        </div>
       </main>
       <Footer />
     </>
