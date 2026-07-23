@@ -1,10 +1,11 @@
 ﻿"use client";
 
 import { useState, useMemo } from "react";
-import { MapPin, Star, ArrowRight, Search, SlidersHorizontal } from "lucide-react";
+import { MapPin, Star, ArrowRight, SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import SearchBar from "@/components/destinasi/SearchBar";
 import FilterPanel from "@/components/destinasi/FilterPanel";
 import { destinationsData } from "@/infrastructure/data/destinationsData";
 
@@ -19,7 +20,8 @@ export default function DestisasiPage() {
   const [priceMax, setPriceMax] = useState("");
   const [minRating, setMinRating] = useState(0);
 
-  const hasActiveFilters = selectedLocation !== "" || priceMin !== "" || priceMax !== "" || minRating > 0;
+  const hasActiveFilters =
+    selectedLocation !== "" || priceMin !== "" || priceMax !== "" || minRating > 0;
 
   const resetAllFilters = () => {
     setSelectedLocation("");
@@ -34,7 +36,8 @@ export default function DestisasiPage() {
       const matchSearch =
         d.title.toLowerCase().includes(search.toLowerCase()) ||
         d.location.toLowerCase().includes(search.toLowerCase());
-      const matchLocation = selectedLocation === "" || d.location === selectedLocation;
+      const matchLocation =
+        selectedLocation === "" || d.location === selectedLocation;
       const matchPriceMin = priceMin === "" || d.priceMin >= priceMin;
       const matchPriceMax = priceMax === "" || d.priceMin <= priceMax;
       const matchRating = d.rating >= minRating;
@@ -47,7 +50,7 @@ export default function DestisasiPage() {
       <Navbar />
       <main className="min-h-screen bg-slate-50">
 
-        {/* ── Page Header ─────────────────────────────────── */}
+        {/* ── Page Header ─────────────────────────────── */}
         <section className="bg-white border-b border-gray-100 py-10 px-4">
           <div className="max-w-6xl mx-auto">
             <p className="text-[#df7224] font-semibold text-sm tracking-wide mb-2">
@@ -57,25 +60,16 @@ export default function DestisasiPage() {
               Semua <span className="text-[#df7224]">Destinasi</span>
             </h1>
 
-            {/* Search bar */}
-            <div className="relative max-w-xl">
-              <Search
-                size={18}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-              />
-              <input
-                type="text"
-                placeholder="Cari destinasi atau lokasi..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 bg-white text-sm
-                  focus:outline-none focus:ring-2 focus:ring-[#df7224]/20 focus:border-[#df7224] transition"
-              />
-            </div>
+            {/* SearchBar component */}
+            <SearchBar
+              searchQuery={search}
+              onSearchChange={setSearch}
+              onClear={() => setSearch("")}
+            />
           </div>
         </section>
 
-        {/* ── Main Content: Filter Sidebar + Grid ─────────── */}
+        {/* ── Filter Sidebar + Grid ────────────────────── */}
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col lg:flex-row gap-8 items-start">
 
@@ -119,17 +113,21 @@ export default function DestisasiPage() {
               {/* Empty state */}
               {filtered.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-20 text-center rounded-2xl border border-dashed border-gray-200 bg-white">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
-                    style={{ backgroundColor: "rgba(223,114,36,0.08)" }}>
-                    <Search size={24} style={{ color: "#df7224" }} />
+                  <div
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+                    style={{ backgroundColor: "rgba(223,114,36,0.08)" }}
+                  >
+                    <SlidersHorizontal size={24} style={{ color: "#df7224" }} />
                   </div>
-                  <p className="text-sm font-semibold text-gray-700 mb-1">Tidak ada destinasi cocok</p>
+                  <p className="text-sm font-semibold text-gray-700 mb-1">
+                    Tidak ada destinasi cocok
+                  </p>
                   <p className="text-xs text-gray-400 mb-5 max-w-xs">
                     Coba sesuaikan kata kunci pencarian atau reset filter yang aktif.
                   </p>
                   <button
                     onClick={resetAllFilters}
-                    className="px-5 py-2.5 rounded-xl text-white text-xs font-bold transition-all"
+                    className="px-5 py-2.5 rounded-xl text-white text-xs font-bold"
                     style={{ backgroundColor: "#df7224" }}
                   >
                     Reset Semua Filter
@@ -162,7 +160,8 @@ export default function DestisasiPage() {
 
                       <div className="p-5">
                         <p className="flex items-center gap-1 text-xs text-gray-400 mb-1">
-                          <MapPin size={12} /> {dest.location}
+                          <MapPin size={12} />
+                          {dest.location}
                         </p>
                         <h3 className="text-base font-bold text-gray-900 mb-4 line-clamp-1">
                           {dest.title}
@@ -175,7 +174,10 @@ export default function DestisasiPage() {
                             </p>
                           </div>
                           <div className="w-9 h-9 rounded-full bg-gray-50 group-hover:bg-[#df7224] flex items-center justify-center transition-colors flex-shrink-0">
-                            <ArrowRight size={16} className="text-gray-500 group-hover:text-white transition-colors" />
+                            <ArrowRight
+                              size={16}
+                              className="text-gray-500 group-hover:text-white transition-colors"
+                            />
                           </div>
                         </div>
                       </div>
