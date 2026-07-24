@@ -16,7 +16,7 @@ const quickTags = ["Bali", "Bromo", "Raja Ampat", "Borobudur", "Labuan Bajo"];
  */
 export default function SearchBar({ searchQuery, onSearchChange, onClear }) {
   return (
-    <div className="w-full flex flex-col gap-3 mb-8">
+    <div className="w-full flex flex-col gap-3">
 
       {/* ── Input wrapper ─────────────────────────────── */}
       <div
