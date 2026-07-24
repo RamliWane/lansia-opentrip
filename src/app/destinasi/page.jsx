@@ -7,7 +7,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SearchBar from "@/components/destinasi/SearchBar";
 import FilterPanel from "@/components/destinasi/FilterPanel";
-import { destinationsData } from "@/infrastructure/data/destinationsData";
+import { destinationsData } from "@/lib/destinationsData";
+import Subs from "@/components/landing/Subs";
 
 function formatRupiah(value) {
   return "Rp " + Math.floor(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -50,8 +51,6 @@ export default function DestisasiPage() {
       <Navbar />
       <main className="min-h-screen bg-[#f8f8f6]">
 
-        {/* ── Page Header ─────────────────────────────── */}
-        {/* Latar penuh-lebar, konten dibatasi container yang sama dengan section bawah */}
         <div className="">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8">
             <p className="text-[#df7224] font-semibold text-sm tracking-wide mb-2">
@@ -110,7 +109,6 @@ export default function DestisasiPage() {
                 )}
               </div>
 
-              {/* Empty state */}
               {filtered.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-20 text-center rounded-2xl border border-dashed border-gray-200 bg-white">
                   <div
@@ -190,6 +188,7 @@ export default function DestisasiPage() {
           </div>
         </div>
       </main>
+      <Subs />
       <Footer />
     </>
   );

@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { MapPin, Star, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { destinationsData } from "@/infrastructure/data/destinationsData";
+import { destinationsData } from "@/lib/destinationsData";
 
 export default function DestinationSection() {
   const scrollRef = useRef(null);
