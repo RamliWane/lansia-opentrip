@@ -1,5 +1,3 @@
-//src/app/checkout/page.jsx
-
 "use client";
 
 import { Suspense, useEffect } from "react";
@@ -12,7 +10,6 @@ import PaymentStep from "../../components/checkout/PaymentStep";
 import ConfirmationStep from "../../components/checkout/ConfirmationStep";
 import Footer from "../../components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
-import Subs from "@/components/landing/Subs";
 
 function CheckoutContent() {
   const router = useRouter();
@@ -25,7 +22,6 @@ function CheckoutContent() {
 
   const checkout = useCheckout(destination);
 
-  // Load Midtrans Snap
   useEffect(() => {
     const snapUrl =
       process.env.NEXT_PUBLIC_MIDTRANS_IS_PRODUCTION === "true"
@@ -42,8 +38,7 @@ function CheckoutContent() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-800">
-
+    <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-900">
       <Navbar />
 
       <div className="w-full border-b border-gray-100 bg-white">
@@ -59,7 +54,7 @@ function CheckoutContent() {
             <span className="font-semibold text-gray-700">Checkout</span>
           </div>
 
-          <span className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[10px] sm:text-xs font-semibold bg-orange-50 border-orange-100 text-[#df7224]">
+          <span className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-semibold bg-orange-50 border-orange-100 text-[#df7224]">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
             </svg>
@@ -69,7 +64,6 @@ function CheckoutContent() {
       </div>
 
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-8 py-6 sm:py-8 pb-24 sm:pb-20">
-
         <div className="mb-6 sm:mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
             {checkout.step === "details" && "Konfirmasi Pemesanan"}
@@ -99,7 +93,7 @@ function CheckoutContent() {
           <ConfirmationStep checkout={checkout} onReset={() => router.push("/")} />
         )}
       </main>
-        <Subs />
+
       <Footer />
     </div>
   );
@@ -112,9 +106,7 @@ export default function CheckoutPage() {
         <div className="flex items-center justify-center min-h-screen bg-gray-50">
           <div className="flex flex-col items-center gap-3">
             <div className="w-10 h-10 rounded-full border-4 border-orange-100 border-t-[#df7224] animate-spin" />
-            <p className="text-sm font-semibold text-gray-500">
-              Memuat halaman checkout...
-            </p>
+            <p className="text-sm font-semibold text-gray-500">Memuat halaman checkout...</p>
           </div>
         </div>
       }
