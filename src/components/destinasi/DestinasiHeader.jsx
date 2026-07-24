@@ -1,6 +1,8 @@
 "use client";
+
+import SearchBar from "./SearchBar";
+
  
-import SearchBar from "./Searchbar";
  
 export default function DestinasiHeader({ search, setSearch }) {
   return (
