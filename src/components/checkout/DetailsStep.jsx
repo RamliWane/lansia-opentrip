@@ -86,8 +86,8 @@ export default function DetailsStep({ checkout, onNext }) {
 
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 sm:p-6">
           <div className="flex items-center justify-between mb-5">
-            <h3 className="text-sm font-bold text-gray-800 flex items-center gap-2.5">
-              <span className="w-8 h-8 rounded-xl flex items-center justify-center bg-orange-50">
+            <h3 className="text-[15px] text-gray-800 flex items-center gap-2.5">
+            <span className="w-10 h-10 rounded-xl flex items-center justify-center bg-gray-100">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#df7224" strokeWidth="2.5">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
@@ -106,7 +106,7 @@ export default function DetailsStep({ checkout, onNext }) {
             <button
               type="button"
               onClick={addParticipant}
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-white text-xs font-semibold bg-[#df7224] hover:bg-[#c3611c] active:scale-95 transition-all"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-[3px] text-white text-xs font-semibold bg-[#df7224] hover:bg-[#c3611c] active:scale-95 transition-all"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <line x1="12" y1="5" x2="12" y2="19" />
@@ -156,7 +156,7 @@ export default function DetailsStep({ checkout, onNext }) {
         />
       </div>
 
-      <div>
+      <div className="sticky top-24 self-start">
         <BookingSummary
           destination={destination}
           travelDate={travelDate}
