@@ -2,16 +2,12 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useCheckout } from "../../lib/hooks/useCheckout";
 import BookingCard from "./BookingCard";
 import CustomerForm from "./CustomerForm";
 import ParticipantCard from "./ParticipantCard";
 import MeetingPointSelector from "./MeetingPointSelector";
 import VoucherCard from "./VoucherCard";
 import BookingSummary from "./BookingSummary";
-import { CustomerInfo } from "../../lib/Order";
-
-
 
 function validateCustomer(customer) {
   const errors = {};
@@ -56,10 +52,7 @@ export default function DetailsStep({ checkout, onNext }) {
 
   return (
     <div className="grid grid-cols-1 xl:grid-cols-[1fr_360px] gap-6 items-start">
-      {/* ── Left Column ───────────────────────────────────── */}
       <div className="space-y-5">
-
-        {/* Trip Information Card */}
         {destination ? (
           <BookingCard
             destination={destination}
@@ -69,7 +62,7 @@ export default function DetailsStep({ checkout, onNext }) {
             setTravelDate={setTravelDate}
           />
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-[#df7224] p-10 flex flex-col items-center gap-4 text-center">
+          <div className="bg-white rounded-2xl border border-dashed border-gray-200 p-10 flex flex-col items-center gap-4 text-center">
             <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-orange-50 text-[#df7224]">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -89,20 +82,13 @@ export default function DetailsStep({ checkout, onNext }) {
           </div>
         )}
 
-        {/* Customer Info */}
-        <CustomerForm
-          customer={customer}
-          setCustomer={setCustomer}
-          onAutofill={autofillProfile}
-          errors={customerErrors}
-        />
+        <CustomerForm customer={customer} setCustomer={setCustomer} onAutofill={autofillProfile} errors={customerErrors} />
 
-        {/* Participants */}
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-sm font-bold text-gray-800 flex items-center gap-2">
-              <span className="w-6 h-6 rounded-lg flex items-center justify-center bg-orange-50">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#df7224" strokeWidth="2.5">
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 sm:p-6">
+          <div className="flex items-center justify-between mb-5">
+            <h3 className="text-sm font-bold text-gray-800 flex items-center gap-2.5">
+              <span className="w-8 h-8 rounded-xl flex items-center justify-center bg-orange-50">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#df7224" strokeWidth="2.5">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
                   <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -120,7 +106,7 @@ export default function DetailsStep({ checkout, onNext }) {
             <button
               type="button"
               onClick={addParticipant}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-white text-xs font-semibold bg-[#df7224] hover:bg-[#c3611c] active:scale-95 transition-all"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-white text-xs font-semibold bg-[#df7224] hover:bg-[#c3611c] active:scale-95 transition-all"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <line x1="12" y1="5" x2="12" y2="19" />
@@ -132,8 +118,8 @@ export default function DetailsStep({ checkout, onNext }) {
           </div>
 
           {participants.length === 0 ? (
-            <div className="py-8 flex flex-col items-center gap-2.5 text-center rounded-xl border border-dashed border-gray-200 bg-gray-50">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-orange-50 text-[#df7224]">
+            <div className="py-10 flex flex-col items-center gap-3 text-center rounded-xl border border-dashed border-gray-200 bg-gray-50">
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-orange-50 text-[#df7224]">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
@@ -151,22 +137,14 @@ export default function DetailsStep({ checkout, onNext }) {
           ) : (
             <div className="space-y-3">
               {participants.map((p, idx) => (
-                <ParticipantCard
-                  key={p.id}
-                  participant={p}
-                  index={idx}
-                  onUpdate={updateParticipant}
-                  onRemove={removeParticipant}
-                />
+                <ParticipantCard key={p.id} participant={p} index={idx} onUpdate={updateParticipant} onRemove={removeParticipant} />
               ))}
             </div>
           )}
         </div>
 
-        {/* Meeting Point */}
         <MeetingPointSelector selectedId={meetingPointId} onChange={setMeetingPointId} />
 
-        {/* Voucher */}
         <VoucherCard
           voucherCode={voucherCode}
           appliedVoucher={appliedVoucher}
@@ -178,7 +156,6 @@ export default function DetailsStep({ checkout, onNext }) {
         />
       </div>
 
-      {/* ── Right: Sticky Summary ──────────────────────────── */}
       <div>
         <BookingSummary
           destination={destination}

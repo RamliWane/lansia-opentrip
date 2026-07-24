@@ -3,8 +3,6 @@
 import { MEETING_POINTS, OrderDomain } from "../../lib/Order";
 import BookingSummary from "./BookingSummary";
 
-
-
 function formatDate(dateStr) {
   if (!dateStr) return "—";
   return new Date(dateStr).toLocaleDateString("id-ID", {
@@ -21,15 +19,26 @@ export default function ConfirmationStep({ checkout, onReset }) {
 
   const meetingPoint = MEETING_POINTS.find((m) => m.id === meetingPointId);
 
+  const detailRows = [
+    { icon: "📅", label: "Tanggal Wisata", value: formatDate(travelDate) },
+    { icon: "👥", label: "Jumlah Peserta", value: `${pax} orang` },
+    { icon: "📍", label: "Meeting Point", value: meetingPoint?.label ?? "—" },
+    { icon: "👤", label: "Pemesan", value: customer.fullName },
+    { icon: "📧", label: "Email", value: customer.email },
+    { icon: "📱", label: "No. HP", value: customer.phone },
+  ];
+
+  const nextSteps = [
+    "E-tiket dikirim ke email Anda dalam 5 menit",
+    "Tim kami menghubungi Anda 24 jam sebelum perjalanan",
+    "Simpan ID pesanan untuk keperluan check-in",
+  ];
+
   return (
     <div className="grid grid-cols-1 xl:grid-cols-[1fr_360px] gap-6 items-start">
-      {/* ── Left ─────────────────────────────────────────── */}
       <div className="space-y-5">
-
-        {/* Success card */}
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-          {/* Accent banner */}
-          <div className="p-8 flex flex-col items-center text-center relative overflow-hidden bg-[#df7224]">
+          <div className="p-8 sm:p-10 flex flex-col items-center text-center relative overflow-hidden bg-[#df7224]">
             <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-white/10 pointer-events-none" />
             <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-white/10 pointer-events-none" />
 
@@ -50,81 +59,60 @@ export default function ConfirmationStep({ checkout, onReset }) {
             </div>
           </div>
 
-          {/* Body */}
-          <div className="p-5 space-y-4">
-            {/* Destination */}
+          <div className="p-5 sm:p-6 space-y-4">
             {destination && (
-              <div className="flex gap-3 p-3 rounded-2xl bg-gray-50 border border-gray-100">
+              <div className="flex gap-3 p-3.5 rounded-2xl bg-gray-50 border border-gray-100">
                 <img src={destination.image} alt={destination.title} className="w-16 h-16 rounded-xl object-cover shrink-0" />
                 <div>
                   <p className="font-bold text-gray-900 text-sm">{destination.title}</p>
-                  <p className="text-[11px] mt-0.5 text-[#df7224]">{destination.location}</p>
-                  <p className="text-[11px] font-semibold mt-0.5 text-[#df7224]">★ {destination.rating}</p>
+                  <p className="text-xs mt-1 text-[#df7224]">{destination.location}</p>
+                  <p className="text-xs font-semibold mt-1 text-[#df7224]">★ {destination.rating}</p>
                 </div>
               </div>
             )}
 
-            {/* Details */}
             <div className="divide-y divide-gray-50">
-              {[
-                { icon: "📅", label: "Tanggal Wisata", value: formatDate(travelDate) },
-                { icon: "👥", label: "Jumlah Peserta", value: `${pax} orang` },
-                { icon: "📍", label: "Meeting Point", value: meetingPoint?.label ?? "—" },
-                { icon: "👤", label: "Pemesan", value: customer.fullName },
-                { icon: "📧", label: "Email", value: customer.email },
-                { icon: "📱", label: "No. HP", value: customer.phone },
-              ].map(({ icon, label, value }) => (
-                <div key={label} className="flex justify-between items-center py-2">
-                  <span className="text-xs text-gray-500 flex items-center gap-1.5">
+              {detailRows.map(({ icon, label, value }) => (
+                <div key={label} className="flex justify-between items-center py-2.5">
+                  <span className="text-sm text-gray-500 flex items-center gap-2">
                     <span>{icon}</span> {label}
                   </span>
-                  <span className="text-xs font-semibold text-gray-800 text-right max-w-[55%] break-all">
-                    {value}
-                  </span>
+                  <span className="text-sm font-semibold text-gray-800 text-right max-w-[55%] break-all">{value}</span>
                 </div>
               ))}
             </div>
 
-            {/* Total */}
-            <div className="rounded-xl p-3 flex justify-between items-center border bg-orange-50 border-orange-100">
+            <div className="rounded-xl p-4 flex justify-between items-center border bg-orange-50 border-orange-100">
               <span className="text-sm font-bold text-gray-800">Total Dibayar</span>
-              <span className="text-lg font-bold text-gray-900">
-                {OrderDomain.formatPrice(total)}
-              </span>
+              <span className="text-lg font-bold text-gray-900">{OrderDomain.formatPrice(total)}</span>
             </div>
           </div>
         </div>
 
-        {/* Next steps */}
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 sm:p-6">
           <h3 className="text-sm font-bold text-gray-800 mb-4">Langkah Selanjutnya</h3>
-          <div className="space-y-3">
-            {[
-              { num: 1, text: "E-tiket dikirim ke email Anda dalam 5 menit" },
-              { num: 2, text: "Tim kami menghubungi Anda 24 jam sebelum perjalanan" },
-              { num: 3, text: "Simpan ID pesanan untuk keperluan check-in" },
-            ].map(({ num, text }) => (
-              <div key={num} className="flex items-start gap-3">
+          <div className="space-y-3.5">
+            {nextSteps.map((text, i) => (
+              <div key={i} className="flex items-start gap-3">
                 <span className="w-6 h-6 rounded-full flex items-center justify-center font-bold text-[10px] shrink-0 bg-orange-50 text-[#df7224]">
-                  {num}
+                  {i + 1}
                 </span>
-                <p className="text-xs text-gray-600 leading-relaxed pt-0.5">{text}</p>
+                <p className="text-sm text-gray-600 leading-relaxed pt-0.5">{text}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-3">
           <button
             onClick={onReset}
-            className="flex-1 py-3 rounded-xl text-white font-bold text-sm bg-[#df7224] hover:bg-[#c3611c] active:scale-95 transition-all"
+            className="flex-1 py-3.5 rounded-xl text-white font-bold text-sm bg-[#df7224] hover:bg-[#c3611c] active:scale-95 transition-all"
           >
             Pesan Destinasi Lain
           </button>
           <button
             onClick={() => window.print()}
-            className="flex-1 py-3 rounded-xl bg-white hover:bg-gray-50 text-gray-700 font-semibold text-sm border border-gray-200 transition-all flex items-center justify-center gap-2"
+            className="flex-1 py-3.5 rounded-xl bg-white hover:bg-gray-50 text-gray-700 font-semibold text-sm border border-gray-200 transition-all flex items-center justify-center gap-2"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
               <polyline points="6 9 6 2 18 2 18 9" />
@@ -136,7 +124,6 @@ export default function ConfirmationStep({ checkout, onReset }) {
         </div>
       </div>
 
-      {/* ── Right: Summary (read-only) ───────────────────── */}
       <div>
         <BookingSummary
           destination={destination}
