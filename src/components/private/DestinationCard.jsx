@@ -1,4 +1,5 @@
 import { A } from "./helpers/constants";
+import { formatRupiah } from "./helpers/helpers";
 
 export default function DestinationCard({
   dest,

@@ -14,7 +14,7 @@ export default function SubmitBar() {
 
                   type="submit"
 
-                  className="px-7 py-3 rounded-xl text-white font-extrabold text-sm uppercase tracking-wide transition-all active:scale-95 flex items-center gap-2"
+                  className="px-7 py-3 rounded-xl text-white font-extrabold text-sm tracking-wide transition-all active:scale-95 flex items-center gap-2"
 
                   style={{ backgroundColor: A }}
 
