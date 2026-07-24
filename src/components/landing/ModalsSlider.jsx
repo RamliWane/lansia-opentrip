@@ -84,7 +84,7 @@ const openModal = () => {
                     />
 
                     <div
-                        className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-2xl bg-gray-50 rounded-t-3xl shadow-2xl overflow-hidden h-[80vh] flex flex-col transition-transform duration-300 ease-out ${isVisible ? "translate-y-0" : "translate-y-full"
+                        className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-2xl bg-white rounded-t-3xl shadow-2xl overflow-hidden h-[80vh] flex flex-col transition-transform duration-300 ease-out ${isVisible ? "translate-y-0" : "translate-y-full"
                             }`}
                     >
                         <div className="flex justify-center pt-3 pb-2 shrink-0 bg-white">
@@ -108,11 +108,6 @@ const openModal = () => {
                                     placeholder="Derawan...."
                                     className="flex-1 bg-transparent text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none"
                                 />
-                            </div>
-
-                            <div className="flex items-center justify-between bg-gray-100 rounded-2xl px-5 py-4">
-                                <span className="text-sm text-gray-500">Mau kemana?</span>
-                                <span className="text-sm text-gray-700">Lokasi</span>
                             </div>
 
                             <div className="bg-white rounded-2xl p-5 sm:p-6">
@@ -157,8 +152,7 @@ const openModal = () => {
                                 </div>
                             </div>
                         </div>
-                                    <div className="absolute -top-6 -right-6 w-32 h-32 bg-[#df7224]/20 rounded-full blur-3xl -z-10" />
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-white/10 rounded-full blur-3xl -z-10" />
+
                     </div>
                 </div>
             )}
