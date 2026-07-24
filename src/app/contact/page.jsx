@@ -1,28 +1,46 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import {
+    PhoneIcon,
+    EnvelopeIcon,
+    MapPinIcon,
+    ClockIcon,
+    PaperAirplaneIcon,
+    UserIcon,
+    ChatBubbleLeftRightIcon,
+} from "@heroicons/react/24/outline";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Subs from "@/components/landing/Subs";
 
 export default function ContactPage() {
+    const [submitted, setSubmitted] = useState(false);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setSubmitted(true);
+    };
+
     return (
-        <div className="bg-white">
+        <div className="bg-[#f8f8f6]">
             <Navbar />
+
             <section
-                className="relative bg-cover bg-center py-24 sm:py-42"
-                style={{
-                    backgroundImage: "url('/contact-hero.jpg')",
-                }}
+                className="relative bg-cover bg-center py-24 sm:py-40"
+                style={{ backgroundImage: "url('/contact-hero.jpg')" }}
             >
-                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
 
                 <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="text-4xl sm:text-5xl font-bold text-white mb-3">
+
+                    <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
                         Contact <span className="text-[#df7224]">Us</span>
                     </h1>
                 </div>
 
                 <div
-                    className="absolute bottom-0 left-0 right-0 h-16 bg-white"
+                    className="absolute bottom-0 left-0 right-0 h-16 bg-[#f8f8f6]"
                     style={{
                         clipPath: "polygon(0 100%, 100% 100%, 70% 10%, 50% 0, 10% 100%, 0 0)",
                     }}
@@ -31,118 +49,160 @@ export default function ContactPage() {
 
             <section className="relative z-20 -mt-24 sm:-mt-32 pb-16 sm:pb-20">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="bg-white rounded-xl shadow-2xl p-8 sm:p-12">
-                        <div className="grid lg:grid-cols-2 gap-14">
-                            <div>
-                                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-                                    Hubungi Kami
-                                </h2>
-                                <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-md">
-                                    Tim kami siap bantu kamu lewat kontak di bawah ini, atau
-                                    langsung datang ke lokasi kantor kami.
-                                </p>
+                    <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                        <div className="grid lg:grid-cols-5">
 
-                                <div className="space-y-4 mb-8">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center shrink-0">
-                                            <Phone size={16} className="text-[#df7224]" />
-                                        </div>
-                                        <a
-                                            href="tel:+6281234567890"
-                                            className="text-sm font-medium text-gray-700 hover:text-[#df7224] transition-colors"
-                                        >
-                                            +62 812-3456-7890
+                            <div className="lg:col-span-2 relative bg-gray-200  rounded-r-3xl p-8 sm:p-10 flex flex-col justify-between overflow-hidden">
+
+                                <div className="relative">
+                                    <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                                        Hubungi Kami
+                                    </h2>
+                                    <p className="text-gray-500 text-sm leading-relaxed mb-10 max-w-sm">
+                                        Tim kami siap bantu kamu lewat kontak di bawah ini, atau
+                                        langsung datang ke lokasi kantor kami.
+                                    </p>
+
+                                    <div className="space-y-5 mb-10">
+                                        <a href="tel:+6281234567890" className="flex items-center gap-4 group">
+                                            <div className="w-11 h-11 rounded-full bg-white group-hover:bg-[#df7224] flex items-center justify-center shrink-0 transition-colors">
+                                                <PhoneIcon className="w-4 h-4 text-[#df7224] group-hover:text-white transition-colors" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[14px] text-gray-900">Telepon</p>
+                                                <p className="text-sm font-medium text-gray-900">+62 812-3456-7890</p>
+                                            </div>
                                         </a>
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center shrink-0">
-                                            <Mail size={16} className="text-[#df7224]" />
-                                        </div>
-                                        <a
-                                            href="mailto:hello@opentrip.id"
-                                            className="text-sm font-medium text-gray-700 hover:text-[#df7224] transition-colors"
-                                        >
-                                            hello@opentrip.id
+
+                                        <a href="mailto:hello@opentrip.id" className="flex items-center gap-4 group cursor-pointer">
+                                            <div className="w-11 h-11 rounded-full bg-white group-hover:bg-[#df7224] flex items-center justify-center shrink-0 transition-colors">
+                                                <EnvelopeIcon className="w-4 h-4 text-[#df7224] group-hover:text-white transition-colors" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[14px] text-gray-900">Email</p>
+                                                <p className="text-sm font-medium text-gray-900">hello@opentrip.id</p>
+                                            </div>
                                         </a>
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center shrink-0">
-                                            <MapPin size={16} className="text-[#df7224]" />
-                                        </div>
-                                        <span className="text-sm font-medium text-gray-700">
-                                            Jl. Merdeka No. 10, Bandung, Jawa Barat
-                                        </span>
+
+                                       <a href="mailto:hello@opentrip.id" className="flex items-center gap-4 group cursor-pointer">
+                                            <div className="w-11 h-11 rounded-full bg-white group-hover:bg-[#df7224] flex items-center justify-center shrink-0 transition-colors">
+                                                <MapPinIcon className="w-4 h-4 text-[#df7224] group-hover:text-white transition-colors" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[14px] text-gray-900">Alamat</p>
+                                                <p className="text-sm font-medium text-gray-900">Jl. Merdeka No. 10, Bandung, Jawa Barat</p>
+                                            </div>
+                                        </a>
+
+                                        <a href="mailto:hello@opentrip.id" className="flex items-center gap-4 group cursor-pointer">
+                                            <div className="w-11 h-11 rounded-full bg-white group-hover:bg-[#df7224] flex items-center justify-center shrink-0 transition-colors">
+                                                <ClockIcon className="w-4 h-4 text-[#df7224] group-hover:text-white transition-colors" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[14px] text-gray-900">Jam Operasional</p>
+                                                <p className="text-sm font-medium text-gray-900">Senin – Sabtu, 09.00 – 18.00</p>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            <div >
+
+                            <div className="lg:col-span-3 p-8 sm:p-10">
                                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
                                     Get In Touch
                                 </h2>
                                 <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-md">
-                                    Ada pertanyaan soal trip, pembayaran, atau kerjasama? Isi
-                                    form di bawah dan tim kami akan segera menghubungi kamu
-                                    kembali.
+                                    Isi form di bawah dan tim kami akan segera menghubungi kamu kembali,
+                                    biasanya dalam 1x24 jam kerja.
                                 </p>
 
-                                <form className="space-y-5">
-                                    <div className="grid sm:grid-cols-2 gap-5">
+                                {submitted ? (
+                                    <div className="flex flex-col items-center justify-center text-center py-16 border border-dashed border-gray-200 rounded-xl">
+                                        <div className="w-14 h-14 rounded-full bg-[#df7224]/10 flex items-center justify-center mb-4">
+                                            <PaperAirplaneIcon className="w-5 h-5 text-[#df7224]" />
+                                        </div>
+                                        <h3 className="font-bold text-gray-900 mb-1">Pesan terkirim!</h3>
+                                        <p className="text-sm text-gray-500 max-w-xs">
+                                            Terima kasih, tim kami akan segera menghubungi kamu kembali.
+                                        </p>
+                                    </div>
+                                ) : (
+                                    <form onSubmit={handleSubmit} className="space-y-5">
+                                        <div className="grid sm:grid-cols-2 gap-5">
+                                            <div>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    Email
+                                                </label>
+                                                <div className="relative">
+                                                    <EnvelopeIcon className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                                                    <input
+                                                        type="email"
+                                                        placeholder="nama@email.com"
+                                                        required
+                                                        className="w-full border border-gray-200 rounded-lg pl-11 pr-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#df7224]/20 focus:border-[#df7224] transition-colors"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    Phone
+                                                </label>
+                                                <div className="relative">
+                                                    <PhoneIcon className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                                                    <input
+                                                        type="tel"
+                                                        placeholder="08xx-xxxx-xxxx"
+                                                        className="w-full border border-gray-200 rounded-lg pl-11 pr-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#df7224]/20 focus:border-[#df7224] transition-colors"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div>
                                             <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                Email
+                                                Name
                                             </label>
-                                            <input
-                                                type="email"
-                                                placeholder="Email"
-                                                className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#df7224]/20 focus:border-[#df7224] transition-colors"
-                                            />
+                                            <div className="relative">
+                                                <UserIcon className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                                                <input
+                                                    type="text"
+                                                    placeholder="Nama lengkap"
+                                                    required
+                                                    className="w-full border border-gray-200 rounded-lg pl-11 pr-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#df7224]/20 focus:border-[#df7224] transition-colors"
+                                                />
+                                            </div>
                                         </div>
+
                                         <div>
                                             <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                Phone
+                                                Message
                                             </label>
-                                            <input
-                                                type="tel"
-                                                placeholder="Phone"
-                                                className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#df7224]/20 focus:border-[#df7224] transition-colors"
-                                            />
+                                            <div className="relative">
+                                                <ChatBubbleLeftRightIcon className="w-4 h-4 absolute left-4 top-4 text-gray-400" />
+                                                <textarea
+                                                    rows={5}
+                                                    placeholder="Tulis pesan kamu di sini..."
+                                                    required
+                                                    className="w-full border border-gray-200 rounded-lg pl-11 pr-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#df7224]/20 focus:border-[#df7224] transition-colors resize-none"
+                                                />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            Name
-                                        </label>
-                                        <input
-                                            type="text"
-                                            placeholder="Name"
-                                            className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#df7224]/20 focus:border-[#df7224] transition-colors"
-                                        />
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            Message
-                                        </label>
-                                        <textarea
-                                            rows={5}
-                                            placeholder="Message"
-                                            className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#df7224]/20 focus:border-[#df7224] transition-colors resize-none"
-                                        />
-                                    </div>
-
-                                    <button
-                                        type="submit"
-                                        className="bg-[#df7224] text-white px-8 py-2 w-full rounded-md font-semibold hover:bg-[#c3611c] transition-colors"
-                                    >
-                                        Submit Button
-                                    </button>
-                                </form>
+                                        <button
+                                            type="submit"
+                                            className="flex items-center justify-center gap-2 bg-[#df7224] text-white px-8 py-3.5 w-full rounded-lg font-semibold hover:bg-[#c3611c] transition-colors"
+                                        >
+                                            Kirim Pesan
+                                            <PaperAirplaneIcon className="w-4 h-4" />
+                                        </button>
+                                    </form>
+                                )}
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
             <Subs />
             <Footer />
         </div>
