@@ -69,7 +69,7 @@ export default function FilterPanel({
         >
           <div className="flex items-center gap-2">
             <Filter size={16} style={{ color: A }} />
-            <span>Filter Destinasi</span>
+            <span className="text-gray-800">Filter Destinasi</span>
             {activeCount > 0 && (
               <span
                 className="w-5 h-5 rounded-full text-white text-[10px] font-bold flex items-center justify-center"
@@ -134,7 +134,7 @@ export default function FilterPanel({
               <button
                 type="button"
                 onClick={() => setIsLocationOpen(!isLocationOpen)}
-                className="flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm font-medium text-left focus:outline-none focus:border-[#df7224] transition-colors"
+                className="flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm font-medium text-gray-800 text-left focus:outline-none focus:border-[#df7224] transition-colors"
               >
                 <span className={selectedLocation ? "text-gray-800" : "text-gray-400"}>
                   {selectedLocation || "Semua Lokasi"}
@@ -224,7 +224,7 @@ export default function FilterPanel({
                   placeholder="Contoh: 200000"
                   value={priceMin}
                   onChange={(e) => setPriceMin(e.target.value === "" ? "" : Number(e.target.value))}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-xs font-semibold focus:outline-none focus:border-[#df7224] focus:ring-2 focus:ring-[#df7224]/15 transition-all"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-xs font-semibold text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#df7224] focus:ring-2 focus:ring-[#df7224]/15 transition-all"
                 />
                 <p className="text-[10px] pl-1 font-medium" style={{ color: A }}>
                   {priceMin !== "" ? formatRupiah(priceMin) : "Tanpa batas minimal"}
@@ -238,7 +238,7 @@ export default function FilterPanel({
                   placeholder="Contoh: 2000000"
                   value={priceMax}
                   onChange={(e) => setPriceMax(e.target.value === "" ? "" : Number(e.target.value))}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-xs font-semibold focus:outline-none focus:border-[#df7224] focus:ring-2 focus:ring-[#df7224]/15 transition-all"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-xs font-semibold text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#df7224] focus:ring-2 focus:ring-[#df7224]/15 transition-all"
                 />
                 <p className="text-[10px] pl-1 font-medium" style={{ color: A }}>
                   {priceMax !== "" ? formatRupiah(priceMax) : "Tanpa batas maksimal"}
