@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Check, Trash2, ChevronDown } from "lucide-react";
 
 const GENDER_OPTIONS = [
   { value: "male", label: "Laki-laki" },
@@ -9,23 +10,23 @@ const GENDER_OPTIONS = [
 
 const RELATIONSHIP_OPTIONS = [
   "Diri Sendiri", "Pasangan", "Anak", "Orang Tua",
-  "Saudara", "Teman", "Kolega", "Lainnya",
+  "Saudara", "Teman", "Lainnya",
 ];
 
-function isComplete(p) {
+const isComplete = (p) => {
   return !!(p.fullName.trim() && p.birthDate && p.gender && p.phone.trim());
-}
+};
 
-export default function ParticipantCard({ participant, index, onUpdate, onRemove }) {
+export default function ParticipantCard ({ participant, index, onUpdate, onRemove }) {
   const [isExpanded, setIsExpanded] = useState(true);
   const complete = isComplete(participant);
 
   return (
     <div
-      className={`rounded-2xl border overflow-hidden transition-all duration-200 ${
+      className={`rounded-xl border overflow-hidden transition-colors ${
         complete
-          ? "border-[#df7224]/30 bg-[#df7224]/5"
-          : "border-gray-100 bg-white"
+          ? "border-primary/30 bg-primary-light/40"
+          : "border-gray-200 bg-white"
       }`}
     >
       <div
@@ -34,23 +35,17 @@ export default function ParticipantCard({ participant, index, onUpdate, onRemove
       >
         <div className="flex items-center gap-3">
           <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${
-              complete ? "bg-[#df7224] text-white" : "bg-gray-100 text-gray-500"
+            className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${
+              complete ? "bg-primary text-white" : "bg-gray-100 text-gray-500"
             }`}
           >
-            {complete ? (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            ) : (
-              index + 1
-            )}
+            {complete ? <Check size={14} strokeWidth={2.5} /> : index + 1}
           </div>
           <div>
-            <p className="text-sm font-bold text-gray-800">
+            <h4 className="text-sm font-semibold text-gray-900">
               {participant.fullName || `Peserta ${index + 1}`}
-            </p>
-            <p className="text-[10px] text-gray-400">
+            </h4>
+            <p className="text-xs text-gray-500">
               {complete
                 ? `${participant.gender === "male" ? "Laki-laki" : "Perempuan"} · ${participant.relationship || "—"}`
                 : "Lengkapi data peserta"}
@@ -60,122 +55,106 @@ export default function ParticipantCard({ participant, index, onUpdate, onRemove
 
         <div className="flex items-center gap-2">
           <span
-            className={`hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-[3px] text-[10px] font-bold border ${
+            className={`hidden sm:inline-flex items-center px-2 py-0.5 rounded-[5px] text-[11px] font-medium border ${
               complete
-                ? "bg-[#df7224]/10 text-[#df7224] border-[#df7224]/30"
+                ? "bg-primary-light text-primary border-primary/30"
                 : "bg-gray-100 text-gray-500 border-transparent"
             }`}
           >
-            <span
-            />
             {complete ? "Lengkap" : "Belum lengkap"}
           </span>
 
           <button
             type="button"
-            onClick={(e) => { e.stopPropagation(); onRemove(participant.id); }}
-            className="w-7 h-7 rounded-lg flex items-center justify-center text-gray-400 hover:text-red-500 hover:bg-red-500/10 transition-colors"
+            onClick={(e) => {
+              e.stopPropagation();
+              onRemove(participant.id);
+            }}
+            className="w-7 h-7 rounded-lg flex items-center justify-center text-white bg-red-500 hover:bg-red-500/80 transition-colors"
+            aria-label="Hapus peserta"
           >
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <polyline points="3 6 5 6 21 6" />
-              <path d="M19 6l-1 14H6L5 6" />
-              <path d="M10 11v6M14 11v6M9 6V4h6v2" />
-            </svg>
+            <Trash2 size={15} />
           </button>
 
-          <div className={`text-gray-400 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </div>
+          <ChevronDown
+            size={16}
+            className={`text-gray-400 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+          />
         </div>
       </div>
 
       {isExpanded && (
-        <div className="px-4 pb-4 border-t border-gray-100">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-
-            <div className="sm:col-span-2 flex flex-col gap-1.5">
-          <label className="text-[14px] text-gray-500">
-            Nama Lengkap
-          </label>
+        <div className="px-4 pb-4 pt-2 border-t border-gray-100">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div className="sm:col-span-2 flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-700">Nama Lengkap Peserta *</label>
               <input
                 type="text"
                 placeholder="Sesuai KTP / Paspor"
                 value={participant.fullName}
                 onChange={(e) => onUpdate(participant.id, "fullName", e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl text-sm font-semibold text-gray-900 bg-white border border-gray-200 placeholder:text-gray-400 placeholder:font-normal focus:outline-none focus:ring-2 focus:ring-[#df7224]/20 focus:border-[#df7224] transition-colors"
+                className="w-full px-3.5 py-2 rounded-lg text-sm text-gray-900 bg-white border border-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               />
             </div>
 
-            <div className="flex flex-col gap-1.5">
-          <label className="text-[14px] text-gray-500">
-            Tanggal Lahir
-          </label>
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-700">Tanggal Lahir *</label>
               <input
                 type="date"
                 value={participant.birthDate}
                 max={new Date().toISOString().split("T")[0]}
                 onChange={(e) => onUpdate(participant.id, "birthDate", e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl text-sm font-semibold text-gray-900 bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#df7224]/20 focus:border-[#df7224] transition-colors"
+                className="w-full px-3.5 py-2 rounded-lg text-sm text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               />
             </div>
 
-            <div className="flex flex-col gap-1.5">
-          <label className="text-[14px] text-gray-500">
-            Jenis Kelamin
-          </label>
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-700">Jenis Kelamin *</label>
               <div className="flex gap-2">
-                {GENDER_OPTIONS.map((opt) => {
-                  const sel = participant.gender === opt.value;
+                {GENDER_OPTIONS.map(({ value, label }) => {
+                  const sel = participant.gender === value;
                   return (
                     <button
-                      key={opt.value}
+                      key={value}
                       type="button"
-                      onClick={() => onUpdate(participant.id, "gender", opt.value)}
-                      className={`flex-1 py-2.5 rounded-[3px] border text-xs font-bold transition-all ${
+                      onClick={() => onUpdate(participant.id, "gender", value)}
+                      className={`flex-1 py-2 rounded-lg border text-xs font-medium transition-colors ${
                         sel
-                          ? "bg-[#df7224] border-[#df7224] text-white"
-                          : "bg-gray-50 border-gray-200 text-gray-500 hover:border-gray-300"
+                          ? "bg-primary border-primary text-white"
+                          : "bg-white border-gray-300 text-gray-700 hover:bg-gray-50"
                       }`}
                     >
-                      {opt.value === "male" ? "♂ " : "♀ "}{opt.label}
+                      {label}
                     </button>
                   );
                 })}
               </div>
             </div>
 
-            <div className="flex flex-col gap-1.5">
-          <label className="text-[14px] text-gray-500">
-            Nomor Telepon
-          </label>
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-700">Nomor Telepon *</label>
               <input
                 type="tel"
                 placeholder="08xxxxxxxxxx"
                 value={participant.phone}
                 onChange={(e) => onUpdate(participant.id, "phone", e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl text-sm font-semibold text-gray-900 bg-white border border-gray-200 placeholder:text-gray-400 placeholder:font-normal focus:outline-none focus:ring-2 focus:ring-[#df7224]/20 focus:border-[#df7224] transition-colors"
+                className="w-full px-3.5 py-2 rounded-lg text-sm text-gray-900 bg-white border border-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               />
             </div>
 
-            <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">
-                Email <span className="text-gray-300 font-normal normal-case">(opsional)</span>
-              </label>
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-700">Email <span className="text-gray-400 font-normal">(opsional)</span></label>
               <input
                 type="email"
                 placeholder="email@contoh.com"
                 value={participant.email}
                 onChange={(e) => onUpdate(participant.id, "email", e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl text-sm font-semibold text-gray-900 bg-white border border-gray-200 placeholder:text-gray-400 placeholder:font-normal focus:outline-none focus:ring-2 focus:ring-[#df7224]/20 focus:border-[#df7224] transition-colors"
+                className="w-full px-3.5 py-2 rounded-lg text-sm text-gray-900 bg-white border border-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               />
             </div>
 
-            <div className="sm:col-span-2 flex flex-col gap-1.5">
-          <label className="text-[14px] text-gray-500">
-            Hubungan dengan Pemesan
-          </label>
+            <div className="sm:col-span-2 flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-700">Hubungan dengan Pemesan</label>
               <div className="flex flex-wrap gap-1.5">
                 {RELATIONSHIP_OPTIONS.map((rel) => {
                   const sel = participant.relationship === rel;
@@ -184,10 +163,10 @@ export default function ParticipantCard({ participant, index, onUpdate, onRemove
                       key={rel}
                       type="button"
                       onClick={() => onUpdate(participant.id, "relationship", rel)}
-                      className={`px-3 py-1.5 rounded-[3px] cursor-pointer text-xs font-semibold border transition-all ${
+                      className={`px-3 py-1 rounded-lg text-xs font-medium border transition-colors ${
                         sel
-                          ? "bg-[#df7224] border-[#df7224] text-white"
-                          : "bg-transparent border-gray-300 text-gray-500 hover:border-gray-300"
+                          ? "bg-primary border-primary text-white"
+                          : "bg-white border-gray-300 text-gray-700 hover:bg-gray-50"
                       }`}
                     >
                       {rel}
@@ -201,4 +180,4 @@ export default function ParticipantCard({ participant, index, onUpdate, onRemove
       )}
     </div>
   );
-}
+};
