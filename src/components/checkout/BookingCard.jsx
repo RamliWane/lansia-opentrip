@@ -48,7 +48,7 @@ export default function BookingCard({ destination, travelDate, pax, setPax, setT
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-1.5">
             <label className="text-[13px] text-gray-500 flex items-center gap-1">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#df7224" strokeWidth="2.5">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="gray" strokeWidth="2.5">
                 <rect x="3" y="4" width="18" height="18" rx="2" />
                 <line x1="16" y1="2" x2="16" y2="6" />
                 <line x1="8" y1="2" x2="8" y2="6" />
@@ -67,7 +67,7 @@ export default function BookingCard({ destination, travelDate, pax, setPax, setT
 
           <div className="flex flex-col gap-1.5">
             <label className="text-[13px] text-gray-500 flex items-center gap-1">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#df7224" strokeWidth="2.5">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="gray" strokeWidth="2.5">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                 <circle cx="9" cy="7" r="4" />
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87" />

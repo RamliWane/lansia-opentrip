@@ -14,9 +14,9 @@ export default function VoucherCard({ voucherCode, appliedVoucher, voucherError,
 
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 sm:p-6">
-      <h3 className="text-[15px] text-gray-800 flex items-center gap-2.5 mb-5">
-        <span className="w-10 h-10 rounded-xl flex items-center justify-center bg-gray-100">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#df7224" strokeWidth="2.5">
+      <h3 className="text-[15px] text-gray-800 font-semibold flex items-center gap-1 mb-3">
+        <span className="w-10 h-10 rounded-xl flex items-center justify-center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2.5">
             <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
             <line x1="7" y1="7" x2="7.01" y2="7" />
           </svg>
