@@ -1,19 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import {
-    Plus,
-    ChevronLeft,
-    ChevronRight,
-    MessageCircleQuestion,
-    Send,
-} from "lucide-react";
+import { Plus, ChevronLeft, ChevronRight, Send } from "lucide-react";
 import { faqs } from "@/lib/data.js";
-
 
 const PAGE_SIZE = 6;
 
-export default function FaqSection() {
+export default function FAQSection() {
     const [openIndex, setOpenIndex] = useState(0);
     const [page, setPage] = useState(0);
     const totalPages = Math.ceil(faqs.length / PAGE_SIZE);
@@ -26,56 +19,53 @@ export default function FaqSection() {
     };
 
     return (
-        <section id="faq" className="relative bg-white py-20">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-start mb-14">
-                    <p className="text-[#df7224] font-semibold text-lg tracking-wide mb-3">
-                        FAQ
-                    </p>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-snug">
-                        Pertanyaan Yang Sering <span className="text-[#df7224]">Ditanyakan</span>
+        <section id="faq" className="relative bg-white py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-start mb-10">
+                    <span className="text-[#df7224] font-semibold text-xs uppercase tracking-wider block mb-2">
+                        PERTANYAAN UMUM
+                    </span>
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
+                        Pertanyaan Yang Sering <span className="text-[#df7224]">Diajukan</span>
                     </h2>
                 </div>
 
-                <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 items-start">
-                    <div>
+                <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 items-start">
+                    <div className="w-full lg:col-span-7">
                         <div className="space-y-3">
                             {visibleFaqs.map((faq, i) => {
                                 const isOpen = openIndex === i;
                                 return (
                                     <div
                                         key={i}
-                                        className={`rounded-2xl border transition-colors duration-300 ${isOpen
-                                            ? "border-[#df7224]/30 bg-white"
-                                            : "border-gray-100 bg-gray-50"
+                                        className={`rounded-xl border transition-colors ${isOpen
+                                            ? "border-[#df7224]/30 bg-[#df7224]/10 shadow-xs"
+                                            : "border-gray-200 bg-white hover:border-gray-300"
                                             }`}
                                     >
                                         <button
                                             onClick={() => setOpenIndex(isOpen ? -1 : i)}
                                             className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
                                         >
-                                            <span className="font-medium text-gray-900 text-sm sm:text-base">
+                                            <span className="font-semibold text-gray-900 text-sm sm:text-base">
                                                 {faq.question}
                                             </span>
                                             <span
-                                                className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen
-                                                    ? "bg-[#df7224] rotate-45"
-                                                    : "bg-white border border-gray-200"
+                                                className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-200 ${isOpen
+                                                    ? "bg-[#df7224] text-white rotate-45"
+                                                    : "bg-gray-100 text-gray-600"
                                                     }`}
                                             >
-                                                <Plus
-                                                    size={16}
-                                                    className={isOpen ? "text-white" : "text-gray-500"}
-                                                />
+                                                <Plus size={16} />
                                             </span>
                                         </button>
 
                                         <div
-                                            className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                                            className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                                                 }`}
                                         >
                                             <div className="overflow-hidden">
-                                                <p className="text-sm text-gray-500 leading-relaxed px-5 pb-4">
+                                                <p className="text-sm text-gray-600 leading-relaxed px-5 pb-4 pt-1 border-t border-gray-300">
                                                     {faq.answer}
                                                 </p>
                                             </div>
@@ -90,7 +80,8 @@ export default function FaqSection() {
                                 <button
                                     onClick={() => goTo(page - 1)}
                                     disabled={page === 0}
-                                    className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:border-gray-900 hover:text-gray-900 transition-colors disabled:opacity-30 disabled:pointer-events-none"
+                                    className="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:border-gray-900 transition-colors disabled:opacity-30 disabled:pointer-events-none"
+                                    aria-label="Previous page"
                                 >
                                     <ChevronLeft size={16} />
                                 </button>
@@ -98,14 +89,16 @@ export default function FaqSection() {
                                     <button
                                         key={i}
                                         onClick={() => goTo(i)}
-                                        className={`h-2 rounded-full transition-all duration-300 ${i === page ? "w-6 bg-[#df7224]" : "w-2 bg-gray-200"
+                                        aria-label={`Page ${i + 1}`}
+                                        className={`h-2 rounded-full transition-all duration-200 ${i === page ? "w-6 bg-[#df7224]" : "w-2 bg-gray-200"
                                             }`}
                                     />
                                 ))}
                                 <button
                                     onClick={() => goTo(page + 1)}
                                     disabled={page === totalPages - 1}
-                                    className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:border-gray-900 hover:text-gray-900 transition-colors disabled:opacity-30 disabled:pointer-events-none"
+                                    className="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:border-gray-900 transition-colors disabled:opacity-30 disabled:pointer-events-none"
+                                    aria-label="Next page"
                                 >
                                     <ChevronRight size={16} />
                                 </button>
@@ -113,7 +106,7 @@ export default function FaqSection() {
                         )}
                     </div>
 
-                    <div className="bg-gray-50 rounded-3xl p-8 sm:p-10 text-center">
+                    <div className="w-full lg:col-span-5 bg-gray-50 rounded-3xl p-8 sm:p-10 text-center">
                         <div className="relative w-full max-w-[220px] h-48 mx-auto mb-6">
                             <img
                                 src="/FAQ-Assets-2.png"
@@ -149,4 +142,4 @@ export default function FaqSection() {
             </div>
         </section>
     );
-}
+};
