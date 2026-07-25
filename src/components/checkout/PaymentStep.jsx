@@ -35,9 +35,9 @@ export default function PaymentStep({ checkout, onPay, onBack }) {
     <div className="grid grid-cols-1 xl:grid-cols-[1fr_360px] gap-6 items-start">
       <div className="space-y-5">
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 sm:p-6">
-          <h3 className="text-sm font-bold text-gray-800 flex items-center gap-2.5 mb-5">
-            <span className="w-8 h-8 rounded-xl flex items-center justify-center bg-orange-50">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#df7224" strokeWidth="2.5">
+          <h3 className="text-sm font-bold text-gray-800 flex items-center gap-1 mb-3">
+            <span className="w-5 h-5 rounded-xl flex items-center justify-center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2.5">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                 <polyline points="14 2 14 8 20 8" />
               </svg>
