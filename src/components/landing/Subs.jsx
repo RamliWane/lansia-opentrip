@@ -1,48 +1,37 @@
-export default function Subs() {
+"use client";
+
+import { ArrowRight } from "lucide-react";
+
+const Subs = () => {
   return (
-    <section
-      className="relative bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: "url('/footer-image-subs-2.jpeg')",
-      }}
-    >
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+    <section className="relative bg-gray-950 overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/footer-image-subs-2.jpeg')] bg-cover bg-center opacity-25" />
       <div className="relative border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div>
               <h3 className="text-xl sm:text-2xl font-bold mb-2 text-white">
-                Dapetin Info Trip & Promo Terbaru
+                Dapatkan Info Trip & Penawaran Spesial Lansia
               </h3>
-              <p className="text-white/60 text-sm">
-                Kami akan mengirimkan info trip & promo terbaru langsung ke email kamu.
+              <p className="text-gray-300 text-sm">
+                Daftarkan email Anda untuk menerima pembaruan jadwal trip lansia dan promo eksklusif.
               </p>
             </div>
-            <form className="flex w-full lg:w-auto gap-3">
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="flex flex-col sm:flex-row w-full lg:w-auto gap-3"
+            >
               <input
                 type="email"
-                placeholder="Masukkan email kamu"
-                className="flex-1 lg:w-72 bg-white border border-white/10 rounded-full px-5 py-3 text-sm text-black placeholder:text-gray-400 focus:outline-none focus:border-[#df7224] transition-colors"
+                placeholder="Masukkan alamat email Anda"
+                className="flex-1 lg:w-80 bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               />
               <button
                 type="submit"
-                className="flex items-center gap-2 bg-[#df7224] text-white px-4 py-3 rounded-full text-[13px] font-semibold hover:bg-[#c3611c] transition-colors shrink-0"
+                className="flex items-center justify-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-hover transition-colors shrink-0 shadow-xs"
               >
-                Subscribe
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
+                <span>Berlangganan</span>
+                <ArrowRight size={16} />
               </button>
             </form>
           </div>
@@ -50,4 +39,6 @@ export default function Subs() {
       </div>
     </section>
   );
-}
+};
+
+export default Subs;

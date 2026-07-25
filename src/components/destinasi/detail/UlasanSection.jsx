@@ -1,90 +1,108 @@
 "use client";
 
 import { useState } from "react";
+import { Star } from "lucide-react";
 
-const A = "#df7224";
-
-export default function UlasanSection({ dest }) {
+const UlasanSection = ({ dest }) => {
   const [ratingFilter, setRatingFilter] = useState(null);
   const [showAllReviews, setShowAllReviews] = useState(false);
 
+  const { reviewsList } = dest;
+
   const filteredReviews = ratingFilter
-    ? dest.reviewsList?.filter(r => Math.floor(r.rating) === ratingFilter)
-    : dest.reviewsList;
+    ? reviewsList?.filter((r) => Math.floor(r.rating) === ratingFilter)
+    : reviewsList;
 
   const displayedReviews = showAllReviews ? filteredReviews : filteredReviews?.slice(0, 2);
 
   return (
     <section>
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-3 sm:gap-4">
-        <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2 text-gray-900">
-          <span className="w-1.5 h-6 sm:w-2 sm:h-8 rounded-full" style={{ backgroundColor: A }}></span>
-          Ulasan Pengunjung
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+        <h2 className="text-xl font-bold flex items-center gap-2 text-gray-900">
+          <span className="w-1.5 h-6 rounded-full bg-primary" />
+          <span>Ulasan Peserta</span>
         </h2>
 
-        <div className="flex items-center gap-2 text-sm font-semibold overflow-x-auto pb-2 sm:pb-0">
+        <div className="flex items-center gap-2 text-xs font-medium overflow-x-auto pb-2 sm:pb-0">
           <button
             onClick={() => setRatingFilter(null)}
-            className={`px-3 py-1.5 rounded-full border transition-colors whitespace-nowrap ${ratingFilter === null ? 'bg-[#df7224] text-white border-[#df7224]' : 'bg-white text-gray-500 border-gray-200 hover:border-[#df7224]'}`}
+            className={`px-3 py-1.5 rounded-full border transition-colors whitespace-nowrap cursor-pointer ${
+              ratingFilter === null
+                ? "bg-primary text-white border-primary"
+                : "bg-white text-gray-600 border-gray-200 hover:border-primary"
+            }`}
           >
             Semua
           </button>
-          {[5, 4, 3, 2, 1].map(star => (
+          {[5, 4, 3, 2, 1].map((star) => (
             <button
               key={star}
               onClick={() => setRatingFilter(star)}
-              className={`flex items-center gap-1 px-3 py-1.5 rounded-full border transition-colors whitespace-nowrap ${ratingFilter === star ? 'bg-[#df7224] text-white border-[#df7224]' : 'bg-white text-gray-500 border-gray-200 hover:border-[#df7224]'}`}
+              className={`flex items-center gap-1 px-3 py-1.5 rounded-full border transition-colors whitespace-nowrap cursor-pointer ${
+                ratingFilter === star
+                  ? "bg-primary text-white border-primary"
+                  : "bg-white text-gray-600 border-gray-200 hover:border-primary"
+              }`}
             >
-              {star} <span className={ratingFilter === star ? "text-white" : "text-[#df7224]"}>★</span>
+              <span>{star}</span>
+              <Star size={12} className={ratingFilter === star ? "fill-white text-white" : "fill-primary text-primary"} />
             </button>
           ))}
         </div>
       </div>
 
-      <div className="space-y-3 sm:space-y-4">
+      <div className="space-y-4">
         {displayedReviews && displayedReviews.length > 0 ? (
           displayedReviews.map((review, idx) => (
-            <div key={idx} className="p-4 sm:p-5 rounded-2xl bg-white shadow-sm border border-gray-100">
-              <div className="flex justify-between items-start mb-2 sm:mb-3">
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-900 text-white flex items-center justify-center font-semibold text-xs sm:text-base">
+            <div key={idx} className="p-5 rounded-xl bg-white shadow-xs border border-gray-200">
+              <div className="flex justify-between items-start mb-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">
                     {review.author.charAt(0)}
                   </div>
                   <div>
-                    <div className="font-bold text-sm sm:text-base text-gray-900">{review.author}</div>
-                    <div className="text-[10px] sm:text-xs text-gray-400">{review.date}</div>
+                    <h3 className="font-bold text-sm text-gray-900">{review.author}</h3>
+                    <p className="text-xs text-gray-400">{review.date}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-1 bg-orange-50 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-lg">
-                  <span className="text-[#df7224] font-bold text-xs sm:text-sm">★</span>
-                  <span className="font-bold text-xs sm:text-sm text-gray-900">{review.rating.toFixed(1)}</span>
+                <div className="flex items-center gap-1 bg-primary-light border border-primary/20 px-2 py-1 rounded-md">
+                  <Star size={12} className="text-primary fill-primary" />
+                  <span className="font-bold text-xs text-gray-900">{review.rating.toFixed(1)}</span>
                 </div>
               </div>
-              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3">&quot;{review.comment}&quot;</p>
+              <p className="text-gray-600 text-sm leading-relaxed mb-3">"{review.comment}"</p>
 
               {review.images && review.images.length > 0 && (
-                <div className="flex gap-2 overflow-x-auto pb-2">
+                <div className="flex gap-2 overflow-x-auto pb-1">
                   {review.images.map((img, imgIdx) => (
-                    <img key={imgIdx} src={img} alt={`Foto ulasan dari ${review.author}`} className="h-16 sm:h-20 w-16 sm:w-20 object-cover rounded-xl border border-gray-100" />
+                    <img
+                      key={imgIdx}
+                      src={img}
+                      alt={`Foto ulasan dari ${review.author}`}
+                      className="h-16 w-16 object-cover rounded-lg border border-gray-200"
+                    />
                   ))}
                 </div>
               )}
             </div>
           ))
         ) : (
-          <div className="text-center py-6 sm:py-8 text-xs sm:text-sm text-gray-400">
+          <div className="text-center py-8 text-sm text-gray-500 bg-gray-50 rounded-xl border border-gray-200">
             Belum ada ulasan untuk rating ini.
           </div>
         )}
       </div>
+
       {filteredReviews && filteredReviews.length > 2 && (
         <button
           onClick={() => setShowAllReviews(!showAllReviews)}
-          className="mt-4 w-full py-2.5 sm:py-3 rounded-xl border border-gray-200 font-semibold text-xs sm:text-sm text-gray-600 hover:border-[#df7224] hover:text-[#df7224] transition-colors cursor-pointer"
+          className="mt-4 w-full py-2.5 rounded-lg border border-gray-300 font-semibold text-xs text-gray-700 hover:border-primary hover:text-primary transition-colors cursor-pointer"
         >
           {showAllReviews ? "Tampilkan Lebih Sedikit" : `Lihat Semua Ulasan (${filteredReviews.length})`}
         </button>
       )}
     </section>
   );
-}
+};
+
+export default UlasanSection;

@@ -5,20 +5,25 @@ const TABS = [
   { id: "ulasan", label: "Ulasan" }
 ];
 
-export default function DestinationTabs({ activeTab, onChange }) {
+const DestinationTabs = ({ activeTab, onChange }) => {
   return (
-    <div className="flex overflow-x-auto border-b border-gray-100 bg-white mb-8 sticky top-[72px] z-40 pt-4">
-      {TABS.map(tab => (
+    <div className="flex overflow-x-auto border-b border-gray-200 bg-white mb-8 sticky top-16 z-30 pt-4">
+      {TABS.map(({ id, label }) => (
         <button
-          key={tab.id}
-          onClick={() => onChange(tab.id)}
-          className={`px-4 sm:px-6 py-3 sm:py-4 font-semibold text-sm sm:text-base whitespace-nowrap border-b-2 transition-colors ${activeTab === tab.id ? 'text-[#df7224] border-[#df7224]' : 'border-transparent text-gray-500 hover:text-[#df7224]'}`}
+          key={id}
+          onClick={() => onChange(id)}
+          className={`px-5 py-3 font-semibold text-sm whitespace-nowrap border-b-2 transition-colors cursor-pointer ${
+            activeTab === id
+              ? "text-primary border-primary"
+              : "border-transparent text-gray-500 hover:text-primary"
+          }`}
         >
-          {tab.label}
+          {label}
         </button>
       ))}
     </div>
   );
-}
+};
 
+export default DestinationTabs;
 export { TABS };

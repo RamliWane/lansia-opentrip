@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function Lightbox({ images, startIndex, onClose }) {
+const Lightbox = ({ images, startIndex, onClose }) => {
   const [current, setCurrent] = useState(startIndex);
 
   const prev = useCallback(() => {
@@ -29,7 +30,7 @@ export default function Lightbox({ images, startIndex, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center"
+      className="fixed inset-0 z-50 bg-gray-950/90 backdrop-blur-xs flex items-center justify-center"
       onClick={onClose}
     >
       <button
@@ -37,25 +38,23 @@ export default function Lightbox({ images, startIndex, onClose }) {
         className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
         aria-label="Tutup"
       >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-          <line x1="18" y1="6" x2="6" y2="18" />
-          <line x1="6" y1="6" x2="18" y2="18" />
-        </svg>
+        <X size={20} />
       </button>
 
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white/70 text-sm font-semibold">
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white/80 text-xs font-medium bg-black/40 px-3 py-1 rounded-full">
         {current + 1} / {images.length}
       </div>
 
       {images.length > 1 && (
         <button
-          onClick={(e) => { e.stopPropagation(); prev(); }}
-          className="absolute left-3 sm:left-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
+          onClick={(e) => {
+            e.stopPropagation();
+            prev();
+          }}
+          className="absolute left-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
           aria-label="Sebelumnya"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
+          <ChevronLeft size={20} />
         </button>
       )}
 
@@ -67,20 +66,21 @@ export default function Lightbox({ images, startIndex, onClose }) {
           key={current}
           src={images[current]}
           alt={`Foto ${current + 1}`}
-          className="max-w-[90vw] max-h-[85vh] w-auto h-auto object-contain rounded-xl select-none"
+          className="max-w-[90vw] max-h-[85vh] w-auto h-auto object-contain rounded-xl select-none shadow-2xl"
           draggable={false}
         />
       </div>
 
       {images.length > 1 && (
         <button
-          onClick={(e) => { e.stopPropagation(); next(); }}
-          className="absolute right-3 sm:right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
+          onClick={(e) => {
+            e.stopPropagation();
+            next();
+          }}
+          className="absolute right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
           aria-label="Berikutnya"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
+          <ChevronRight size={20} />
         </button>
       )}
 
@@ -89,8 +89,13 @@ export default function Lightbox({ images, startIndex, onClose }) {
           {images.map((img, i) => (
             <button
               key={i}
-              onClick={(e) => { e.stopPropagation(); setCurrent(i); }}
-              className={`shrink-0 w-12 h-12 rounded-lg overflow-hidden border-2 transition-colors ${i === current ? "border-white" : "border-transparent opacity-50 hover:opacity-80"}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrent(i);
+              }}
+              className={`shrink-0 w-12 h-12 rounded-lg overflow-hidden border-2 transition-colors ${
+                i === current ? "border-[#df7224]" : "border-transparent opacity-50 hover:opacity-80"
+              }`}
             >
               <img src={img} alt={`Thumbnail ${i + 1}`} className="w-full h-full object-cover" />
             </button>
@@ -99,4 +104,6 @@ export default function Lightbox({ images, startIndex, onClose }) {
       )}
     </div>
   );
-}
+};
+
+export default Lightbox;

@@ -1,120 +1,78 @@
+import { User, Phone, Mail, Users } from "lucide-react";
 import Field from "./Field";
 import SectionCard from "./SectionCard";
 import { inputCls } from "./helpers/helpers";
-import { A } from "./helpers/constants";
 
-export default function BookingInformationSection({
-  form,
-  set,
-  errors,
-}) {
+const BookingInformationSection = ({ form, set, errors }) => {
   return (
     <SectionCard
-
-      icon={<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={A} strokeWidth="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>}
-
+      icon={<User className="w-4 h-4 text-primary" />}
       title="Informasi Pemesan"
-
     >
-
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-
-        {/* Nama */}
-
         <Field label="Nama Pemesan" required error={errors.nama}>
-
           <div className="relative">
-
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-
+            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
+              <User size={16} />
             </span>
-
-            <input type="text" placeholder="Ex. John Doe" value={form.nama}
-
-              onChange={e => set("nama", e.target.value)}
-
-              className={inputCls(errors.nama, "pl-9")} />
-
+            <input
+              type="text"
+              placeholder="Sesuai KTP"
+              value={form.nama}
+              onChange={(e) => set("nama", e.target.value)}
+              className={inputCls(errors.nama, "pl-10")}
+            />
           </div>
-
         </Field>
 
-
-
-        {/* Phone */}
-
-        <Field label="Nomor Ponsel" required error={errors.phone}>
-
+        <Field label="Nomor Ponsel / WA" required error={errors.phone}>
           <div className="relative">
-
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.578 1.238l-.466.397a1 1 0 0 0-.302 1.212 12.06 12.06 0 0 0 6.178 6.121"/></svg>
-
+            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
+              <Phone size={16} />
             </span>
-
-            <input type="tel" placeholder="Ex. 081xxxxxxxxx" value={form.phone}
-
-              onChange={e => set("phone", e.target.value)}
-
-              className={inputCls(errors.phone, "pl-9")} />
-
+            <input
+              type="tel"
+              placeholder="08xxxxxxxxxx"
+              value={form.phone}
+              onChange={(e) => set("phone", e.target.value)}
+              className={inputCls(errors.phone, "pl-10")}
+            />
           </div>
-
         </Field>
-
-
-
-        {/* Email */}
 
         <Field label="Email" hint="Konfirmasi akan dikirim ke email ini">
-
           <div className="relative">
-
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-
+            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
+              <Mail size={16} />
             </span>
-
-            <input type="email" placeholder="Ex. xxxx@xxxxx.xxx" value={form.email}
-
-              onChange={e => set("email", e.target.value)}
-
-              className={inputCls(null, "pl-9")} />
-
+            <input
+              type="email"
+              placeholder="nama@email.com"
+              value={form.email}
+              onChange={(e) => set("email", e.target.value)}
+              className={inputCls(null, "pl-10")}
+            />
           </div>
-
         </Field>
 
-
-
-        {/* Jumlah Peserta */}
-
-        <Field label="Jumlah Peserta" required error={errors.peserta}>
-
+        <Field label="Jumlah Peserta Lansia & Pendamping" required error={errors.peserta}>
           <div className="relative">
-
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-
+            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
+              <Users size={16} />
             </span>
-
-            <input type="number" min="1" placeholder="Jumlah peserta" value={form.peserta}
-
-              onChange={e => set("peserta", e.target.value)}
-
-              className={inputCls(errors.peserta, "pl-9")} />
-
+            <input
+              type="number"
+              min="1"
+              placeholder="Jumlah peserta"
+              value={form.peserta}
+              onChange={(e) => set("peserta", e.target.value)}
+              className={inputCls(errors.peserta, "pl-10")}
+            />
           </div>
-
         </Field>
-
       </div>
-
     </SectionCard>
   );
-}
+};
+
+export default BookingInformationSection;

@@ -1,152 +1,127 @@
-export default function Footer() {
+import Link from "next/link";
+import { Compass, MapPin, Phone, Mail } from "lucide-react";
+
+const Footer = () => {
   return (
-    <footer className="relative bg-gray-950 text-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] gap-10">
+    <footer className="bg-gray-950 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           <div>
-            <a href="#" className="flex items-center gap-2 text-2xl font-bold mb-4">
-              <span className="text-[#df7224]">Open</span>Trip
-            </a>
-            <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-xs">
-              Platform open trip terpercaya buat kamu yang mau explore
-              destinasi terbaik di Indonesia dengan harga terjangkau.
+            <Link href="/" className="inline-flex items-center gap-2.5 text-xl font-bold mb-4">
+              <div className="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center">
+                <Compass className="w-5 h-5" />
+              </div>
+              <span>Lansia<span className="text-primary">OpenTrip</span></span>
+            </Link>
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+              Platform open trip & tour wisata terpercaya khusus lansia dan senior di Indonesia. Fasilitas aksesibel, tempo perjalanan santai, dan pendampingan profesional.
             </p>
             <div className="flex items-center gap-3">
               <a
                 href="#"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#df7224] hover:border-[#df7224] transition-colors"
+                className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white hover:border-primary transition-colors"
                 aria-label="Instagram"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                 </svg>
               </a>
               <a
                 href="#"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#df7224] hover:border-[#df7224] transition-colors"
+                className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white hover:border-primary transition-colors"
                 aria-label="Facebook"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.714 5H18V0h-3.808C10.596 0 9 1.583 9 4.615V8z"/>
                 </svg>
               </a>
               <a
                 href="#"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#df7224] hover:border-[#df7224] transition-colors"
-                aria-label="Twitter"
+                className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white hover:border-primary transition-colors"
+                aria-label="WhatsApp"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#df7224] hover:border-[#df7224] transition-colors"
-                aria-label="Youtube"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-                  <path d="m10 15 5-3-5-3z" />
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.149 4.204 4.292-1.127z"/>
                 </svg>
               </a>
             </div>
           </div>
 
           <div>
-            <p className="font-semibold text-sm tracking-wide mb-5">
-              NAVIGASI
-            </p>
-            <ul className="space-y-3 text-sm text-white/60">
+            <h3 className="font-semibold text-xs tracking-wider uppercase mb-4 text-gray-200">
+              Navigasi Halaman
+            </h3>
+            <ul className="space-y-2.5 text-sm text-gray-400">
               <li>
-                <a href="#beranda" className="hover:text-[#df7224] transition-colors">
+                <Link href="/" className="hover:text-primary transition-colors">
                   Beranda
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#destinasi" className="hover:text-[#df7224] transition-colors">
-                  Destinasi
-                </a>
+                <Link href="/destinasi" className="hover:text-primary transition-colors">
+                  Destinasi Open Trip
+                </Link>
               </li>
               <li>
-                <a href="#tutorial" className="hover:text-[#df7224] transition-colors">
-                  Cara Booking
-                </a>
+                <Link href="/private" className="hover:text-primary transition-colors">
+                  Private Trip Lansia
+                </Link>
               </li>
               <li>
-                <a href="#review" className="hover:text-[#df7224] transition-colors">
-                  Testimoni
-                </a>
-              </li>
-              <li>
-                <a href="#tentang" className="hover:text-[#df7224] transition-colors">
-                  Tentang Kami
-                </a>
+                <Link href="/contact" className="hover:text-primary transition-colors">
+                  Hubungi Kami
+                </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <p className="font-semibold text-sm tracking-wide mb-5">
-              DESTINASI POPULER
-            </p>
-            <ul className="space-y-3 text-sm text-white/60">
+            <h3 className="font-semibold text-xs tracking-wider uppercase mb-4 text-gray-200">
+              Trip Populer Lansia
+            </h3>
+            <ul className="space-y-2.5 text-sm text-gray-400">
               <li>
-                <a href="#" className="hover:text-[#df7224] transition-colors">
-                  Gunung Bromo
-                </a>
+                <Link href="/destinasi" className="hover:text-primary transition-colors">
+                  Yogyakarta Heritage & Culture
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-[#df7224] transition-colors">
-                  Raja Ampat
-                </a>
+                <Link href="/destinasi" className="hover:text-[#df7224] transition-colors">
+                  Bandung Highland Santai
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-[#df7224] transition-colors">
-                  Labuan Bajo
-                </a>
+                <Link href="/destinasi" className="hover:text-[#df7224] transition-colors">
+                  Bali Wellness Senior Trip
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-[#df7224] transition-colors">
-                  Danau Toba
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#df7224] transition-colors">
-                  Ubud, Bali
-                </a>
+                <Link href="/destinasi" className="hover:text-[#df7224] transition-colors">
+                  Danau Toba Scenic Tour
+                </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <p className="font-semibold text-sm tracking-wide mb-5">
-              HUBUNGI KAMI
-            </p>
-            <ul className="space-y-4 text-sm text-white/60">
+            <h3 className="font-semibold text-xs tracking-wider uppercase mb-4 text-gray-200">
+              Kontak Layanan
+            </h3>
+            <ul className="space-y-3 text-sm text-gray-400">
               <li className="flex items-start gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#df7224] shrink-0 mt-0.5">
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
+                <MapPin className="w-4 h-4 text-primary shrink-0 mt-1" />
                 <span>Jl. Merdeka No. 10, Bandung, Jawa Barat</span>
               </li>
               <li className="flex items-center gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#df7224] shrink-0">
-                  <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.578 1.238l-.466.397a1 1 0 0 0-.302 1.212 12.06 12.06 0 0 0 6.178 6.121" />
-                </svg>
-                <a href="tel:+6281234567890" className="hover:text-[#df7224] transition-colors">
+                <Phone className="w-4 h-4 text-primary shrink-0" />
+                <a href="tel:+6281234567890" className="hover:text-primary transition-colors">
                   +62 812-3456-7890
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#df7224] shrink-0">
-                  <rect width="20" height="16" x="2" y="4" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
-                <a href="mailto:hello@opentrip.id" className="hover:text-[#df7224] transition-colors">
-                  hello@opentrip.id
+                <Mail className="w-4 h-4 text-primary shrink-0" />
+                <a href="mailto:info@lansiaopentrip.id" className="hover:text-primary transition-colors">
+                  info@lansiaopentrip.id
                 </a>
               </li>
             </ul>
@@ -155,20 +130,22 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/40 text-center sm:text-left">
-            © {new Date().getFullYear()} OpenTrip. All rights reserved.
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-gray-400 text-center sm:text-left">
+            © {new Date().getFullYear()} Lansia OpenTrip. Hak cipta dilindungi.
           </p>
-          <div className="flex items-center gap-6 text-xs text-white/40">
-            <a href="#" className="hover:text-white transition-colors">
+          <div className="flex items-center gap-6 text-xs text-gray-400">
+            <Link href="#" className="hover:text-white transition-colors">
               Syarat & Ketentuan
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
+            </Link>
+            <Link href="#" className="hover:text-white transition-colors">
               Kebijakan Privasi
-            </a>
+            </Link>
           </div>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

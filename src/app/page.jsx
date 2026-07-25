@@ -4,15 +4,15 @@ import MarketingSection from "@/components/landing/MarketingSection";
 import TutorialSection from "@/components/landing/TutorialSection";
 import DestinationSection from "@/components/landing/DestinationSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
-import Footer from "@/components/layout/Footer";
-import Subs from "@/components/landing/Subs";
 import FaqSection from "@/components/landing/FAQSection";
+import Subs from "@/components/landing/Subs";
+import Footer from "@/components/layout/Footer";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="flex-1">
         <HeroSection />
         <MarketingSection />
         <DestinationSection />
@@ -24,4 +24,6 @@ export default function Home() {
       <Footer />
     </>
   );
-}
+};
+
+export default Home;

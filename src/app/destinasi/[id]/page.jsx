@@ -3,6 +3,7 @@
 import { use, useState } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { destinationsData } from "@/lib/destinationsData";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -19,7 +20,7 @@ import MeetingSection from "@/components/destinasi/detail/MeetingSection";
 import UlasanSection from "@/components/destinasi/detail/UlasanSection";
 import BookingCard from "@/components/destinasi/detail/BookingCard";
 
-export default function DestinationDetailPage({ params }) {
+const DestinationDetailPage = ({ params }) => {
   const resolvedParams = use(params);
   const id = Number(resolvedParams.id);
   const dest = destinationsData.find((d) => d.id === id);
@@ -35,7 +36,7 @@ export default function DestinationDetailPage({ params }) {
   const shortLocation = DestinationDomain.getShortLocation(dest);
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 selection:bg-[#df7224]/30">
+    <div className="min-h-screen bg-white text-gray-900">
       {lightboxIndex !== null && (
         <Lightbox
           images={images}
@@ -46,19 +47,17 @@ export default function DestinationDetailPage({ params }) {
 
       <Navbar />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <Link
           href="/destinasi"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-[#df7224] transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-gray-600 hover:text-[#df7224] transition-colors"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
-          </svg>
-          Kembali ke Destinasi
+          <ArrowLeft size={16} />
+          <span>Kembali ke Destinasi</span>
         </Link>
       </div>
 
-      <div className="pt-4 pb-4 px-4 sm:px-8 max-w-7xl mx-auto">
+      <div className="pt-4 pb-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <DestinationHeader dest={dest} />
         <DestinationGallery
           images={images}
@@ -67,11 +66,11 @@ export default function DestinationDetailPage({ params }) {
         />
       </div>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-8 py-6 sm:py-8 grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 relative">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
         <div className="lg:col-span-2 flex flex-col">
           <DestinationTabs activeTab={activeTab} onChange={setActiveTab} />
 
-          <div className="min-h-[400px]">
+          <div className="min-h-[350px]">
             {activeTab === "tentang" && <AboutSection dest={dest} />}
             {activeTab === "itinerary" && <ItinerarySection dest={dest} shortLocation={shortLocation} />}
             {activeTab === "meeting" && <MeetingSection dest={dest} />}
@@ -88,4 +87,6 @@ export default function DestinationDetailPage({ params }) {
       <Footer />
     </div>
   );
-}
+};
+
+export default DestinationDetailPage;

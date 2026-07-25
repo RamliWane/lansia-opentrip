@@ -2,17 +2,17 @@
 
 import { Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCheckout } from "../../lib/hooks/useCheckout";
-import { destinationsData } from "../../lib/destinationsData";
-import StepProgress from "../../components/checkout/StepProgress";
-import DetailsStep from "../../components/checkout/DetailsStep";
-import PaymentStep from "../../components/checkout/PaymentStep";
-import ConfirmationStep from "../../components/checkout/ConfirmationStep";
-import Footer from "../../components/layout/Footer";
+import { useCheckout } from "@/lib/hooks/useCheckout";
+import { destinationsData } from "@/lib/destinationsData";
+import StepProgress from "@/components/checkout/StepProgress";
+import DetailsStep from "@/components/checkout/DetailsStep";
+import PaymentStep from "@/components/checkout/PaymentStep";
+import ConfirmationStep from "@/components/checkout/ConfirmationStep";
+import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import Subs from "@/components/landing/Subs";
 
-function CheckoutContent() {
+const CheckoutContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const destId = searchParams.get("destination");
@@ -46,7 +46,7 @@ function CheckoutContent() {
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
             {checkout.step === "details" && "Konfirmasi Pemesanan"}
             {checkout.step === "payment" && "Pembayaran"}
-            {checkout.step === "confirmation" && "Pemesanan Berhasil 🎉"}
+            {checkout.step === "confirmation" && "Pemesanan Berhasil"}
           </h1>
           <p className="text-sm text-gray-500 mt-1">
             {checkout.step === "details" && "Lengkapi detail perjalanan dan data peserta"}
@@ -56,7 +56,7 @@ function CheckoutContent() {
         </div>
 
         {checkout.step !== "confirmation" && (
-          <div className="bg-white border border-gray-100 rounded-2xl p-4 sm:p-5 mb-6 sm:mb-8 shadow-sm">
+          <div className="bg-white border border-gray-200 rounded-xl p-4 sm:p-5 mb-6 sm:mb-8 shadow-sm">
             <StepProgress currentStep={checkout.step} />
           </div>
         )}
@@ -75,15 +75,15 @@ function CheckoutContent() {
       <Footer />
     </div>
   );
-}
+};
 
-export default function CheckoutPage() {
+const CheckoutPage = () => {
   return (
     <Suspense
       fallback={
         <div className="flex items-center justify-center min-h-screen bg-gray-50">
           <div className="flex flex-col items-center gap-3">
-            <div className="w-10 h-10 rounded-full border-4 border-orange-100 border-t-[#df7224] animate-spin" />
+            <div className="w-10 h-10 rounded-full border-4 border-primary/20 border-t-primary animate-spin" />
             <p className="text-sm font-semibold text-gray-500">Memuat halaman checkout...</p>
           </div>
         </div>
@@ -92,4 +92,6 @@ export default function CheckoutPage() {
       <CheckoutContent />
     </Suspense>
   );
-}
+};
+
+export default CheckoutPage;

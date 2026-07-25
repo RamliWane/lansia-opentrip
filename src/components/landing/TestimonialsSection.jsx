@@ -6,7 +6,7 @@ import { reviews } from "@/lib/data";
 
 const PAGE_SIZE = 3;
 
-export default function ReviewSection() {
+const TestimonialsSection = () => {
   const [page, setPage] = useState(0);
   const totalPages = Math.ceil(reviews.length / PAGE_SIZE);
 
@@ -17,25 +17,27 @@ export default function ReviewSection() {
   };
 
   return (
-    <section id="review" className="relative bg-gray-100 py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4">
+    <section id="review" className="relative bg-gray-50 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 gap-4">
           <div>
-            <p className="text-[#df7224] font-semibold text-sm tracking-wide mb-3">TESTIMONI</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-snug">
-              Apa Kata Mereka Setelah <span className="text-[#df7224]">Traveling</span>
+            <span className="text-primary font-semibold text-xs uppercase tracking-wider block mb-2">
+              TESTIMONI PESERTA
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
+              Pengalaman Berkesan <span className="text-primary">Peserta Kami</span>
             </h2>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-xs">
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={18} className="text-[#df7224] fill-[#df7224]" />
+                <Star key={i} size={16} className="text-primary fill-primary" />
               ))}
             </div>
             <div>
               <p className="text-sm font-bold text-gray-900">4.9 / 5.0</p>
-              <p className="text-xs text-gray-500">dari 1.200+ traveler</p>
+              <p className="text-[11px] text-gray-500">dari 1.200+ peserta senior</p>
             </div>
           </div>
         </div>
@@ -44,45 +46,49 @@ export default function ReviewSection() {
           {visibleReviews.map((r, i) => (
             <div
               key={`${page}-${i}`}
-              className="bg-white rounded-xl p-6 border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300"
+              className="bg-white rounded-xl p-6 border border-gray-200 shadow-xs flex flex-col justify-between"
             >
-              <div className="flex items-start justify-between gap-3 mb-4">
-                <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-11 h-11 rounded-full bg-gray-900 text-white flex items-center justify-center font-semibold text-sm shrink-0 overflow-hidden">
-                    {r.avatar ? (
-                      <img src={r.avatar} alt={r.name} className="w-full h-full object-cover" />
-                    ) : (
-                      r.initial
-                    )}
+              <div>
+                <div className="flex items-start justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm shrink-0 overflow-hidden">
+                      {r.avatar ? (
+                        <img src={r.avatar} alt={r.name} className="w-full h-full object-cover" />
+                      ) : (
+                        r.initial
+                      )}
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-sm font-bold text-gray-900 truncate">
+                        {r.name}
+                      </h3>
+                      <p className="text-xs text-gray-500 truncate">{r.trip}</p>
+                    </div>
                   </div>
-                  <div className="min-w-0">
-                    <p className="text-sm font-bold text-gray-900 truncate inline-block">
-                      {r.name}
-                    </p>
-                    <p className="text-xs text-gray-400 truncate">{r.trip}</p>
+
+                  <div className="flex items-center gap-1 shrink-0 bg-primary-light px-2 py-0.5 rounded-md border border-primary/20">
+                    <Star size={12} className="text-primary fill-primary" />
+                    <span className="text-xs font-bold text-gray-900">{r.rating.toFixed(1)}</span>
                   </div>
                 </div>
 
-
-                <div className="flex items-center gap-1 shrink-0">
-                  <Star size={14} className="text-[#df7224] fill-[#df7224]" />
-                  <span className="text-sm font-bold text-gray-900">{r.rating.toFixed(1)}</span>
-                </div>
+                <p className="text-gray-600 text-sm leading-relaxed pt-2 border-t border-gray-100">
+                  "{r.review}"
+                </p>
               </div>
-                  <p className="text-gray-600 text-sm leading-relaxed border-t-2 pb-2 border-gray-300">{r.review}</p>
             </div>
           ))}
         </div>
 
         {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-4 mt-12">
+          <div className="flex items-center justify-center gap-4 mt-10">
             <button
               onClick={() => goTo(page - 1)}
               disabled={page === 0}
-              className="w-10 h-10 rounded-full cursor-pointer border border-gray-200 flex items-center justify-center text-gray-600 hover:border-gray-900 hover:text-gray-900 transition-colors disabled:opacity-30 disabled:pointer-events-none"
+              className="w-9 h-9 rounded-lg border border-gray-300 bg-white flex items-center justify-center text-gray-600 hover:border-gray-900 hover:text-gray-900 transition-colors disabled:opacity-30 disabled:pointer-events-none"
               aria-label="Halaman sebelumnya"
             >
-              <ChevronLeft size={18} />
+              <ChevronLeft size={16} />
             </button>
 
             <div className="flex items-center gap-2">
@@ -91,8 +97,9 @@ export default function ReviewSection() {
                   key={i}
                   onClick={() => goTo(i)}
                   aria-label={`Ke halaman ${i + 1}`}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${i === page ? "w-7 bg-[#df7224]" : "w-2.5 bg-gray-200 hover:bg-gray-300"
-                    }`}
+                  className={`h-2 rounded-full transition-all duration-200 ${
+                    i === page ? "w-6 bg-primary" : "w-2 bg-gray-300 hover:bg-gray-400"
+                  }`}
                 />
               ))}
             </div>
@@ -100,14 +107,16 @@ export default function ReviewSection() {
             <button
               onClick={() => goTo(page + 1)}
               disabled={page === totalPages - 1}
-              className="w-10 h-10 rounded-full border border-gray-200 cursor-pointer flex items-center justify-center text-gray-600 hover:border-gray-900 hover:text-gray-900 transition-colors disabled:opacity-30 disabled:pointer-events-none"
+              className="w-9 h-9 rounded-lg border border-gray-300 bg-white flex items-center justify-center text-gray-600 hover:border-gray-900 hover:text-gray-900 transition-colors disabled:opacity-30 disabled:pointer-events-none"
               aria-label="Halaman berikutnya"
             >
-              <ChevronRight size={18} />
+              <ChevronRight size={16} />
             </button>
           </div>
         )}
       </div>
     </section>
   );
-}
+};
+
+export default TestimonialsSection;

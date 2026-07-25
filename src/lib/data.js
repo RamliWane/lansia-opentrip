@@ -1,126 +1,54 @@
-import { BadgePercent, Headset, ShieldCheck } from "lucide-react";
+import { ShieldCheck, HeartHandshake, Headset } from "lucide-react";
 
 export const reviews = [
   {
-    name: "Ardian Saputra",
-    trip: "Trip Gunung Bromo",
+    name: "Hj. Ratna Sari (62 thn)",
+    trip: "Trip Yogyakarta Santai",
     rating: 5,
     review:
-      "Pelayanannya rapi banget dari awal booking sampe pulang. Guide-nya ramah dan paham medan, jadi perjalanan ke Bromo kerasa aman walau ini pertama kali gua naik gunung.",
-    initial: "A",
-  },
-  {
-    name: "Nadia Ramadhani",
-    trip: "Trip Labuan Bajo",
-    rating: 5,
-    review:
-      "Itinerary-nya jelas dari sebelum berangkat, gak ada biaya tambahan mendadak. Kapal dan penginapan juga sesuai sama yang ditawarin di web. Bakal booking lagi buat trip berikutnya.",
-    initial: "N",
-  },
-  {
-    name: "Reza Firmansyah",
-    trip: "Trip Kawah Putih",
-    rating: 4,
-    review:
-      "Prosesnya gampang, tinggal pilih tanggal terus bayar. Cuma pas hari-H sempet nunggu rombongan lain agak lama, selebihnya oke banget buat healing weekend.",
+      "Pelayanannya ramah dan sabar banget mendampingi orang tua. Ritme jalannya santai, hotelnya nyaman tanpa tangga curam, dan ada pendamping medis yang siaga. Sangat direkomendasikan untuk lansia.",
     initial: "R",
   },
   {
-    name: "Melati Wijaya",
-    trip: "Trip Danau Toba",
+    name: "Bpk. Bambang Sutrisno (67 thn)",
+    trip: "Trip Danau Toba Heritage",
     rating: 5,
     review:
-      "Baru pertama kali pake jasa open trip dan langsung cocok. Komunikasi sama admin fast response, driver dan guide juga informatif soal sejarah tempatnya.",
-    initial: "M",
-  },
-  {
-    name: "Dimas Prakoso",
-    trip: "Trip Ubud, Bali",
-    rating: 5,
-    review:
-      "Harga sesuai sama fasilitas yang didapet. Hotel bersih, makan enak, spot foto juga instagramable semua. Worth it buat harga segitu.",
-    initial: "D",
-  },
-  {
-    name: "Salsabila Putri",
-    trip: "Trip Raja Ampat",
-    rating: 5,
-    review:
-      "Ini trip paling berkesan yang pernah gua ikutin. Semua udah diatur rapi, tinggal santai nikmatin pemandangan. Recommended banget buat yang mau explore Indonesia timur.",
-    initial: "S",
-  },
-  {
-    name: "Fajar Nugroho",
-    trip: "Trip Dieng Plateau",
-    rating: 5,
-    review:
-      "Suhu dingin banget pas subuh tapi worth it liat sunrise di atas. Guide juga sabar nungguin rombongan yang jalannya pelan. Overall puas sama pelayanannya.",
-    initial: "F",
-  },
-  {
-    name: "Citra Ayu Lestari",
-    trip: "Trip Nusa Penida",
-    rating: 4,
-    review:
-      "Spot-spot fotonya emang seindah di feed Instagram. Cuma jalanannya agak menantang, buat yang gampang mabuk darat siapin obat dulu. Selebihnya seru banget.",
-    initial: "C",
-  },
-  {
-    name: "Bagus Wicaksono",
-    trip: "Trip Gunung Rinjani",
-    rating: 5,
-    review:
-      "Pendakian 3 hari 2 malam ini pengalaman paling berkesan tahun ini. Porter dan guide-nya profesional banget, logistik juga lengkap. Bakal ikut open trip ini lagi.",
+      "Akomodasi dan bus wisata sangat nyaman dengan aksesibilitas baik. Jadwal tidak terburu-buru sehingga kami bisa menikmati keindahan Danau Toba tanpa merasa kelelahan.",
     initial: "B",
   },
   {
-    name: "Ardian Saputra",
-    trip: "Trip Gunung Bromo",
-    rating: 5,
+    name: "Ibu Nurhayati (59 thn)",
+    trip: "Trip Bandung Highland",
+    rating: 4,
     review:
-      "Pelayanannya rapi banget dari awal booking sampe pulang. Guide-nya ramah dan paham medan, jadi perjalanan ke Bromo kerasa aman walau ini pertama kali gua naik gunung.",
-    initial: "A",
-  },
-  {
-    name: "Nadia Ramadhani",
-    trip: "Trip Labuan Bajo",
-    rating: 5,
-    review:
-      "Itinerary-nya jelas dari sebelum berangkat, gak ada biaya tambahan mendadak. Kapal dan penginapan juga sesuai sama yang ditawarin di web. Bakal booking lagi buat trip berikutnya.",
+      "Sangat puas dengan open trip khusus lansia ini. Menu makanan disesuaikan untuk kesehatan senior, dan pendamping tour sangat perhatian selama perjalanan.",
     initial: "N",
   },
   {
-    name: "Reza Firmansyah",
-    trip: "Trip Kawah Putih",
-    rating: 4,
-    review:
-      "Prosesnya gampang, tinggal pilih tanggal terus bayar. Cuma pas hari-H sempet nunggu rombongan lain agak lama, selebihnya oke banget buat healing weekend.",
-    initial: "R",
-  },
-  {
-    name: "Melati Wijaya",
-    trip: "Trip Danau Toba",
+    name: "Bpk. Hendra Gunawan (65 thn)",
+    trip: "Trip Ubud & Cultural Bali",
     rating: 5,
     review:
-      "Baru pertama kali pake jasa open trip dan langsung cocok. Komunikasi sama admin fast response, driver dan guide juga informatif soal sejarah tempatnya.",
-    initial: "M",
+      "Pengalaman liburan yang menenangkan. Semua kebutuhan orang tua diurus dengan sangat teliti dari keberangkatan sampai pulang. Terima kasih Lansia OpenTrip.",
+    initial: "H",
   },
   {
-    name: "Dimas Prakoso",
-    trip: "Trip Ubud, Bali",
+    name: "Hj. Endang Rahayu (61 thn)",
+    trip: "Trip Solo & Candi Sukuh",
     rating: 5,
     review:
-      "Harga sesuai sama fasilitas yang didapet. Hotel bersih, makan enak, spot foto juga instagramable semua. Worth it buat harga segitu.",
-    initial: "D",
+      "Format wisata santai yang pas buat lansia. Gak perlu banyak jalan jauh tapi tetap bisa menikmati tempat-tempat bersejarah dengan nyaman.",
+    initial: "E",
   },
   {
-    name: "Salsabila Putri",
-    trip: "Trip Raja Ampat",
+    name: "Bpk. Suryadi (68 thn)",
+    trip: "Trip Malang & Batu Heritage",
     rating: 5,
     review:
-      "Ini trip paling berkesan yang pernah gua ikutin. Semua udah diatur rapi, tinggal santai nikmatin pemandangan. Recommended banget buat yang mau explore Indonesia timur.",
+      "Fasilitas lengkap, transportasi bersih dan wangi, serta obat-obatan P3K selalu dipersiapkan oleh tour leader. Pasti bakal ikut trip selanjutnya.",
     initial: "S",
-  }
+  },
 ];
 
 export const destinations = [
@@ -187,62 +115,57 @@ export const destinations = [
     price: "450.000",
     image:
       "https://images.unsplash.com/photo-1591674585153-ca78d0339b09?w=500&h=600&fit=crop",
-  }
+  },
 ];
 
 export const features = [
   {
-    icon: ShieldCheck,
-    title: "Banyak Pilihan Destinasi",
-    desc: "Mau liburan ke Bandung, Lembang, Yogyakarta, Semarang, Surabaya, Gunung ataupun Laut semuanya ada di sini",
+    icon: HeartHandshake,
+    title: "Pendampingan Ramah Lansia",
+    desc: "Setiap perjalanan didampingi oleh tour leader berpengalaman dan pendamping kesehatan yang siap membantu kebutuhan lansia.",
     detail:
-      "Kami punya lebih dari 100 destinasi yang tersebar di seluruh Indonesia, mulai dari wisata alam, budaya, sampai kuliner. Setiap trip udah dikurasi langsung sama tim lokal biar kamu dapet pengalaman paling otentik, bukan cuma sekadar foto-foto di tempat rame.",
+      "Kami memprioritaskan kenyamanan dan keamanan peserta senior. Ritme perjalanan diatur santai tanpa terburu-buru, dilengkapi fasilitas aksesibilitas dan pemantauan kondisi fisik sepanjang trip.",
   },
   {
-    icon: BadgePercent,
-    title: "Transaksi Mudah & Transparan",
-    desc: "Keamanan dan privasi transaksi online Anda menjadi prioritas kami.",
+    icon: ShieldCheck,
+    title: "Transaksi Transparan & Aman",
+    desc: "Sistem pembayaran terenkripsi tanpa biaya tersembunyi dengan jaminan kemudahan reschedule.",
     detail:
-      "Semua pembayaran diproses lewat payment gateway resmi dan terenkripsi, gak ada biaya tersembunyi yang muncul belakangan. Kamu juga bisa cicil buat trip tertentu, dan dapet invoice jelas buat setiap transaksi yang dilakukan.",
+      "Semua rincian biaya sudah termasuk transportasi, akomodasi ramah lansia, konsumsi sehat, serta asuransi perjalanan. Garansi refund dan kemudahan penyesuaian tanggal.",
   },
   {
     icon: Headset,
-    title: "Layanan 24/7",
-    desc: "Tim support kami siap membantu ada kapanpun dan dimana pun",
+    title: "Layanan Pendampingan 24/7",
+    desc: "Tim customer care kami siap melayani pertanyaan dan bantuan bagi keluarga maupun peserta kapan saja.",
     detail:
-      "Ada kendala pas lagi trip di tengah malam sekalipun? Tim CS kami standby lewat WhatsApp, email, atau live chat. Rata-rata respon di bawah 5 menit, jadi kamu gak perlu khawatir kalau ada hal mendadak di perjalanan.",
+      "Keluarga di rumah dapat memantau perkembangan trip secara berkala melalui grup koordinasi dan layanan customer care yang aktif selama 24 jam nonstop.",
   },
 ];
 
 export const faqs = [
   {
-    question: "Bagaimana cara booking trip di OpenTrip?",
+    question: "Apakah open trip ini cocok untuk lansia dengan keterbatasan fisik?",
     answer:
-      "Pilih destinasi yang kamu mau, klik tombol Booking, isi data diri dan tanggal keberangkatan, lalu lakukan pembayaran. E-voucher akan dikirim otomatis ke email kamu.",
+      "Ya, rute dan destinasi telah dikurasi khusus dengan jalur yang minim tangga, kendaraan ber-AC yang nyaman, serta pendampingan untuk peserta yang memerlukan bantuan berjalan.",
   },
   {
-    question: "Apa saja metode pembayaran yang tersedia?",
+    question: "Bagaimana dengan konsumsi dan menu makanan selama perjalanan?",
     answer:
-      "Kami menerima transfer bank, e-wallet (GoPay, OVO, Dana), dan kartu kredit/debit. Semua transaksi diproses lewat payment gateway yang aman.",
+      "Menu makanan dirancang sehat, higienis, dan ramah lansia (rendah garam/gula jika diperlukan). Kami juga menerima permintaan khusus untuk diet tertentu.",
   },
   {
-    question: "Bagaimana cara menghubungi customer service?",
+    question: "Apakah peserta didampingi oleh tenaga kesehatan?",
     answer:
-      "Kamu bisa hubungi tim kami lewat WhatsApp, email, atau live chat di website. Tim support kami siap membantu 24/7.",
+      "Setiap rombongan didampingi oleh tour leader yang tersertifikasi P3K dan tim medis terlatih untuk memantau kesehatan rutin peserta.",
   },
   {
-    question: "Apakah bisa reschedule tanggal keberangkatan?",
+    question: "Apakah keluarga (anak/cucu) diperbolehkan mendampingi?",
     answer:
-      "Bisa, selama pengajuan dilakukan minimal 3 hari sebelum tanggal keberangkatan dan sesuai dengan ketersediaan slot pada tanggal baru.",
+      "Tentu saja. Banyak peserta kami yang memesan tiket keluarga untuk menemani orang tua liburan bersama.",
   },
   {
-    question: "Apa saja yang termasuk dalam paket trip?",
+    question: "Bagaimana kebijakan pembatalan atau perubahan tanggal?",
     answer:
-      "Umumnya termasuk transportasi, akomodasi, tiket masuk destinasi, dan guide. Detail lengkap fasilitas bisa dicek di halaman masing-masing paket.",
-  },
-  {
-    question: "Bagaimana jika saya ingin membatalkan trip?",
-    answer:
-      "Pembatalan bisa dilakukan sesuai kebijakan refund yang berlaku, tergantung seberapa dekat waktu pembatalan dengan tanggal keberangkatan.",
+      "Reschedule dapat dilakukan hingga 3 hari sebelum keberangkatan tanpa biaya tambahan, menyesuaikan ketersediaan kuota jadwal baru.",
   },
 ];

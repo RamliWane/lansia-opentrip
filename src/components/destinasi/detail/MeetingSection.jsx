@@ -1,31 +1,38 @@
-const A = "#df7224";
+import { Clock, MapPin } from "lucide-react";
 
-export default function MeetingSection({ dest }) {
+const MeetingSection = ({ dest }) => {
+  const { meetingPoints } = dest;
+
   return (
     <section>
-      <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-2 text-gray-900">
-        <span className="w-1.5 h-6 sm:w-2 sm:h-8 rounded-full" style={{ backgroundColor: A }}></span>
-        Titik Kumpul
+      <h2 className="text-xl font-bold mb-6 flex items-center gap-2 text-gray-900">
+        <span className="w-1.5 h-6 rounded-full bg-primary" />
+        <span>Titik Kumpul Penjemputan</span>
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {dest.meetingPoints?.map((mp, idx) => (
-          <div key={idx} className="p-5 rounded-2xl bg-white shadow-sm border border-gray-100 hover:border-[#df7224]/30 hover:shadow-md transition-all group">
+        {meetingPoints?.map((mp, idx) => (
+          <div
+            key={idx}
+            className="p-5 rounded-xl bg-white shadow-xs border border-gray-200 hover:border-primary/30 transition-colors"
+          >
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center bg-orange-50 text-[#df7224] shrink-0">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
-                </svg>
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-primary-light text-primary shrink-0">
+                <Clock size={20} />
               </div>
               <div>
-                <div className="font-bold text-lg text-gray-900">{mp.time}</div>
-                <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider">{mp.location}</div>
+                <h3 className="font-bold text-base text-gray-900">{mp.time}</h3>
+                <p className="text-xs font-semibold text-primary uppercase tracking-wider flex items-center gap-1">
+                  <MapPin size={12} />
+                  <span>{mp.location}</span>
+                </p>
               </div>
             </div>
-            <p className="text-sm text-gray-500">{mp.description}</p>
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{mp.description}</p>
           </div>
         ))}
       </div>
     </section>
   );
-}
+};
+
+export default MeetingSection;

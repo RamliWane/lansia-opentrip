@@ -1,9 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { Menu, X, Compass } from "lucide-react";
 
-export default function Navbar() {
+const links = [
+  { name: "Beranda", href: "/" },
+  { name: "Destinasi Trip", href: "/destinasi" },
+  { name: "Private Trip", href: "/private" },
+  { name: "Hubungi Kami", href: "/contact" },
+];
+
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -15,107 +23,96 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const links = [
-    { name: "Beranda", href: "/" },
-    { name: "Destinasi Trip", href: "/destinasi" },
-    { name: "Private Trip", href: "/private" },
-    { name: "Tentang Kami", href: "/about" },
-    { name: "Hubungi Kami", href: "/contact" },
-  ];
-
   return (
-    <nav
-      className={`w-full sticky top-0 z-50 text-black transition-all duration-300 ${isScrolled
-          ? "bg-black/50 backdrop-blur-md shadow-lg border-b border-white/10"
-          : "bg-white backdrop-blur-sm border-b border-transparent text-black"
-        }`}
+    <header
+      className={`w-full sticky top-0 z-50 transition-colors ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
+          : "bg-white border-b border-gray-100"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="shrink-0">
-            <a
-              href="#"
-              className={`flex items-center gap-2 text-xl font-bold transition-colors ${isScrolled ? "text-gray-900" : "text-white"
-                }`}
-            >
-              <span className="text-[#df7224]">Logo</span>
-            </a>
-          </div>
-
-          <div className="ml-auto md:flex items-center justify-end space-x-8">
-            {links.map((link) => (
-              <a
-
-                key={link.name}
-                href={link.href}
-                className={`font-medium hidden md:flex transition-colors text-sm ${isScrolled
-                    ? "text-white hover:text-[#df7224]"
-                    : "text-black hover:text-[#df7224]"
-                  }`}
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="flex items-center gap-2">
-              <a
-                href="/register"
-                className="bg-[#df7224] hover:shadow-xl text-white px-5 py-2 rounded-[5px] text-sm font-poppins hover:bg-[#df7224]/80 transition-colors shadow-sm"
-              >
-                Register
-              </a>
-              <a
-                href="/login"
-                className={`px-5 py-2 hover:shadow-xl rounded-[5px] text-sm font-poppins transition-colors shadow-sm ${isScrolled
-                    ? "bg-white border border-[#df7224] text-[#df7224] hover:bg-[#df7224] hover:text-white"
-                    : "bg-white/10 border border-[#df7224] text-[#df7224] backdrop-blur-sm hover:bg-white hover:text-[#df7224]"
-                  }`}
-              >
-                Login
-              </a>
-
+          <Link href="/" className="flex items-center gap-2.5 text-xl font-bold text-gray-900">
+            <div className="w-8 h-8 rounded-lg bg-[#df7224] text-white flex items-center justify-center">
+              <Compass className="w-5 h-5" />
             </div>
+            <span>Lansia<span className="text-[#df7224]">OpenTrip</span></span>
+          </Link>
+
+          <nav className="hidden md:flex items-center space-x-8">
+            {links.map(({ name, href }) => (
+              <Link
+                key={name}
+                href={href}
+                className="font-medium text-sm text-gray-600 hover:text-[#df7224] transition-colors"
+              >
+                {name}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="hidden md:flex items-center gap-3">
+            <Link
+              href="/login"
+              className="px-4 py-2 rounded-lg text-sm font-medium border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              Masuk
+            </Link>
+            <Link
+              href="/register"
+              className="px-4 py-2 rounded-lg text-sm font-medium bg-[#df7224] hover:bg-[#c8601b] text-white transition-colors"
+            >
+              Daftar
+            </Link>
           </div>
 
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 transition-colors ${isScrolled ? "text-white" : "text-black"
-                }`}
+              className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
       </div>
 
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96" : "max-h-0"
-          } ${isScrolled ? "bg-white" : "bg-black/80 backdrop-blur-md"}`}
-      >
-        <div className="px-4 pt-2 pb-4 space-y-1 border-t border-gray-100/20">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
+      {isOpen && (
+        <div className="md:hidden bg-white border-b border-gray-100 px-4 pt-3 pb-6 space-y-3">
+          <nav className="space-y-1">
+            {links.map(({ name, href }) => (
+              <Link
+                key={name}
+                href={href}
+                onClick={() => setIsOpen(false)}
+                className="block px-3 py-2 rounded-lg font-medium text-sm text-gray-700 hover:bg-[#fff7f2] hover:text-[#df7224] transition-colors"
+              >
+                {name}
+              </Link>
+            ))}
+          </nav>
+          <div className="pt-2 flex flex-col gap-2">
+            <Link
+              href="/login"
               onClick={() => setIsOpen(false)}
-              className={`block px-3 py-2 rounded-lg font-medium text-sm transition-colors ${isScrolled
-                  ? "text-gray-600 hover:bg-orange-50 hover:text-[#df7224]"
-                  : "text-white hover:bg-white/10"
-                }`}
+              className="w-full text-center px-4 py-2 rounded-lg text-sm font-medium border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
             >
-              {link.name}
-            </a>
-          ))}
-          <a
-            href="#hubungi"
-            onClick={() => setIsOpen(false)}
-            className="block mt-2 text-center bg-[#df7224] text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#df7224]/80 transition-colors"
-          >
-            Hubungi Kami
-          </a>
+              Masuk
+            </Link>
+            <Link
+              href="/register"
+              onClick={() => setIsOpen(false)}
+              className="w-full text-center px-4 py-2 rounded-lg text-sm font-medium bg-[#df7224] hover:bg-[#c8601b] text-white transition-colors"
+            >
+              Daftar
+            </Link>
+          </div>
         </div>
-      </div>
-    </nav>
+      )}
+    </header>
   );
-}
+};
+
+export default Navbar;

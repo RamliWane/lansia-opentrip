@@ -1,3 +1,4 @@
-export function formatRupiah(value) {
-  return "Rp " + Math.floor(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-}
+import { formatRupiah } from "./format";
+
+export { formatRupiah };
+export default formatRupiah;

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useMemo } from "react";
 import Navbar from "@/components/layout/Navbar";
@@ -9,7 +9,7 @@ import DestinasiHeader from "@/components/destinasi/DestinasiHeader";
 import DestinationGrid from "@/components/destinasi/DestinationGrid";
 import { destinationsData } from "@/lib/destinationsData";
 
-export default function DestisasiPage() {
+const DestinasiPage = () => {
   const [search, setSearch] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
   const [priceMin, setPriceMin] = useState("");
@@ -17,7 +17,7 @@ export default function DestisasiPage() {
   const [minRating, setMinRating] = useState(0);
 
   const hasActiveFilters =
-    selectedLocation !== "" || priceMin !== "" || priceMax !== "" || minRating > 0;
+    selectedLocation !== "" || priceMin !== "" || priceMax !== "" || minRating > 0 || search !== "";
 
   const resetAllFilters = () => {
     setSelectedLocation("");
@@ -33,7 +33,7 @@ export default function DestisasiPage() {
         d.title.toLowerCase().includes(search.toLowerCase()) ||
         d.location.toLowerCase().includes(search.toLowerCase());
       const matchLocation =
-        selectedLocation === "" || d.location === selectedLocation;
+        selectedLocation === "" || d.location.toLowerCase().includes(selectedLocation.toLowerCase());
       const matchPriceMin = priceMin === "" || d.priceMin >= priceMin;
       const matchPriceMax = priceMax === "" || d.priceMin <= priceMax;
       const matchRating = d.rating >= minRating;
@@ -44,12 +44,12 @@ export default function DestisasiPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-[#f8f8f6]">
+      <main className="min-h-screen bg-gray-50/50 pb-16">
         <DestinasiHeader search={search} setSearch={setSearch} />
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col lg:flex-row gap-8 items-stretch">
-            <div className="w-full lg:w-64 lg:shrink-0 lg:sticky lg:top-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col lg:flex-row gap-8 items-start">
+            <div className="w-full lg:w-64 lg:shrink-0 lg:sticky lg:top-24">
               <FilterPanel
                 destinations={destinationsData}
                 selectedLocation={selectedLocation}
@@ -77,4 +77,6 @@ export default function DestisasiPage() {
       <Footer />
     </>
   );
-}
+};
+
+export default DestinasiPage;

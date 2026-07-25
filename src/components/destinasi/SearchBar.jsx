@@ -1,91 +1,56 @@
-﻿"use client";
+"use client";
 
 import { Search, TrendingUp, X, ArrowRight } from "lucide-react";
 
-const A = "#df7224";
+const quickTags = ["Yogyakarta", "Bandung", "Bali", "Toba", "Labuan Bajo"];
 
-const quickTags = ["Bali", "Bromo", "Raja Ampat", "Borobudur", "Labuan Bajo"];
-
-/**
- * SearchBar — komponen pencarian destinasi
- *
- * Props:
- *   searchQuery     — string nilai input saat ini
- *   onSearchChange  — (query: string) => void
- *   onClear         — () => void (opsional)
- */
-export default function SearchBar({ searchQuery, onSearchChange, onClear }) {
+const SearchBar = ({ searchQuery, onSearchChange, onClear }) => {
   return (
     <div className="w-full flex flex-col gap-3">
-
-      {/* ── Input wrapper ─────────────────────────────── */}
-      <div
-        className="relative w-full p-2.5 sm:p-3 rounded-2xl shadow-lg transition-all duration-300"
-        style={{
-          background: "rgba(255,255,255,0.85)",
-          backdropFilter: "blur(24px) saturate(180%)",
-          WebkitBackdropFilter: "blur(24px) saturate(180%)",
-          border: "1px solid rgba(255,255,255,0.6)",
-          boxShadow: "0 8px 32px rgba(0,0,0,0.08), 0 0 0 1px rgba(223,114,36,0.08)",
-        }}
-      >
+      <div className="relative w-full p-2 sm:p-2.5 rounded-2xl bg-white border border-gray-200 shadow-sm transition-all duration-200">
         <div className="flex items-center gap-3 w-full">
-
-          {/* Search icon */}
-          <div className="pl-2 shrink-0" style={{ color: A }}>
-            <Search size={22} strokeWidth={2.5} />
+          <div className="pl-3 shrink-0 text-[#df7224]">
+            <Search size={20} />
           </div>
 
-          {/* Input */}
           <input
             type="text"
             placeholder="Cari destinasi atau lokasi wisata..."
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full bg-transparent text-gray-900 placeholder-gray-400 text-sm font-medium focus:outline-none py-2"
+            className="w-full bg-transparent text-gray-900 placeholder-gray-400 text-sm font-normal focus:outline-none py-1.5"
           />
 
-          {/* Clear button */}
           {searchQuery && (
             <button
               type="button"
-              onClick={() => { onSearchChange(""); onClear?.(); }}
-              className="p-1.5 rounded-full text-gray-400 hover:text-gray-600 hover:bg-black/5 transition-colors shrink-0"
+              onClick={() => {
+                onSearchChange("");
+                onClear?.();
+              }}
+              className="p-1.5 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors shrink-0"
+              aria-label="Hapus pencarian"
             >
-              <X size={17} strokeWidth={2} />
+              <X size={16} />
             </button>
           )}
 
-          {/* Search button */}
           <button
             type="button"
-            className="flex items-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-white font-semibold text-xs sm:text-sm transition-all shrink-0 active:scale-95"
-            style={{ backgroundColor: A }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#c8631e")}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = A)}
+            className="flex items-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-[#df7224] hover:bg-[#c8601b] text-white font-medium text-xs sm:text-sm transition-colors shrink-0"
           >
             <span>Cari</span>
-            <ArrowRight size={14} strokeWidth={3} />
+            <ArrowRight size={14} />
           </button>
-
         </div>
       </div>
 
-      {/* ── Quick tags ────────────────────────────────── */}
-      <div
-        className="flex items-center gap-2 py-1 px-1 text-xs text-gray-500 overflow-x-auto"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
-        {/* Label */}
-        <span
-          className="font-semibold flex items-center gap-1.5 shrink-0"
-          style={{ color: A }}
-        >
-          <TrendingUp size={12} strokeWidth={2} />
-          Populer:
+      <div className="flex items-center gap-2 py-1 text-xs text-gray-500 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+        <span className="font-semibold flex items-center gap-1.5 shrink-0 text-[#df7224]">
+          <TrendingUp size={14} />
+          <span>Populer:</span>
         </span>
 
-        {/* Tag buttons */}
         {quickTags.map((tag) => {
           const active = searchQuery.toLowerCase().includes(tag.toLowerCase());
           return (
@@ -93,23 +58,19 @@ export default function SearchBar({ searchQuery, onSearchChange, onClear }) {
               key={tag}
               type="button"
               onClick={() => onSearchChange(tag)}
-              className="px-3 py-1 rounded-full text-xs font-medium shrink-0 transition-all border"
-              style={
+              className={`px-3 py-1 rounded-full text-xs font-medium shrink-0 transition-colors border ${
                 active
-                  ? { backgroundColor: A, color: "#fff", borderColor: A }
-                  : {
-                      backgroundColor: "rgba(255,255,255,0.7)",
-                      color: "#374151",
-                      borderColor: "#e5e7eb",
-                    }
-              }
+                  ? "bg-[#df7224] text-white border-[#df7224]"
+                  : "bg-white text-gray-700 border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+              }`}
             >
               {tag}
             </button>
           );
         })}
       </div>
-
     </div>
   );
-}
+};
+
+export default SearchBar;
