@@ -27,7 +27,7 @@ export default function TripFromSection({
                             : { borderColor: "#e5e7eb", backgroundColor: "#f9fafb" }}
                           onClick={() => set("tripFrom", opt)}
                         >
-                          <span className="text-sm font-semibold text-gray-700">{opt}</span>
+                          <span className="text-xs font-semibold text-gray-700">{opt}</span>
                           <Radio active={active} onClick={() => set("tripFrom", opt)} />
                         </div>
 

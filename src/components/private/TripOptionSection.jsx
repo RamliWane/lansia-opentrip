@@ -30,8 +30,8 @@ export default function TripOptionSection({
                           onClick={() => set("tripType", opt.id)}
                         >
                           <div>
-                            <p className="text-sm font-bold text-gray-800">{opt.label}</p>
-                            <p className="text-xs text-gray-400 mt-0.5">{opt.desc}</p>
+                            <p className="text-xs font-semibold text-gray-700">{opt.label}</p>
+                            <p className="text-xs text-gray-400 font-normal mt-0.5">{opt.desc}</p>
                           </div>
                           <Radio active={active} onClick={() => set("tripType", opt.id)} />
                         </div>

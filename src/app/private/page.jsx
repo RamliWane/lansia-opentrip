@@ -10,6 +10,7 @@ import TripOptionSection from "@/components/private/TripOptionSection";
 import TripFromSection from "@/components/private/TripFromSection";
 import SuccessState from "@/components/private/SuccessState";
 import SubmitBar from "@/components/private/SubmitBar";
+import TermsModal from "@/components/private/TermsModal";
 import Subs from "@/components/landing/Subs";
 import { initialForm } from "@/components/private/helpers/initialState";
 import { validate } from "@/components/private/helpers/validation";
@@ -20,16 +21,24 @@ export default function PrivateTripPage() {
 
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [showTerms, setShowTerms] = useState(false);
 
   const set = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => ({ ...prev, [field]: undefined }));
   };
 
+  // Validasi dulu, kalau lolos baru tampilkan modal syarat
   const handleSubmit = (e) => {
     e.preventDefault();
     const errs = validate(form);
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+    setShowTerms(true);
+  };
+
+  // Dipanggil saat user klik "Setuju & Lanjutkan" di modal
+  const handleAgree = () => {
+    setShowTerms(false);
     setSubmitted(true);
   };
 
@@ -56,6 +65,15 @@ export default function PrivateTripPage() {
   return (
     <>
       <Navbar />
+
+      {/* ── Terms Modal ── */}
+      {showTerms && (
+        <TermsModal
+          onAgree={handleAgree}
+          onClose={() => setShowTerms(false)}
+        />
+      )}
+
       <main className="min-h-screen bg-[#f8f8f6]">
 
         {/* ── Page Header — sama persis dengan halaman destinasi ── */}
