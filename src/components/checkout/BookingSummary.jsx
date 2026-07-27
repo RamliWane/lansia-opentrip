@@ -15,8 +15,8 @@ export default function BookingSummary({
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden sticky top-24">
       <div className="px-5 py-4 border-b border-gray-100">
-        <h3 className="text-sm font-bold text-gray-900">Ringkasan Pesanan</h3>
-      </div>
+      <h3 className="text-[15px] font-semibold text-gray-800">Ringkasan Pesanan</h3>
+    </div>
 
       <div className="px-5 pt-4 pb-3">
         {destination ? (

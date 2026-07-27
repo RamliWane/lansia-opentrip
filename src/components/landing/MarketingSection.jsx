@@ -36,51 +36,48 @@ export default function MarketingSection() {
                 return (
                   <div
                     key={i}
-                    className={`rounded-2xl border transition-colors duration-300 ${
-                      isOpen
-                        ? "border-[#df7224]/30 bg-white"
-                        : "border-gray-100 hover:border-gray-200"
-                    }`}
+                    className={`rounded-xl border transition-colors duration-300 ${isOpen
+                        ? "border-[#df7224]/30 bg-[#df7224]/10 shadow-xs"
+                        : "border-gray-200 bg-white hover:border-gray-300"
+                      }`}
                   >
                     <button
                       onClick={() => toggle(i)}
-                      className="w-full flex items-start gap-4 p-4 text-left"
+                      className="w-full flex items-center gap-4 px-5 py-4 text-left"
                     >
                       <div
-                        className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-colors ${
-                          isOpen ? "bg-[#df7224]" : "bg-gray-100"
-                        }`}
+                        className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-colors ${isOpen ? "bg-[#df7224]" : "bg-gray-100"
+                          }`}
                       >
                         <Icon
                           size={20}
                           className={isOpen ? "text-white" : "text-gray-700"}
                         />
                       </div>
+
                       <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-gray-900 text-[18px]">
+                        <p className="font-semibold text-gray-900 text-sm sm:text-base">
                           {feature.title}
                         </p>
                         <p className="text-sm text-gray-500 mt-0.5">
                           {feature.desc}
                         </p>
                       </div>
-                      <ChevronDown
-                        size={18}
-                        className={`text-gray-400 shrink-0 mt-1 transition-transform duration-300 ${
-                          isOpen ? "rotate-180 text-[#df7224]" : ""
-                        }`}
-                      />
+
+                      <span
+                        className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-200 ${isOpen ? "bg-[#df7224] text-white rotate-45" : "bg-gray-100 text-gray-600"
+                          }`}
+                      >
+                        <ChevronDown size={16} />
+                      </span>
                     </button>
 
                     <div
-                      className={`grid transition-all duration-300 ease-in-out ${
-                        isOpen
-                          ? "grid-rows-[1fr] opacity-100"
-                          : "grid-rows-[0fr] opacity-0"
-                      }`}
+                      className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                        }`}
                     >
                       <div className="overflow-hidden">
-                        <p className="text-sm text-gray-600 leading-relaxed px-4 pb-4 pl-[3.75rem]">
+                        <p className="text-sm text-gray-600 leading-relaxed px-5 pb-4 pt-1 pl-[4.75rem] border-t border-gray-300">
                           {feature.detail}
                         </p>
                       </div>
