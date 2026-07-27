@@ -10,6 +10,7 @@ import TripOptionSection from "@/components/private/TripOptionSection";
 import TripFromSection from "@/components/private/TripFromSection";
 import SuccessState from "@/components/private/SuccessState";
 import SubmitBar from "@/components/private/SubmitBar";
+import Subs from "@/components/landing/Subs";
 import { initialForm } from "@/components/private/helpers/initialState";
 import { validate } from "@/components/private/helpers/validation";
 import { destinationsData } from "@/infrastructure/data/destinationsData";
@@ -97,6 +98,7 @@ export default function PrivateTripPage() {
           </form>
         </div>
       </main>
+      <Subs />
       <Footer />
     </>
   );

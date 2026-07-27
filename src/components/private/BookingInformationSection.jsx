@@ -11,7 +11,7 @@ export default function BookingInformationSection({
   return (
     <SectionCard
 
-      icon={<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={A} strokeWidth="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>}
+      icon={<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>}
 
       title="Informasi Pemesan"
 

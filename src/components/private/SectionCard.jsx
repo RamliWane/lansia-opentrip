@@ -10,7 +10,7 @@ export default function SectionCard({
       <h3 className="text-sm font-bold text-gray-800 flex items-center gap-2 mb-5">
         <span
           className="w-6 h-6 rounded-lg flex items-center justify-center"
-          style={{ backgroundColor: `${A}18` }}
+          
         >
           {icon}
         </span>

@@ -11,7 +11,7 @@ export default function TripDetailSection({
 }) {
   return (
               <SectionCard
-                icon={<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={A} strokeWidth="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>}
+                icon={<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>}
                 title="Detail Perjalanan"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -41,7 +41,8 @@ export default function TripDetailSection({
 
                   {/* Catatan */}
                   <div className="sm:col-span-2">
-                    <Field label="Catatan / Keinginan Trip" required error={errors.catatan}>
+                    <Field label="Catatan / Keinginan Trip" required error={errors.catatan}
+                           classname="">
                       <textarea rows={3}
                         placeholder="Deskripsikan trip yang kamu inginkan, agar tim kami dapat membantu mewujudkannya"
                         value={form.catatan}
