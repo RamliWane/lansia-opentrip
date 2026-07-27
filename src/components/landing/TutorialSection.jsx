@@ -85,10 +85,10 @@ export default function TutorialSection() {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute left-6 top-2 bottom-2 w-px bg-gray-300 block" />
+          <div>
+            <div className="relative space-y-10">
+              <div className="absolute left-6 top-2 bottom-2 w-px bg-gray-300" />
 
-            <div className="space-y-10">
               {steps.map((step) => {
                 const Icon = step.icon;
                 return (

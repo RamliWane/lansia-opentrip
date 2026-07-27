@@ -65,7 +65,7 @@ export default function MarketingSection() {
                       </div>
 
                       <span
-                        className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-200 ${isOpen ? "bg-[#df7224] text-white rotate-45" : "bg-gray-100 text-gray-600"
+                        className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-200 ${isOpen ? "bg-[#df7224] text-white rotate-180" : "bg-gray-100 text-gray-600"
                           }`}
                       >
                         <ChevronDown size={16} />

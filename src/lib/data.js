@@ -246,3 +246,4 @@ export const faqs = [
       "Pembatalan bisa dilakukan sesuai kebijakan refund yang berlaku, tergantung seberapa dekat waktu pembatalan dengan tanggal keberangkatan.",
   },
 ];
+
