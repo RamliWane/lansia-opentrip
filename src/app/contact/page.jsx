@@ -23,7 +23,7 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="bg-[#f8f8f6]">
+        <div className="bg-white">
             <Navbar />
 
             <section
@@ -40,7 +40,7 @@ export default function ContactPage() {
                 </div>
 
                 <div
-                    className="absolute bottom-0 left-0 right-0 h-16 bg-[#f8f8f6]"
+                    className="absolute bottom-0 left-0 right-0 h-16 bg-white"
                     style={{
                         clipPath: "polygon(0 100%, 100% 100%, 70% 10%, 50% 0, 10% 100%, 0 0)",
                     }}
@@ -51,58 +51,67 @@ export default function ContactPage() {
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
                         <div className="grid lg:grid-cols-5">
-
-                            <div className="lg:col-span-2 relative bg-gray-200  rounded-r-3xl p-8 sm:p-10 flex flex-col justify-between overflow-hidden">
+                            <div
+                                className="lg:col-span-2 relative bg-cover bg-center p-8 sm:p-10 flex flex-col justify-between overflow-hidden"
+                                style={{
+                                    backgroundImage: "url('/contact-panel-image.jpg')",
+                                }}
+                            >
+                                <div className="absolute inset-0 bg-gray-900" />
 
                                 <div className="relative">
-                                    <h2 className="text-2xl font-bold text-gray-900 mb-3">
-                                        Hubungi Kami
-                                    </h2>
-                                    <p className="text-gray-500 text-sm leading-relaxed mb-10 max-w-sm">
+                                    <h2 className="text-2xl font-bold text-white mb-3">Hubungi Kami</h2>
+                                    <p className="text-white/60 text-sm leading-relaxed mb-10 max-w-sm">
                                         Tim kami siap bantu kamu lewat kontak di bawah ini, atau
                                         langsung datang ke lokasi kantor kami.
                                     </p>
 
-                                    <div className="space-y-5 mb-10">
-                                        <a href="tel:+6281234567890" className="flex items-center gap-4 group">
-                                            <div className="w-11 h-11 rounded-full bg-white group-hover:bg-[#df7224] flex items-center justify-center shrink-0 transition-colors">
+                                    <div className="space-y-3">
+                                        <a
+                                            href="tel:+6281234567890"
+                                            className="flex items-center gap-4 bg-white/5 hover:bg-white/10 rounded-xl px-4 py-3.5 transition-colors group"
+                                        >
+                                            <div className="w-10 h-10 rounded-full bg-white group-hover:bg-[#df7224] flex items-center justify-center shrink-0 transition-colors">
                                                 <PhoneIcon className="w-4 h-4 text-[#df7224] group-hover:text-white transition-colors" />
                                             </div>
                                             <div>
-                                                <p className="text-[14px] text-gray-900">Telepon</p>
-                                                <p className="text-sm font-medium text-gray-900">+62 812-3456-7890</p>
+                                                <p className="text-xs text-white/50">Telepon</p>
+                                                <p className="text-sm font-semibold text-white">+62 812-3456-7890</p>
                                             </div>
                                         </a>
 
-                                        <a href="mailto:hello@opentrip.id" className="flex items-center gap-4 group cursor-pointer">
-                                            <div className="w-11 h-11 rounded-full bg-white group-hover:bg-[#df7224] flex items-center justify-center shrink-0 transition-colors">
+                                        <a
+                                            href="mailto:hello@opentrip.id"
+                                            className="flex items-center gap-4 bg-white/5 hover:bg-white/10 rounded-xl px-4 py-3.5 transition-colors group"
+                                        >
+                                            <div className="w-10 h-10 rounded-full bg-white group-hover:bg-[#df7224] flex items-center justify-center shrink-0 transition-colors">
                                                 <EnvelopeIcon className="w-4 h-4 text-[#df7224] group-hover:text-white transition-colors" />
                                             </div>
                                             <div>
-                                                <p className="text-[14px] text-gray-900">Email</p>
-                                                <p className="text-sm font-medium text-gray-900">hello@opentrip.id</p>
+                                                <p className="text-xs text-white/50">Email</p>
+                                                <p className="text-sm font-semibold text-white">hello@opentrip.id</p>
                                             </div>
                                         </a>
 
-                                       <a href="mailto:hello@opentrip.id" className="flex items-center gap-4 group cursor-pointer">
-                                            <div className="w-11 h-11 rounded-full bg-white group-hover:bg-[#df7224] flex items-center justify-center shrink-0 transition-colors">
-                                                <MapPinIcon className="w-4 h-4 text-[#df7224] group-hover:text-white transition-colors" />
+                                        <div className="flex items-center gap-4 bg-white/5 rounded-xl px-4 py-3.5">
+                                            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0">
+                                                <MapPinIcon className="w-4 h-4 text-[#df7224]" />
                                             </div>
                                             <div>
-                                                <p className="text-[14px] text-gray-900">Alamat</p>
-                                                <p className="text-sm font-medium text-gray-900">Jl. Merdeka No. 10, Bandung, Jawa Barat</p>
+                                                <p className="text-xs text-white/50">Alamat</p>
+                                                <p className="text-sm font-semibold text-white">Jl. Merdeka No. 10, Bandung, Jawa Barat</p>
                                             </div>
-                                        </a>
+                                        </div>
 
-                                        <a href="mailto:hello@opentrip.id" className="flex items-center gap-4 group cursor-pointer">
-                                            <div className="w-11 h-11 rounded-full bg-white group-hover:bg-[#df7224] flex items-center justify-center shrink-0 transition-colors">
-                                                <ClockIcon className="w-4 h-4 text-[#df7224] group-hover:text-white transition-colors" />
+                                        <div className="flex items-center gap-4 bg-white/5 rounded-xl px-4 py-3.5">
+                                            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0">
+                                                <ClockIcon className="w-4 h-4 text-[#df7224]" />
                                             </div>
                                             <div>
-                                                <p className="text-[14px] text-gray-900">Jam Operasional</p>
-                                                <p className="text-sm font-medium text-gray-900">Senin – Sabtu, 09.00 – 18.00</p>
+                                                <p className="text-xs text-white/50">Jam Operasional</p>
+                                                <p className="text-sm font-semibold text-white">Senin – Sabtu, 09.00 – 18.00</p>
                                             </div>
-                                        </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
