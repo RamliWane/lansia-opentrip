@@ -1,13 +1,13 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { A } from "./helpers/constants";
+import Subs from "../landing/Subs";
 
 function formatRupiah(v) {
   if (!v && v !== 0) return "-";
   return "Rp " + Math.floor(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-/* Kumpulan SVG icon kecil */
 const icons = {
   user: (
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -76,11 +76,10 @@ export default function SuccessState({ form, onReset }) {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-[#f8f8f6]">
+      <main className="min-h-screen bg-white">
 
-        {/* ── Header ── */}
         <div className="bg-white border-b border-gray-100">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-5 pt-5 pb-8">
             <p className="font-semibold text-sm tracking-wide mb-2" style={{ color: A }}>
               PRIVATE TRIP
             </p>
@@ -90,14 +89,11 @@ export default function SuccessState({ form, onReset }) {
           </div>
         </div>
 
-        {/* ── Content ── */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-3">
           <div className="max-w-lg mx-auto flex flex-col gap-5">
 
-            {/* ── Success card ── */}
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
 
-              {/* Accent banner */}
               <div
                 className="p-8 flex flex-col items-center text-center relative overflow-hidden"
                 style={{ backgroundColor: A }}
@@ -115,7 +111,6 @@ export default function SuccessState({ form, onReset }) {
                 </p>
               </div>
 
-              {/* Detail rows */}
               <div className="px-5 pb-4 divide-y divide-gray-50">
                 <Row icon={icons.user}     label="Nama Pemesan"  value={form.nama || "-"} />
                 <Row icon={icons.phone}    label="Nomor Ponsel"  value={form.phone || "-"} />
@@ -126,12 +121,10 @@ export default function SuccessState({ form, onReset }) {
                 <Row icon={icons.pin}      label="Meeting Point" value={form.meetingPoint || "-"} />
                 <Row icon={icons.building} label="Trip Dari"     value={form.tripFrom + (form.namaInstitusi ? ` — ${form.namaInstitusi}` : "")} />
 
-                {/* Custom trip name */}
                 {form.tripType === "custom" && form.customTripName && (
                   <Row icon={icons.edit} label="Nama Trip" value={form.customTripName} />
                 )}
 
-                {/* Explorer destination preview */}
                 {form.tripType === "explorer" && form.selectedDestinasi && (
                   <div className="pt-3 flex gap-3 items-center">
                     <img
@@ -149,7 +142,6 @@ export default function SuccessState({ form, onReset }) {
                   </div>
                 )}
 
-                {/* Budget */}
                 {(form.budget || form.selectedDestinasi?.priceMin) && (
                   <div
                     className="flex justify-between items-center py-3 mt-2 rounded-xl px-3"
@@ -165,7 +157,6 @@ export default function SuccessState({ form, onReset }) {
               </div>
             </div>
 
-            {/* ── Langkah selanjutnya ── */}
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
               <h3 className="text-xs font-semibold text-gray-700 mb-3">Langkah Selanjutnya</h3>
               <div className="space-y-3">
@@ -187,10 +178,9 @@ export default function SuccessState({ form, onReset }) {
               </div>
             </div>
 
-            {/* ── Action ── */}
             <button
               onClick={onReset}
-              className="w-full py-3 rounded-xl text-white font-semibold text-sm transition-all active:scale-95 flex items-center justify-center gap-2"
+              className="w-full py-3 rounded-xl text-white mb-10 font-semibold text-sm transition-all active:scale-95 flex items-center justify-center gap-2"
               style={{ backgroundColor: A }}
               onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#c8631e")}
               onMouseLeave={e => (e.currentTarget.style.backgroundColor = A)}
@@ -204,6 +194,7 @@ export default function SuccessState({ form, onReset }) {
           </div>
         </div>
       </main>
+      <Subs />
       <Footer />
     </>
   );
