@@ -28,7 +28,6 @@ export default function PrivateTripPage() {
     setErrors((prev) => ({ ...prev, [field]: undefined }));
   };
 
-  // Validasi dulu, kalau lolos baru tampilkan modal syarat
   const handleSubmit = (e) => {
     e.preventDefault();
     const errs = validate(form);
@@ -36,7 +35,6 @@ export default function PrivateTripPage() {
     setShowTerms(true);
   };
 
-  // Dipanggil saat user klik "Setuju & Lanjutkan" di modal
   const handleAgree = () => {
     setShowTerms(false);
     setSubmitted(true);
@@ -52,13 +50,12 @@ export default function PrivateTripPage() {
     ? form.selectedDestinasi.priceMin
     : form.budget;
 
-  /* ── Success state ────────────────────────────────── */
   if (submitted) {
     return (
-          <SuccessState
-      form={form}
-      onReset={resetForm}
-    />
+      <SuccessState
+        form={form}
+        onReset={resetForm}
+      />
     );
   }
 
@@ -66,7 +63,6 @@ export default function PrivateTripPage() {
     <>
       <Navbar />
 
-      {/* ── Terms Modal ── */}
       {showTerms && (
         <TermsModal
           onAgree={handleAgree}
@@ -74,43 +70,36 @@ export default function PrivateTripPage() {
         />
       )}
 
-      <main className="min-h-screen bg-[#f8f8f6]">
+      <main className="min-h-screen bg-white">
 
-        {/* ── Page Header — sama persis dengan halaman destinasi ── */}
-    <PageHeader />
-        {/* ── Content ─────────────────────────────────────────── */}
+        <PageHeader />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <form onSubmit={handleSubmit} noValidate>
             <div className="flex flex-col gap-5">
 
-              {/* ── 1. Info Pemesan ──────────────────────────── */}
-  <BookingInformationSection
-    form={form}
-    set={set}
-    errors={errors}
-  />
-              {/* ── 2. Detail Trip ───────────────────────────── */}
-  <TripDetailSection
-    form={form}
-    set={set}
-    errors={errors}
-    budgetValue={budgetValue}
-  />
-              {/* ── 3. Pilih Trip ────────────────────────────── */}
-  <TripOptionSection
-    form={form}
-    set={set}
-    errors={errors}
-    destinationsData={destinationsData}
-  />
-              {/* ── 4. Custom Trip Dari ──────────────────────── */}
-  <TripFromSection
-    form={form}
-    set={set}
-    errors={errors}
-  />
-              {/* ── Submit bar ───────────────────────────────── */}
-  <SubmitBar />
+              <BookingInformationSection
+                form={form}
+                set={set}
+                errors={errors}
+              />
+              <TripDetailSection
+                form={form}
+                set={set}
+                errors={errors}
+                budgetValue={budgetValue}
+              />
+              <TripOptionSection
+                form={form}
+                set={set}
+                errors={errors}
+                destinationsData={destinationsData}
+              />
+              <TripFromSection
+                form={form}
+                set={set}
+                errors={errors}
+              />
+              <SubmitBar />
 
             </div>
           </form>

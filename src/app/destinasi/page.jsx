@@ -44,7 +44,7 @@ export default function DestisasiPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-[#f8f8f6]">
+      <main className="min-h-screen bg-white">
         <DestinasiHeader search={search} setSearch={setSearch} />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
