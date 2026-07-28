@@ -28,6 +28,26 @@ export default function PrivateTripPage() {
     setErrors((prev) => ({ ...prev, [field]: undefined }));
   };
 
+  // Participant handlers
+  const addParticipant = () => {
+    const newP = {
+      id: `pax-${Date.now()}-${Math.random().toString(36).substring(2, 5)}`,
+      fullName: "", birthDate: "", gender: "", phone: "", email: "", relationship: "",
+    };
+    setForm((prev) => ({ ...prev, participants: [...prev.participants, newP] }));
+  };
+
+  const updateParticipant = (id, field, value) => {
+    setForm((prev) => ({
+      ...prev,
+      participants: prev.participants.map((p) => p.id === id ? { ...p, [field]: value } : p),
+    }));
+  };
+
+  const removeParticipant = (id) => {
+    setForm((prev) => ({ ...prev, participants: prev.participants.filter((p) => p.id !== id) }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const errs = validate(form);
@@ -81,6 +101,9 @@ export default function PrivateTripPage() {
                 form={form}
                 set={set}
                 errors={errors}
+                onAddParticipant={addParticipant}
+                onUpdateParticipant={updateParticipant}
+                onRemoveParticipant={removeParticipant}
               />
               <TripDetailSection
                 form={form}

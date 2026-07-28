@@ -3,6 +3,14 @@ import SectionCard from "./SectionCard";
 import { inputCls } from "./helpers/helpers";
 import { A } from "./helpers/constants";
 
+// Format angka murni jadi "100.000" style Indonesia
+function budgetDisplay(raw) {
+  if (raw === "" || raw === undefined || raw === null) return "";
+  const num = Number(String(raw).replace(/\D/g, ""));
+  if (isNaN(num) || num === 0) return "";
+  return num.toLocaleString("id-ID");
+}
+
 export default function TripDetailSection({
   form,
   set,
@@ -61,9 +69,20 @@ export default function TripDetailSection({
                     <div className="relative">
                       <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-400">Rp</span>
                       <input
-                        type="number" min="0" placeholder="Ex. 100000"
-                        value={budgetValue}
-                        onChange={e => { if (form.tripType === "custom") set("budget", e.target.value); }}
+                        type="text"
+                        inputMode="numeric"
+                        placeholder="Ex. 100.000"
+                        value={
+                          form.tripType === "explorer" && form.selectedDestinasi
+                            ? Number(form.selectedDestinasi.priceMin).toLocaleString("id-ID")
+                            : budgetDisplay(budgetValue)
+                        }
+                        onChange={e => {
+                          if (form.tripType !== "custom") return;
+                          // Hapus semua non-digit, simpan angka murni
+                          const raw = e.target.value.replace(/\D/g, "");
+                          set("budget", raw);
+                        }}
                         readOnly={form.tripType === "explorer"}
                         className={inputCls(null, "pl-9 pr-12") + (form.tripType === "explorer" ? " bg-gray-100 text-gray-500 cursor-not-allowed" : "")}
                       />

@@ -2,7 +2,6 @@ export const initialForm = {
   nama: "",
   phone: "",
   email: "",
-  peserta: "",
   budget: "",
   tanggal: "",
   durasi: "",
@@ -13,4 +12,5 @@ export const initialForm = {
   selectedDestinasi: null,
   tripFrom: "Individu",
   namaInstitusi: "",
+  participants: [],
 };
