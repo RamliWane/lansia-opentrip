@@ -54,7 +54,7 @@ const openModal = () => {
 
     return (
         <div>
-            <div className="flex items-center justify-center px-4">
+            <div className="flex items-center justify-center">
                 <button
                     onClick={openModal}
                     className="flex w-full max-w-2xl items-center gap-3 rounded-2xl bg-white shadow-md hover:shadow-lg px-5 py-4 transition-shadow cursor-pointer"
